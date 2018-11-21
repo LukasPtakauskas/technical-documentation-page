@@ -6,13 +6,13 @@ Binary integer literals are available since PHP 5.4.0.
 To use octal notation, precede the number with a 0 (zero). To use hexadecimal notation precede the number with 0x. To use binary notation precede the number with 0b.
 
 Example #1 Integer literals
-<?php
+&lt?php
 $a = 1234; // decimal number
 $a = -123; // a negative number
 $a = 0123; // octal number (equivalent to 83 decimal)
 $a = 0x1A; // hexadecimal number (equivalent to 26 decimal)
 $a = 0b11111111; // binary number (equivalent to 255 decimal)
-?>
+?&gt
 
 Formally, the structure for integer literals is:
 
@@ -39,7 +39,7 @@ Integer overflow ¶
 If PHP encounters a number beyond the bounds of the integer type, it will be interpreted as a float instead. Also, an operation which results in a number beyond the bounds of the integer type will return a float instead.
 
 Example #2 Integer overflow on a 32-bit system
-<?php
+&lt?php
 $large_number = 2147483647;
 var_dump($large_number);                     // int(2147483647)
 
@@ -49,10 +49,10 @@ var_dump($large_number);                     // float(2147483648)
 $million = 1000000;
 $large_number =  50000 * $million;
 var_dump($large_number);                     // float(50000000000)
-?>
+?&gt
 
 Example #3 Integer overflow on a 64-bit system
-<?php
+&lt?php
 $large_number = 9223372036854775807;
 var_dump($large_number);                     // int(9223372036854775807)
 
@@ -62,14 +62,14 @@ var_dump($large_number);                     // float(9.2233720368548E+18)
 $million = 1000000;
 $large_number =  50000000000000 * $million;
 var_dump($large_number);                     // float(5.0E+19)
-?>
+?&gt
 
 There is no integer division operator in PHP. 1/2 yields the float 0.5. The value can be casted to an integer to round it towards zero, or the round() function provides finer control over rounding.
-<?php
+&lt?php
 var_dump(25/7);         // float(3.5714285714286)
 var_dump((int) (25/7)); // int(3)
 var_dump(round(25/7));  // float(4)
-?>
+?&gt
 Converting to integer ¶
 
 To explicitly convert a value to integer, use either the (int) or (integer) casts. However, in most cases the cast is not needed, since a value will be automatically converted if an operator, function or control structure requires an integer argument. A value can also be converted to integer with the intval() function.
@@ -93,9 +93,9 @@ As of PHP 7.0.0, instead of being undefined and platform-dependent, NaN and Infi
 Warning
 
 Never cast an unknown fraction to integer, as this can sometimes lead to unexpected results.
-<?php
+&lt?php
 echo (int) ( (0.1+0.7) * 10 ); // echoes 7!
-?>
+?&gt
 
 See also the warning about float precision.
 From strings ¶
@@ -143,11 +143,11 @@ NULL is always converted to zero (0).
 
 
 Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the following syntaxes:
-<?php
+&lt?php
 $a = 1.234;
 $b = 1.2e3;
 $c = 7E-10;
-?>
+?&gt
 
 Formally:
 
@@ -176,7 +176,7 @@ As noted in the warning above, testing floating point values for equality is pro
 To test floating point values for equality, an upper bound on the relative error due to rounding is used. This value is known as the machine epsilon, or unit roundoff, and is the smallest acceptable difference in calculations.
 
 $a and $b are equal to 5 digits of precision.
-<?php
+&lt?php
 $a = 1.23456789;
 $b = 1.23456780;
 $epsilon = 0.00001;
@@ -184,7 +184,7 @@ $epsilon = 0.00001;
 if(abs($a-$b) < $epsilon) {
 echo "true";
 }
-?>
+?&gt
 NaN ¶
 
 Some numeric operations can result in a value represented by the constant NAN. This result represents an undefined or unrepresentable value in floating-point calculations. Any loose or strict comparisons of this value against any other value, including itself, but except TRUE, will have a result of FALSE.
@@ -239,7 +239,7 @@ To specify a literal single quote, escape it with a backslash (\). To specify a 
 
 Note: Unlike the double-quoted and heredoc syntaxes, variables and escape sequences for special characters will not be expanded when they occur in single quoted strings.
 
-<?php
+&lt?php
 echo 'this is a simple string';
 
 echo 'You can also have embedded newlines in
@@ -260,7 +260,7 @@ echo 'This will not expand: \n a newline';
 
 // Outputs: Variables do not $expand $either
 echo 'Variables do not $expand $either';
-?>
+?&gt
 Double quoted ¶
 
 If the string is enclosed in double-quotes ("), PHP will interpret the following escape sequences for special characters:
@@ -293,30 +293,30 @@ It is very important to note that the line with the closing identifier must cont
 If this rule is broken and the closing identifier is not "clean", it will not be considered a closing identifier, and PHP will continue looking for one. If a proper closing identifier is not found before the end of the current file, a parse error will result at the last line.
 
 Example #1 Invalid example
-<?php
+&lt?php
 class foo {
 public $bar = <<<EOT
 bar
 EOT;
 }
 // Identifier must not be indented
-?>
+?&gt
 
 Example #2 Valid example
-<?php
+&lt?php
 class foo {
 public $bar = <<<EOT
 bar
 EOT;
 }
-?>
+?&gt
 
 Heredocs can not be used for initializing class properties. Since PHP 5.3, this limitation is valid only for heredocs containing variables.
 
 Heredoc text behaves just like a double-quoted string, without the double quotes. This means that quotes in a heredoc do not need to be escaped, but the escape codes listed above can still be used. Variables are expanded, but the same care must be taken when expressing complex variables inside a heredoc as with strings.
 
 Example #3 Heredoc string quoting example
-<?php
+&lt?php
 $str = <<<EOD
 Example of string
 spanning multiple lines
@@ -344,7 +344,7 @@ My name is "$name". I am printing some $foo->foo.
 Now, I am printing some {$foo->bar[1]}.
 This should print a capital 'A': \x41
 EOT;
-?>
+?&gt
 
 The above example will output:
 
@@ -355,17 +355,17 @@ This should print a capital 'A': A
 It is also possible to use the Heredoc syntax to pass data to function arguments:
 
 Example #4 Heredoc in arguments example
-<?php
+&lt?php
 var_dump(array(<<<EOD
 foobar!
 EOD
 ));
-?>
+?&gt
 
 As of PHP 5.3.0, it's possible to initialize static variables and class properties/constants using the Heredoc syntax:
 
 Example #5 Using Heredoc to initialize static values
-<?php
+&lt?php
 // Static variables
 function foo()
 {
@@ -385,16 +385,16 @@ public $baz = <<<FOOBAR
 Property example
 FOOBAR;
 }
-?>
+?&gt
 
 Starting with PHP 5.3.0, the opening Heredoc identifier may optionally be enclosed in double quotes:
 
 Example #6 Using double quotes in Heredoc
-<?php
+&lt?php
 echo <<<"FOOBAR"
 Hello World!
 FOOBAR;
-?>
+?&gt
 Nowdoc ¶
 
 Nowdocs are to single-quoted strings what heredocs are to double-quoted strings. A nowdoc is specified similarly to a heredoc, but no parsing is done inside a nowdoc. The construct is ideal for embedding PHP code or other large blocks of text without the need for escaping. It shares some features in common with the SGML <![CDATA[ ]]> construct, in that it declares a block of text which is not for parsing.
@@ -402,7 +402,7 @@ Nowdocs are to single-quoted strings what heredocs are to double-quoted strings.
 A nowdoc is identified with the same <<< sequence used for heredocs, but the identifier which follows is enclosed in single quotes, e.g. <<<'EOT'. All the rules for heredoc identifiers also apply to nowdoc identifiers, especially those regarding the appearance of the closing identifier.
 
 Example #7 Nowdoc string quoting example
-<?php
+&lt?php
 $str = <<<'EOD'
 Example of string
 spanning multiple lines
@@ -430,7 +430,7 @@ My name is "$name". I am printing some $foo->foo.
 Now, I am printing some {$foo->bar[1]}.
 This should not print a capital 'A': \x41
 EOT;
-?>
+?&gt
 
 The above example will output:
 
@@ -439,13 +439,13 @@ Now, I am printing some {$foo->bar[1]}.
 This should not print a capital 'A': \x41
 
 Example #8 Static data example
-<?php
+&lt?php
 class foo {
 public $bar = <<<'EOT'
 bar
 EOT;
 }
-?>
+?&gt
 
 Note:
 
@@ -461,7 +461,7 @@ The complex syntax can be recognised by the curly braces surrounding the express
 Simple syntax
 
 If a dollar sign ($) is encountered, the parser will greedily take as many tokens as possible to form a valid variable name. Enclose the variable name in curly braces to explicitly specify the end of the name.
-<?php
+&lt?php
 $juice = "apple";
 
 echo "He drank some $juice juice.".PHP_EOL;
@@ -469,7 +469,7 @@ echo "He drank some $juice juice.".PHP_EOL;
 echo "He drank some juice made of $juices.";
 // Valid. Explicitly specify the end of the variable name by enclosing it in braces:
 echo "He drank some juice made of ${juice}s.";
-?>
+?&gt
 
 The above example will output:
 
@@ -480,7 +480,7 @@ He drank some juice made of apples.
 Similarly, an array index or an object property can be parsed. With array indices, the closing square bracket (]) marks the end of the index. The same rules apply to object properties as to simple variables.
 
 Example #9 Simple syntax example
-<?php
+&lt?php
 $juices = array("apple", "orange", "koolaid1" => "purple");
 
 echo "He drank some $juices[0] juice.".PHP_EOL;
@@ -501,7 +501,7 @@ echo "$people->john drank some $juices[0] juice.".PHP_EOL;
 echo "$people->john then said hello to $people->jane.".PHP_EOL;
 echo "$people->john's wife greeted $people->robert.".PHP_EOL;
 echo "$people->robert greeted the two $people->smiths."; // Won't work
-?>
+?&gt
 
 The above example will output:
 
@@ -516,12 +516,12 @@ Robert Paulsen greeted the two .
 As of PHP 7.1.0 also negative numeric indices are supported.
 
 Example #10 Negative numeric indices
-<?php
+&lt?php
 $string = 'string';
 echo "The character at index -2 is $string[-2].", PHP_EOL;
 $string[-3] = 'o';
 echo "Changing the character at index -3 to o gives $string.", PHP_EOL;
-?>
+?&gt
 
 The above example will output:
 
@@ -534,7 +534,7 @@ Complex (curly) syntax
 This isn't called complex because the syntax is complex, but because it allows for the use of complex expressions.
 
 Any scalar variable, array element or object property with a string representation can be included via this syntax. Simply write the expression the same way as it would appear outside the string, and then wrap it in { and }. Since { can not be escaped, this syntax will only be recognised when the $ immediately follows the {. Use {\$ to get a literal {$. Some examples to make it clear:
-<?php
+&lt?php
 // Show all errors
 error_reporting(E_ALL);
 
@@ -580,10 +580,10 @@ echo "This is the value of the var named by the return value of \$object->getNam
 
 // Won't work, outputs: This is the return value of getName(): {getName()}
 echo "This is the return value of getName(): {getName()}";
-?>
+?&gt
 
 It is also possible to access class properties using variables within strings using this syntax.
-<?php
+&lt?php
 class foo {
 var $bar = 'I am bar.';
 }
@@ -593,7 +593,7 @@ $bar = 'bar';
 $baz = array('foo', 'bar', 'baz', 'quux');
 echo "{$foo->$bar}\n";
 echo "{$foo->{$baz[1]}}\n";
-?>
+?&gt
 
 The above example will output:
 
@@ -604,7 +604,7 @@ Note:
 
 Functions, method calls, static class variables, and class constants inside {$} work since PHP 5. However, the value accessed will be interpreted as the name of a variable in the scope in which the string is defined. Using single curly braces ({}) will not work for accessing the return values of functions or methods or the values of class constants or static class variables.
 
-<?php
+&lt?php
 // Show all errors.
 error_reporting(E_ALL);
 
@@ -621,7 +621,7 @@ echo "I'd like an {${beers::softdrink}}\n";
 
 // This works too; outputs: I'd like an Alexander Keith's
 echo "I'd like an {${beers::$ale}}\n";
-?>
+?&gt
 String access and modification by character ¶
 
 Characters within strings may be accessed and modified by specifying the zero-based offset of the desired character after the string using square array brackets, as in $str[42]. Think of a string as an array of characters for this purpose. The functions substr() and substr_replace() can be used when you want to extract or replace more than 1 character.
@@ -640,7 +640,7 @@ Internally, PHP strings are byte arrays. As a result, accessing or modifying a s
 Note: As of PHP 7.1.0, applying the empty index operator on an empty string throws a fatal error. Formerly, the empty string was silently converted to an array.
 
 Example #11 Some string examples
-<?php
+&lt?php
 // Get the first character of a string
 $str = 'This is a test.';
 $first = $str[0];
@@ -656,12 +656,12 @@ $last = $str[strlen($str)-1];
 $str = 'Look at the sea';
 $str[strlen($str)-1] = 'e';
 
-?>
+?&gt
 
 As of PHP 5.4 string offsets have to either be integers or integer-like strings, otherwise a warning will be thrown. Previously an offset like "foo" was silently cast to 0.
 
 Example #12 Differences between PHP 5.3 and PHP 5.4
-<?php
+&lt?php
 $str = 'abc';
 
 var_dump($str['1']);
@@ -675,7 +675,7 @@ var_dump(isset($str['x']));
 
 var_dump($str['1x']);
 var_dump(isset($str['1x']));
-?>
+?&gt
 
 Output of the above example in PHP 5.3:
 
@@ -752,7 +752,7 @@ When a string is evaluated in a numeric context, the resulting value and type ar
 If the string does not contain any of the characters '.', 'e', or 'E' and the numeric value fits into integer type limits (as defined by PHP_INT_MAX), the string will be evaluated as an integer. In all other cases it will be evaluated as a float.
 
 The value is given by the initial portion of the string. If the string starts with valid numeric data, this will be the value used. Otherwise, the value will be 0 (zero). Valid numeric data is an optional sign, followed by one or more digits (optionally containing a decimal point), followed by an optional exponent. The exponent is an 'e' or 'E' followed by one or more digits.
-<?php
+&lt?php
 $foo = 1 + "10.5";                // $foo is float (11.5)
 $foo = 1 + "-1.3e3";              // $foo is float (-1299)
 $foo = 1 + "bob-1.3e3";           // $foo is integer (1)
@@ -761,14 +761,14 @@ $foo = 1 + "10 Small Pigs";       // $foo is integer (11)
 $foo = 4 + "10.2 Little Piggies"; // $foo is float (14.2)
 $foo = "10.0 pigs " + 1;          // $foo is float (11)
 $foo = "10.0 pigs " + 1.0;        // $foo is float (11)
-?>
+?&gt
 
 For more information on this conversion, see the Unix manual page for strtod(3).
 
 To test any of the examples in this section, cut and paste the examples and insert the following line to see what's going on:
-<?php
+&lt?php
 echo "\$foo==$foo; type is " . gettype ($foo) . "<br />\n";
-?>
+?&gt
 
 Do not expect to get the code of one character by converting it to integer, as is done in C. Use the ord() and chr() functions to convert between ASCII codes and characters.
 Details of the String Type ¶
@@ -832,7 +832,7 @@ The comma after the last array element is optional and can be omitted. This is u
 As of PHP 5.4 you can also use the short array syntax, which replaces array() with [].
 
 Example #1 A simple array
-<?php
+&lt?php
 $array = array(
 "foo" => "bar",
 "bar" => "foo",
@@ -843,7 +843,7 @@ $array = [
 "foo" => "bar",
 "bar" => "foo",
 ];
-?>
+?&gt
 
 The key can either be an integer or a string. The value can be of any type.
 
@@ -858,7 +858,7 @@ Arrays and objects can not be used as keys. Doing so will result in a warning: I
 If multiple elements in the array declaration use the same key, only the last one will be used as all others are overwritten.
 
 Example #2 Type Casting and Overwriting example
-<?php
+&lt?php
 $array = array(
 1    => "a",
 "1"  => "b",
@@ -866,7 +866,7 @@ $array = array(
 true => "d",
 );
 var_dump($array);
-?>
+?&gt
 
 The above example will output:
 
@@ -880,7 +880,7 @@ As all the keys in the above example are cast to 1, the value will be overwritte
 PHP arrays can contain integer and string keys at the same time as PHP does not distinguish between indexed and associative arrays.
 
 Example #3 Mixed integer and string keys
-<?php
+&lt?php
 $array = array(
 "foo" => "bar",
 "bar" => "foo",
@@ -888,7 +888,7 @@ $array = array(
 -100  => 100,
 );
 var_dump($array);
-?>
+?&gt
 
 The above example will output:
 
@@ -906,10 +906,10 @@ int(100)
 The key is optional. If it is not specified, PHP will use the increment of the largest previously used integer key.
 
 Example #4 Indexed arrays without key
-<?php
+&lt?php
 $array = array("foo", "bar", "hello", "world");
 var_dump($array);
-?>
+?&gt
 
 The above example will output:
 
@@ -927,7 +927,7 @@ string(5) "world"
 It is possible to specify the key only for some elements and leave it out for others:
 
 Example #5 Keys not on all elements
-<?php
+&lt?php
 $array = array(
 "a",
 "b",
@@ -935,7 +935,7 @@ $array = array(
 "d",
 );
 var_dump($array);
-?>
+?&gt
 
 The above example will output:
 
@@ -956,7 +956,7 @@ Accessing array elements with square bracket syntax ¶
 Array elements can be accessed using the array[key] syntax.
 
 Example #6 Accessing array elements
-<?php
+&lt?php
 $array = array(
 "foo" => "bar",
 42    => 24,
@@ -970,7 +970,7 @@ $array = array(
 var_dump($array["foo"]);
 var_dump($array[42]);
 var_dump($array["multi"]["dimensional"]["array"]);
-?>
+?&gt
 
 The above example will output:
 
@@ -987,7 +987,7 @@ As of PHP 5.4 it is possible to array dereference the result of a function or me
 As of PHP 5.5 it is possible to array dereference an array literal.
 
 Example #7 Array dereferencing
-<?php
+&lt?php
 function getArray() {
 return array(1, 2, 3);
 }
@@ -1001,7 +1001,7 @@ $secondElement = $tmp[1];
 
 // or
 list(, $secondElement) = getArray();
-?>
+?&gt
 
 Note:
 
@@ -1027,7 +1027,7 @@ If $arr doesn't exist yet, it will be created, so this is also an alternative wa
 Note: As of PHP 7.1.0, applying the empty index operator on a string throws a fatal error. Formerly, the string was silently converted to an array.
 
 To change a certain value, assign a new value to that element using its key. To remove a key/value pair, call the unset() function on it.
-<?php
+&lt?php
 $arr = array(5 => 1, 12 => 2);
 
 $arr[] = 56;    // This is the same as $arr[13] = 56;
@@ -1039,14 +1039,14 @@ $arr["x"] = 42; // This adds a new element to
 unset($arr[5]); // This removes the element from the array
 
 unset($arr);    // This deletes the whole array
-?>
+?&gt
 
 Note:
 
 As mentioned above, if no key is specified, the maximum of the existing integer indices is taken, and the new key will be that maximum value plus 1 (but at least 0). If no integer indices exist yet, the key will be 0 (zero).
 
 Note that the maximum integer key used for this need not currently exist in the array. It need only have existed in the array at some time since the last time the array was re-indexed. The following example illustrates:
-<?php
+&lt?php
 // Create a simple array.
 $array = array(1, 2, 3, 4, 5);
 print_r($array);
@@ -1065,7 +1065,7 @@ print_r($array);
 $array = array_values($array);
 $array[] = 7;
 print_r($array);
-?>
+?&gt
 
 The above example will output:
 
@@ -1097,7 +1097,7 @@ There are quite a few useful functions for working with arrays. See the array fu
 Note:
 
 The unset() function allows removing keys from an array. Be aware that the array will not be reindexed. If a true "remove and shift" behavior is desired, the array can be reindexed using the array_values() function.
-<?php
+&lt?php
 $a = array(1 => 'one', 2 => 'two', 3 => 'three');
 unset($a[2]);
 /* will produce an array that would have been defined as
@@ -1108,18 +1108,18 @@ $a = array(1 => 'one', 2 =>'three');
 
 $b = array_values($a);
 // Now $b is array(0 => 'one', 1 =>'three')
-?>
+?&gt
 
 The foreach control structure exists specifically for arrays. It provides an easy way to traverse an array.
 Array do's and don'ts ¶
 Why is $foo[bar] wrong? ¶
 
 Always use quotes around a string literal array index. For example, $foo['bar'] is correct, while $foo[bar] is not. But why? It is common to encounter this kind of syntax in old scripts:
-<?php
+&lt?php
 $foo[bar] = 'enemy';
 echo $foo[bar];
 // etc
-?>
+?&gt
 
 This is wrong, but it works. The reason is that this code has an undefined constant (bar) rather than a string ('bar' - notice the quotes). It works because PHP automatically converts a bare string (an unquoted string which does not correspond to any known symbol) into a string which contains the bare string. For instance, if there is no defined constant named bar, then PHP will substitute in the string 'bar' and use that.
 Warning
@@ -1127,7 +1127,7 @@ Warning
 The fallback to treat an undefined constant as bare string is deprecated as of PHP 7.2.0, and issues an error of level E_WARNING. Formerly, an error of level E_NOTICE has been issued.
 
 Note: This does not mean to always quote the key. Do not quote keys which are constants or variables, as this will prevent PHP from interpreting them.
-<?php
+&lt?php
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 ini_set('html_errors', false);
@@ -1141,7 +1141,7 @@ echo "Good: " . $array[$i] . "\n";
 echo "Bad: {$array['$i']}\n";
 echo "Good: {$array[$i]}\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -1162,7 +1162,7 @@ Bad:
 Good: 2
 
 More examples to demonstrate this behaviour:
-<?php
+&lt?php
 // Show all errors
 error_reporting(E_ALL);
 
@@ -1203,28 +1203,28 @@ print "Hello $_GET['foo']";
 
 // Concatenation is another option
 print "Hello " . $arr['fruit']; // Hello apple
-?>
+?&gt
 
 When error_reporting is set to show E_NOTICE level errors (by setting it to E_ALL, for example), such uses will become immediately visible. By default, error_reporting is set not to show notices.
 
 As stated in the syntax section, what's inside the square brackets ('[' and ']') must be an expression. This means that code like this works:
-<?php
+&lt?php
 echo $arr[somefunc($bar)];
-?>
+?&gt
 
 This is an example of using a function return value as the array index. PHP also knows about constants:
-<?php
+&lt?php
 $error_descriptions[E_ERROR]   = "A fatal error has occurred";
 $error_descriptions[E_WARNING] = "PHP issued a warning";
 $error_descriptions[E_NOTICE]  = "This is just an informal notice";
-?>
+?&gt
 
 Note that E_ERROR is also a valid identifier, just like bar in the first example. But the last example is in fact the same as writing:
-<?php
+&lt?php
 $error_descriptions[1] = "A fatal error has occurred";
 $error_descriptions[2] = "PHP issued a warning";
 $error_descriptions[8] = "This is just an informal notice";
-?>
+?&gt
 
 because E_ERROR equals 1, etc.
 So why is it bad then?
@@ -1238,7 +1238,7 @@ Converting to array ¶
 For any of the types integer, float, string, boolean and resource, converting a value to an array results in an array with a single element with index zero and the value of the scalar which was converted. In other words, (array)$scalarValue is exactly the same as array($scalarValue).
 
 If an object is converted to an array, the result is an array whose elements are the object's properties. The keys are the member variable names, with a few notable exceptions: integer properties are unaccessible; private variables have the class name prepended to the variable name; protected variables have a '*' prepended to the variable name. These prepended values have null bytes on either side. This can result in some unexpected behaviour:
-<?php
+&lt?php
 
 class A {
 private $A; // This will become '\0A\0A'
@@ -1250,7 +1250,7 @@ public $AA; // This will become 'AA'
 }
 
 var_dump((array) new B());
-?>
+?&gt
 
 The above will appear to have two keys named 'AA', although one of them is actually named '\0A\0A'.
 
@@ -1261,7 +1261,7 @@ It is possible to compare arrays with the array_diff() function and with array o
 Examples ¶
 
 The array type in PHP is very versatile. Here are some examples:
-<?php
+&lt?php
 // This:
 $a = array( 'color' => 'red',
  'taste' => 'sweet',
@@ -1289,10 +1289,10 @@ $b[] = 'c';
 // array('color' => 'red', 'taste' => 'sweet', 'shape' => 'round',
 // 'name' => 'apple', 0 => 4), and $b will be the array
 // array(0 => 'a', 1 => 'b', 2 => 'c'), or simply array('a', 'b', 'c').
-?>
+?&gt
 
 Example #8 Using array()
-<?php
+&lt?php
 // Array as (property-)map
 $map = array( 'version'    => 4,
    'OS'         => 'Linux',
@@ -1321,17 +1321,17 @@ $switching = array(         10, // key = 0
 
 // empty array
 $empty = array();
-?>
+?&gt
 
 Example #9 Collection
-<?php
+&lt?php
 $colors = array('red', 'blue', 'green', 'yellow');
 
 foreach ($colors as $color) {
 echo "Do you like $color?\n";
 }
 
-?>
+?&gt
 
 The above example will output:
 
@@ -1343,7 +1343,7 @@ Do you like yellow?
 Changing the values of the array directly is possible by passing them by reference.
 
 Example #10 Changing element in the loop
-<?php
+&lt?php
 foreach ($colors as &$color) {
 $color = strtoupper($color);
 }
@@ -1351,7 +1351,7 @@ unset($color); /* ensure that following writes to
 $color will not modify the last array element */
 
 print_r($colors);
-?>
+?&gt
 
 The above example will output:
 
@@ -1366,10 +1366,10 @@ Array
 This example creates a one-based array.
 
 Example #11 One-based index
-<?php
+&lt?php
 $firstquarter  = array(1 => 'January', 'February', 'March');
 print_r($firstquarter);
-?>
+?&gt
 
 The above example will output:
 
@@ -1381,27 +1381,27 @@ Array
 )
 
 Example #12 Filling an array
-<?php
+&lt?php
 // fill an array with all items from a directory
 $handle = opendir('.');
 while (false !== ($file = readdir($handle))) {
 $files[] = $file;
 }
 closedir($handle);
-?>
+?&gt
 
 Arrays are ordered. The order can be changed using various sorting functions. See the array functions section for more information. The count() function can be used to count the number of items in an array.
 
 Example #13 Sorting an array
-<?php
+&lt?php
 sort($files);
 print_r($files);
-?>
+?&gt
 
 Because the value of an array can be anything, it can also be another array. This enables the creation of recursive and multi-dimensional arrays.
 
 Example #14 Recursive and multi-dimensional arrays
-<?php
+&lt?php
 $fruits = array ( "fruits"  => array ( "a" => "orange",
                             "b" => "banana",
                             "c" => "apple"
@@ -1426,10 +1426,10 @@ unset($fruits["holes"][0]);  // remove "first"
 
 // Create a new multi-dimensional array
 $juices["apple"]["green"] = "good";
-?>
+?&gt
 
 Array assignment always involves value copying. Use the reference operator to copy an array by reference.
-<?php
+&lt?php
 $arr1 = array(2, 3);
 $arr2 = $arr1;
 $arr2[] = 4; // $arr2 is changed,
@@ -1437,7 +1437,7 @@ $arr2[] = 4; // $arr2 is changed,
 
 $arr3 = &$arr1;
 $arr3[] = 4; // now $arr1 and $arr3 are the same
-?>
+?&gt
 
 
 
@@ -1499,7 +1499,7 @@ Using Iterables ¶
 Iterable can be used as a parameter type to indicate that a function requires a set of values, but does not care about the form of the value set since it will be used with foreach. If a value is not an array or instance of Traversable, a TypeError will be thrown.
 
 Example #1 Iterable parameter type example
-<?php
+&lt?php
 
 function foo(iterable $iterable) {
 foreach ($iterable as $value) {
@@ -1507,34 +1507,34 @@ foreach ($iterable as $value) {
 }
 }
 
-?>
+?&gt
 
 Parameters declared as iterable may use NULL or an array as a default value.
 
 Example #2 Iterable parameter default value example
-<?php
+&lt?php
 
 function foo(iterable $iterable = []) {
 // ...
 }
 
-?>
+?&gt
 
 Iterable can also be used as a return type to indicate a function will return an iterable value. If the returned value is not an array or instance of Traversable, a TypeError will be thrown.
 
 Example #3 Iterable return type example
-<?php
+&lt?php
 
 function bar(): iterable {
 return [1, 2, 3];
 }
 
-?>
+?&gt
 
 Functions declaring iterable as a return type may also be generators.
 
 Example #4 Iterable generator return type example
-<?php
+&lt?php
 
 function gen(): iterable {
 yield 1;
@@ -1542,13 +1542,13 @@ yield 2;
 yield 3;
 }
 
-?>
+?&gt
 Iterable Type Variance ¶
 
 Classes extending/implementing may broaden methods using array or Traversable as parameter types to iterable or narrow return types from iterable to array or Traversable.
 
 Example #5 Iterable type variance example
-<?php
+&lt?php
 
 interface Example {
 public function method(array $array): iterable;
@@ -1560,7 +1560,7 @@ public function method(iterable $iterable): array {
 }
 }
 
-?>
+?&gt
 
 
 
@@ -1588,7 +1588,7 @@ public function method(iterable $iterable): array {
 
 
 To create a new object, use the new statement to instantiate a class:
-<?php
+&lt?php
 class foo
 {
 function do_foo()
@@ -1599,23 +1599,23 @@ echo "Doing foo.";
 
 $bar = new foo;
 $bar->do_foo();
-?>
+?&gt
 
 For a full discussion, see the Classes and Objects chapter.
 Converting to object ¶
 
 If an object is converted to an object, it is not modified. If a value of any other type is converted to an object, a new instance of the stdClass built-in class is created. If the value was NULL, the new instance will be empty. An array converts to an object with properties named by keys and corresponding values. Note that in this case before PHP 7.2.0 numeric keys have been inaccessible unless iterated.
-<?php
+&lt?php
 $obj = (object) array('1' => 'foo');
 var_dump(isset($obj->{'1'})); // outputs 'bool(true)' as of PHP 7.2.0; 'bool(false)' previously
 var_dump(key($obj)); // outputs 'string(1) "1"' as of PHP 7.2.0; 'int(1)' previously
-?>
+?&gt
 
 For any other value, a member variable named scalar will contain the value.
-<?php
+&lt?php
 $obj = (object) 'ciao';
 echo $obj->scalar;  // outputs 'ciao'
-?>
+?&gt
 
 
 
@@ -1697,9 +1697,9 @@ it has been unset().
 Syntax ¶
 
 There is only one value of type null, and that is the case-insensitive constant NULL.
-<?php
+&lt?php
 $var = NULL;
-?>
+?&gt
 
 See also the functions is_null() and unset().
 Casting to NULL ¶
@@ -1751,7 +1751,7 @@ Static class methods can also be passed without instantiating an object of that 
 Apart from common user-defined function, anonymous functions can also be passed to a callback parameter.
 
 Example #1 Callback function examples
-<?php
+&lt?php
 
 // An example callback function
 function my_callback_function() {
@@ -1802,10 +1802,10 @@ echo 'Hello ', $name, "\n";
 
 $c = new C();
 call_user_func($c, 'PHP!');
-?>
+?&gt
 
 Example #2 Callback example using a Closure
-<?php
+&lt?php
 // Our closure
 $double = function($a) {
 return $a * 2;
@@ -1820,7 +1820,7 @@ $numbers = range(1, 5);
 $new_numbers = array_map($double, $numbers);
 
 print implode(' ', $new_numbers);
-?>
+?&gt
 
 The above example will output:
 
@@ -1909,13 +1909,13 @@ $... in function prototypes means and so on. This variable name is used when a f
 PHP does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used. That is to say, if a string value is assigned to variable $var, $var becomes a string. If an integer value is then assigned to $var, it becomes an integer.
 
 An example of PHP's automatic type conversion is the multiplication operator '*'. If either operand is a float, then both operands are evaluated as floats, and the result will be a float. Otherwise, the operands will be interpreted as integers, and the result will also be an integer. Note that this does not change the types of the operands themselves; the only change is in how the operands are evaluated and what the type of the expression itself is.
-<?php
+&lt?php
 $foo = "1";  // $foo is string (ASCII 49)
 $foo *= 2;   // $foo is now an integer (2)
 $foo = $foo * 1.3;  // $foo is now a float (2.6)
 $foo = 5 * "10 Little Piggies"; // $foo is integer (50)
 $foo = 5 * "10 Small Pigs";     // $foo is integer (50)
-?>
+?&gt
 
 If the last two examples above seem odd, see String conversion to numbers.
 
@@ -1928,21 +1928,21 @@ Note:
 The behaviour of an automatic conversion to array is currently undefined.
 
 Also, because PHP supports indexing into strings via offsets using the same syntax as array indexing, the following example holds true for all PHP versions:
-<?php
+&lt?php
 $a    = 'car'; // $a is a string
 $a[0] = 'b';   // $a is still a string
 echo $a;       // bar
-?>
+?&gt
 
 See the section titled String access by character for more information.
 
 Type Casting ¶
 
 Type casting in PHP works much as it does in C: the name of the desired type is written in parentheses before the variable which is to be cast.
-<?php
+&lt?php
 $foo = 10;   // $foo is an integer
 $bar = (boolean) $foo;   // $bar is a boolean
-?>
+?&gt
 
 The casts allowed are:
 
@@ -1959,21 +1959,21 @@ The casts allowed are:
 The (unset) cast has been deprecated as of PHP 7.2.0. Note that the (unset) cast is the same as assigning the value NULL to the variable or call. The (unset) cast will be removed as of PHP 8.0.0.
 
 Note that tabs and spaces are allowed inside the parentheses, so the following are functionally equivalent:
-<?php
+&lt?php
 $foo = (int) $bar;
 $foo = ( int ) $bar;
-?>
+?&gt
 
 Casting literal strings and variables to binary strings:
-<?php
+&lt?php
 $binary = (binary) $string;
 $binary = b"binary string";
-?>
+?&gt
 
 Note:
 
 Instead of casting a variable to a string, it is also possible to enclose the variable in double quotes.
-<?php
+&lt?php
 $foo = 10;            // $foo is an integer
 $str = "$foo";        // $str is a string
 $fst = (string) $foo; // $fst is also a string
@@ -1982,7 +1982,7 @@ $fst = (string) $foo; // $fst is also a string
 if ($fst === $str) {
 echo "they are the same";
 }
-?>
+?&gt
 
 
 
@@ -2027,7 +2027,7 @@ See also the Userland Naming Guide.
 
 For information on variable related functions, see the Variable Functions Reference.
 
-<?php
+&lt?php
 $var = 'Bob';
 $Var = 'Joe';
 echo "$var, $Var";      // outputs "Bob, Joe"
@@ -2035,23 +2035,23 @@ echo "$var, $Var";      // outputs "Bob, Joe"
 $4site = 'not yet';     // invalid; starts with a number
 $_4site = 'not yet';    // valid; starts with an underscore
 $täyte = 'mansikka';    // valid; 'ä' is (Extended) ASCII 228.
-?>
+?&gt
 
 By default, variables are always assigned by value. That is to say, when you assign an expression to a variable, the entire value of the original expression is copied into the destination variable. This means, for instance, that after assigning one variable's value to another, changing one of those variables will have no effect on the other. For more information on this kind of assignment, see the chapter on Expressions.
 
 PHP also offers another way to assign values to variables: assign by reference. This means that the new variable simply references (in other words, "becomes an alias for" or "points to") the original variable. Changes to the new variable affect the original, and vice versa.
 
 To assign by reference, simply prepend an ampersand (&) to the beginning of the variable which is being assigned (the source variable). For instance, the following code snippet outputs 'My name is Bob' twice:
-<?php
+&lt?php
 $foo = 'Bob';              // Assign the value 'Bob' to $foo
 $bar = &$foo;              // Reference $foo via $bar.
 $bar = "My name is $bar";  // Alter $bar...
 echo $bar;
 echo $foo;                 // $foo is altered too.
-?>
+?&gt
 
 One important thing to note is that only named variables may be assigned by reference.
-<?php
+&lt?php
 $foo = 25;
 $bar = &$foo;      // This is a valid assignment.
 $bar = &(24 * 7);  // Invalid; references an unnamed expression.
@@ -2062,12 +2062,12 @@ return 25;
 }
 
 $bar = &test();    // Invalid.
-?>
+?&gt
 
 It is not necessary to initialize variables in PHP however it is a very good practice. Uninitialized variables have a default value of their type depending on the context in which they are used - booleans default to FALSE, integers and floats default to zero, strings (e.g. used in echo) are set as an empty string and arrays become to an empty array.
 
 Example #1 Default values of uninitialized variables
-<?php
+&lt?php
 // Unset AND unreferenced (no use context) variable; outputs NULL
 var_dump($unset_var);
 
@@ -2094,7 +2094,7 @@ var_dump($unset_arr);
 // Outputs: object(stdClass)#1 (1) {  ["foo"]=>  string(3) "bar" }
 $unset_obj->foo = 'bar';
 var_dump($unset_obj);
-?>
+?&gt
 
 Relying on the default value of an uninitialized variable is problematic in the case of including one file into another which uses the same variable name. It is also a major security risk with register_globals turned on. E_NOTICE level error is issued in case of working with uninitialized variables, however not in the case of appending elements to the uninitialized array. isset() language construct can be used to detect if a variable has been already initialized.
 
@@ -2177,13 +2177,13 @@ If certain variables in variables_order are not set, their appropriate PHP prede
 
 
 The scope of a variable is the context within which it is defined. For the most part all PHP variables only have a single scope. This single scope spans included and required files as well. For example:
-<?php
+&lt?php
 $a = 1;
 include 'b.inc';
-?>
+?&gt
 
 Here the $a variable will be available within the included b.inc script. However, within user-defined functions a local function scope is introduced. Any variable used inside a function is by default limited to the local function scope. For example:
-<?php
+&lt?php
 $a = 1; /* global scope */
 
 function test()
@@ -2192,7 +2192,7 @@ echo $a; /* reference to local scope variable */
 }
 
 test();
-?>
+?&gt
 
 This script will not produce any output because the echo statement refers to a local version of the $a variable, and it has not been assigned a value within this scope. You may notice that this is a little bit different from the C language in that global variables in C are automatically available to functions unless specifically overridden by a local definition. This can cause some problems in that people may inadvertently change a global variable. In PHP global variables must be declared global inside a function if they are going to be used in that function.
 The global keyword ¶
@@ -2200,7 +2200,7 @@ The global keyword ¶
 First, an example use of global:
 
 Example #1 Using global
-<?php
+&lt?php
 $a = 1;
 $b = 2;
 
@@ -2213,14 +2213,14 @@ $b = $a + $b;
 
 Sum();
 echo $b;
-?>
+?&gt
 
 The above script will output 3. By declaring $a and $b global within the function, all references to either variable will refer to the global version. There is no limit to the number of global variables that can be manipulated by a function.
 
 A second way to access variables from the global scope is to use the special PHP-defined $GLOBALS array. The previous example can be rewritten as:
 
 Example #2 Using $GLOBALS instead of global
-<?php
+&lt?php
 $a = 1;
 $b = 2;
 
@@ -2231,12 +2231,12 @@ $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
 
 Sum();
 echo $b;
-?>
+?&gt
 
 The $GLOBALS array is an associative array with the name of the global variable being the key and the contents of that variable being the value of the array element. Notice how $GLOBALS exists in any scope, this is because $GLOBALS is a superglobal. Here's an example demonstrating the power of superglobals:
 
 Example #3 Example demonstrating superglobals and scope
-<?php
+&lt?php
 function test_global()
 {
 // Most predefined variables aren't "super" and require
@@ -2251,7 +2251,7 @@ echo $HTTP_POST_VARS['name'];
 // deemed deprecated.
 echo $_POST['name'];
 }
-?>
+?&gt
 
 Note:
 
@@ -2262,33 +2262,33 @@ Using static variables ¶
 Another important feature of variable scoping is the static variable. A static variable exists only in a local function scope, but it does not lose its value when program execution leaves this scope. Consider the following example:
 
 Example #4 Example demonstrating need for static variables
-<?php
+&lt?php
 function test()
 {
 $a = 0;
 echo $a;
 $a++;
 }
-?>
+?&gt
 
 This function is quite useless since every time it is called it sets $a to 0 and prints 0. The $a++ which increments the variable serves no purpose since as soon as the function exits the $a variable disappears. To make a useful counting function which will not lose track of the current count, the $a variable is declared static:
 
 Example #5 Example use of static variables
-<?php
+&lt?php
 function test()
 {
 static $a = 0;
 echo $a;
 $a++;
 }
-?>
+?&gt
 
 Now, $a is initialized only in first call of function and every time the test() function is called it will print the value of $a and increment it.
 
 Static variables also provide one way to deal with recursive functions. A recursive function is one which calls itself. Care must be taken when writing a recursive function because it is possible to make it recurse indefinitely. You must make sure you have an adequate way of terminating the recursion. The following simple function recursively counts to 10, using the static variable $count to know when to stop:
 
 Example #6 Static variables with recursive functions
-<?php
+&lt?php
 function test()
 {
 static $count = 0;
@@ -2300,14 +2300,14 @@ test();
 }
 $count--;
 }
-?>
+?&gt
 
 Note:
 
 Static variables may be declared as seen in the examples above. From PHP 5.6 you can assign values to these variables which are the result of expressions, but you can't use any function here, what will cause a parse error.
 
 Example #7 Declaring static variables
-<?php
+&lt?php
 function foo(){
 static $int = 0;          // correct
 static $int = 1+2;        // correct (as of PHP 5.6)
@@ -2316,7 +2316,7 @@ static $int = sqrt(121);  // wrong  (as it is a function)
 $int++;
 echo $int;
 }
-?>
+?&gt
 
 Note:
 
@@ -2325,7 +2325,7 @@ Static declarations are resolved in compile-time.
 References with global and static variables ¶
 
 The Zend Engine 1, driving PHP 4, implements the static and global modifier for variables in terms of references. For example, a true global variable imported inside a function scope with the global statement actually creates a reference to the global variable. This can lead to unexpected behaviour which the following example addresses:
-<?php
+&lt?php
 function test_global_ref() {
 global $obj;
 $obj = &new stdclass;
@@ -2340,7 +2340,7 @@ test_global_ref();
 var_dump($obj);
 test_global_noref();
 var_dump($obj);
-?>
+?&gt
 
 The above example will output:
 
@@ -2349,7 +2349,7 @@ object(stdClass)(0) {
 }
 
 A similar behaviour applies to the static statement. References are not stored statically:
-<?php
+&lt?php
 function &get_instance_ref() {
 static $obj;
 
@@ -2381,7 +2381,7 @@ $still_obj1 = get_instance_ref();
 echo "\n";
 $obj2 = get_instance_noref();
 $still_obj2 = get_instance_noref();
-?>
+?&gt
 
 The above example will output:
 
@@ -2441,24 +2441,24 @@ This example demonstrates that when assigning a reference to a static variable, 
 
 
 Sometimes it is convenient to be able to have variable variable names. That is, a variable name which can be set and used dynamically. A normal variable is set with a statement such as:
-<?php
+&lt?php
 $a = 'hello';
-?>
+?&gt
 
 A variable variable takes the value of a variable and treats that as the name of a variable. In the above example, hello, can be used as the name of a variable by using two dollar signs. i.e.
-<?php
+&lt?php
 $$a = 'world';
-?>
+?&gt
 
 At this point two variables have been defined and stored in the PHP symbol tree: $a with contents "hello" and $hello with contents "world". Therefore, this statement:
-<?php
+&lt?php
 echo "$a ${$a}";
-?>
+?&gt
 
 produces the exact same output as:
-<?php
+&lt?php
 echo "$a $hello";
-?>
+?&gt
 
 i.e. they both produce: hello world.
 
@@ -2472,7 +2472,7 @@ Further dereferencing a variable property that is an array has different semanti
 Curly braces may also be used, to clearly delimit the property name. They are most useful when accessing values within a property that contains an array, when the property name is made of mulitple parts, or when the property name contains characters that are not otherwise valid (e.g. from json_decode() or SimpleXML).
 
 Example #1 Variable property example
-<?php
+&lt?php
 class foo {
 var $bar = 'I am bar.';
 var $arr = array('I am A.', 'I am B.', 'I am C.');
@@ -2492,7 +2492,7 @@ echo $foo->{$start . $end} . "\n";
 $arr = 'arr';
 echo $foo->{$arr[1]} . "\n";
 
-?>
+?&gt
 
 The above example will output:
 
@@ -2544,15 +2544,15 @@ Email: <input type="text" name="email" /><br />
 As of PHP 5.4.0, there are only two ways to access data from your HTML forms. Currently available methods are listed below:
 
 Example #2 Accessing data from a simple POST HTML form
-<?php
+&lt?php
 echo $_POST['username'];
 echo $_REQUEST['username'];
-?>
+?&gt
 
 There were some other ways of accessing user input in old PHP versions. These are listed below. See changelog at the bottom of the page for more details.
 
 Example #3 Old methods of accessing user input
-<?php
+&lt?php
 // WATCH OUT: these methods ARE NOT supported anymore.
 // Valid ones were described above.
 
@@ -2565,7 +2565,7 @@ echo $HTTP_POST_VARS['username'];
 
 // Using register_globals. This feature was removed in PHP 5.4.0
 echo $username;
-?>
+?&gt
 
 Using a GET form is similar except you'll use the appropriate GET predefined variable instead. GET also applies to the QUERY_STRING (the information after the '?' in a URL). So, for example, http://www.example.com/test.php?id=3 contains GET data which is accessible with $_GET['id']. See also $_REQUEST.
 
@@ -2576,13 +2576,13 @@ Dots and spaces in variable names are converted to underscores. For example <inp
 PHP also understands arrays in the context of form variables (see the related faq). You may, for example, group related variables together, or use this feature to retrieve values from a multiple select input. For example, let's post a form to itself and upon submission display the data:
 
 Example #4 More complex form variables
-<?php
+&lt?php
 if ($_POST) {
 echo '<pre>';
 echo htmlspecialchars(print_r($_POST, true));
 echo '</pre>';
 }
-?>
+?&gt
 <form action="" method="post">
 Name:  <input type="text" name="personal[name]" /><br />
 Email: <input type="text" name="personal[email]" /><br />
@@ -2609,17 +2609,17 @@ HTTP Cookies ¶
 PHP transparently supports HTTP cookies as defined by » RFC 6265. Cookies are a mechanism for storing data in the remote browser and thus tracking or identifying return users. You can set cookies using the setcookie() function. Cookies are part of the HTTP header, so the SetCookie function must be called before any output is sent to the browser. This is the same restriction as for the header() function. Cookie data is then available in the appropriate cookie data arrays, such as $_COOKIE as well as in $_REQUEST. See the setcookie() manual page for more details and examples.
 
 If you wish to assign multiple values to a single cookie variable, you may assign it as an array. For example:
-<?php
+&lt?php
 setcookie("MyCookie[foo]", 'Testing 1', time()+3600);
 setcookie("MyCookie[bar]", 'Testing 2', time()+3600);
-?>
+?&gt
 
 That will create two separate cookies although MyCookie will now be a single array in your script. If you want to set just one cookie with multiple values, consider using serialize() or explode() on the value first.
 
 Note that a cookie will replace a previous cookie by the same name in your browser unless the path or domain is different. So, for a shopping cart application you may want to keep a counter and pass this along. i.e.
 
 Example #5 A setcookie() example
-<?php
+&lt?php
 if (isset($_COOKIE['count'])) {
 $count = $_COOKIE['count'] + 1;
 } else {
@@ -2627,13 +2627,13 @@ $count = 1;
 }
 setcookie('count', $count, time()+3600);
 setcookie("Cart[$count]", $item, time()+3600);
-?>
+?&gt
 Dots in incoming variable names ¶
 
 Typically, PHP does not alter the names of variables when they are passed into a script. However, it should be noted that the dot (period, full stop) is not a valid character in a PHP variable name. For the reason, look at it:
-<?php
+&lt?php
 $varname.ext;  /* invalid variable name */
-?>
+?&gt
 Now, what the parser sees is a variable named $varname, followed by the string concatenation operator, followed by the barestring (i.e. unquoted string which doesn't match any known key or reserved words) 'ext'. Obviously, this doesn't have the intended result.
 
 For this reason, it is important to note that PHP will automatically replace any dots in incoming variable names with underscores.
@@ -2694,14 +2694,14 @@ Constants may not be redefined or undefined once they have been set; and
 Constants may only evaluate to scalar values. As of PHP 5.6 it is possible to define array constant using const keywords and as of PHP 7 array constants can also be defined using define() You may use arrays in constant scalar expressions (for example, const FOO = array(1,2,3)[0];), but the end result must be a value of allowed type.
 
 Example #1 Defining Constants
-<?php
+&lt?php
 define("CONSTANT", "Hello world.");
 echo CONSTANT; // outputs "Hello world."
 echo Constant; // outputs "Constant" and issues a notice.
-?>
+?&gt
 
 Example #2 Defining Constants using the const keyword
-<?php
+&lt?php
 // Works as of PHP 5.3.0
 const CONSTANT = 'Hello World';
 
@@ -2721,7 +2721,7 @@ define('ANIMALS', array(
 'bird'
 ));
 echo ANIMALS[1]; // outputs "cat"
-?>
+?&gt
 
 Note:
 
@@ -2809,12 +2809,12 @@ The most basic forms of expressions are constants and variables. When you type "
 After this assignment, you'd expect $a's value to be 5 as well, so if you wrote $b = $a, you'd expect it to behave just as if you wrote $b = 5. In other words, $a is an expression with the value of 5 as well. If everything works right, this is exactly what will happen.
 
 Slightly more complex examples for expressions are functions. For instance, consider the following function:
-<?php
+&lt?php
 function foo ()
 {
 return 5;
 }
-?>
+?&gt
 
 Assuming you're familiar with the concept of functions (if you're not, take a look at the chapter about functions), you'd assume that typing $c = foo() is essentially just like writing $c = 5, and you're right. Functions are expressions with the value of their return value. Since foo() returns 5, the value of the expression 'foo()' is 5. Usually functions don't just return a static value but compute something.
 
@@ -2830,15 +2830,15 @@ The last example of expressions we'll deal with here is combined operator-assign
 
 There is one more expression that may seem odd if you haven't seen it in other languages, the ternary conditional operator:
 
-<?php
+&lt?php
 $first ? $second : $third
-?>
+?&gt
 
 If the value of the first subexpression is TRUE (non-zero), then the second subexpression is evaluated, and that is the result of the conditional expression. Otherwise, the third subexpression is evaluated, and that is the value.
 
 The following example should help you understand pre- and post-increment and expressions in general a bit better:
 
-<?php
+&lt?php
 function double($i)
 {
 return $i*2;
@@ -2859,7 +2859,7 @@ $h = $g += 10;      /* first, $g is incremented by 10 and ends with the
             value of 24. the value of the assignment (24) is
             then assigned into $h, and $h ends with the value
             of 24 as well. */
-?>
+?&gt
 
 Some expressions can be considered as statements. In this case, a statement has the form of 'expr ;' that is, an expression followed by a semicolon. In '$b = $a = 5;', '$a = 5' is a valid expression, but it's not a statement by itself. '$b = $a = 5;' however is a valid statement.
 
@@ -2975,7 +2975,7 @@ left 	xor 	logical
 left 	or 	logical
 
 Example #1 Associativity
-<?php
+&lt?php
 $a = 3 * 3 % 5; // (3 * 3) % 5 = 4
 // ternary operator associativity differs from C/C++
 $a = true ? 0 : true ? 1 : 2; // (true ? 0 : true) ? 1 : 2 = 2
@@ -2983,21 +2983,21 @@ $a = true ? 0 : true ? 1 : 2; // (true ? 0 : true) ? 1 : 2 = 2
 $a = 1;
 $b = 2;
 $a = $b += 3; // $a = ($b += 3) -> $a = 5, $b = 5
-?>
+?&gt
 
 Operator precedence and associativity only determine how expressions are grouped, they do not specify an order of evaluation. PHP does not (in the general case) specify in which order an expression is evaluated and code that assumes a specific order of evaluation should be avoided, because the behavior can change between versions of PHP or depending on the surrounding code.
 
 Example #2 Undefined order of evaluation
-<?php
+&lt?php
 $a = 1;
 echo $a + $a++; // may print either 2 or 3
 
 $i = 1;
 $array[$i] = $i++; // may set either index 1 or 2
-?>
+?&gt
 
 Example #3 +, - and . have the same precedence
-<?php
+&lt?php
 $x = 4;
 // this line might result in unexpected output:
 echo "x minus one equals " . $x-1 . ", or so I hope\n";
@@ -3005,7 +3005,7 @@ echo "x minus one equals " . $x-1 . ", or so I hope\n";
 echo (("x minus one equals " . $x) - 1) . ", or so I hope\n";
 // the desired precendence can be enforced by using parentheses:
 echo "x minus one equals " . ($x-1) . ", or so I hope\n";
-?>
+?&gt
 
 The above example will output:
 
@@ -3063,14 +3063,14 @@ The division operator ("/") returns a float value unless the two operands are in
 Operands of modulo are converted to integers (by stripping the decimal part) before processing. For floating-point modulo, see fmod().
 
 The result of the modulo operator % has the same sign as the dividend — that is, the result of $a % $b will have the same sign as $a. For example:
-<?php
+&lt?php
 
 echo (5 % 3)."\n";           // prints 2
 echo (5 % -3)."\n";          // prints 2
 echo (-5 % 3)."\n";          // prints -2
 echo (-5 % -3)."\n";         // prints -2
 
-?>
+?&gt
 
 
 
@@ -3102,21 +3102,21 @@ echo (-5 % -3)."\n";         // prints -2
 The basic assignment operator is "=". Your first inclination might be to think of this as "equal to". Don't. It really means that the left operand gets set to the value of the expression on the right (that is, "gets set to").
 
 The value of an assignment expression is the value assigned. That is, the value of "$a = 3" is 3. This allows you to do some tricky things:
-<?php
+&lt?php
 
 $a = ($b = 4) + 5; // $a is equal to 9 now, and $b has been set to 4.
 
-?>
+?&gt
 
 In addition to the basic assignment operator, there are "combined operators" for all of the binary arithmetic, array union and string operators that allow you to use a value in an expression and then set its value to the result of that expression. For example:
-<?php
+&lt?php
 
 $a = 3;
 $a += 5; // sets $a to 8, as if we had said: $a = $a + 5;
 $b = "Hello ";
 $b .= "There!"; // sets $b to "Hello There!", just like $b = $b . "There!";
 
-?>
+?&gt
 
 Note that the assignment copies the original variable to the new one (assignment by value), so changes to one will not affect the other. This may also have relevance if you need to copy something like a large array inside a tight loop.
 
@@ -3126,7 +3126,7 @@ Assignment by Reference ¶
 Assignment by reference is also supported, using the "$var = &$othervar;" syntax. Assignment by reference means that both variables end up pointing at the same data, and nothing is copied anywhere.
 
 Example #1 Assigning by reference
-<?php
+&lt?php
 $a = 3;
 $b = &$a; // $b is a reference to $a
 
@@ -3138,19 +3138,19 @@ $a = 4; // change $a
 print "$a\n"; // prints 4
 print "$b\n"; // prints 4 as well, since $b is a reference to $a, which has
    // been changed
-?>
+?&gt
 
 The new operator returns a reference automatically, so assigning the result of new by reference results in an E_DEPRECATED message in PHP 5.3 and later, and an E_STRICT message in earlier versions.
 
 For example, this code will result in a warning:
-<?php
+&lt?php
 class C {}
 
 /* The following line generates the following error message:
 * Deprecated: Assigning the return value of new by reference is deprecated in...
 */
 $o = &new C;
-?>
+?&gt
 
 More information on references and their potential uses can be found in the References Explained section of the manual.
 
@@ -3239,7 +3239,7 @@ to get the bits turned on in either value:
 
 
 Example #1 Bitwise AND, OR and XOR operations on integers
-<?php
+&lt?php
 /*
 * Ignore the top section,
 * it is just formatting to make output clearer.
@@ -3279,7 +3279,7 @@ foreach ($values as $value) {
 $result = $value ^ $test;
 printf($format, $result, $value, '^', $test);
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -3308,7 +3308,7 @@ Bitwise Exclusive OR (XOR)
 (13 = 1101) = ( 8 = 1000) ^ ( 5 = 0101)
 
 Example #2 Bitwise XOR operations on strings
-<?php
+&lt?php
 echo 12 ^ 9; // Outputs '5'
 
 echo "12" ^ "9"; // Outputs the Backspace character (ascii 8)
@@ -3322,10 +3322,10 @@ echo 2 ^ "3"; // Outputs 1
 
 echo "2" ^ 3; // Outputs 1
    // ((int)"2") ^ 3 == 1
-?>
+?&gt
 
 Example #3 Bit shifting on integers
-<?php
+&lt?php
 /*
 * Here are the examples.
 */
@@ -3436,7 +3436,7 @@ echo " NOTE: $note\n";
 
 echo "\n";
 }
-?>
+?&gt
 
 Output of the above example on 32 bit machines:
 
@@ -3755,7 +3755,7 @@ $a >= $b 	Greater than or equal to 	TRUE if $a is greater than or equal to $b.
 $a <=> $b 	Spaceship 	An integer less than, equal to, or greater than zero when $a is respectively less than, equal to, or greater than $b. Available as of PHP 7.
 
 If you compare a number with a string or the comparison involves numerical strings, then each string is converted to a number and the comparison performed numerically. These rules also apply to the switch statement. The type conversion does not take place when the comparison is === or !== as this involves comparing the type as well as the value.
-<?php
+&lt?php
 var_dump(0 == "a"); // 0 == 0 -> true
 var_dump("1" == "01"); // 1 == 1 -> true
 var_dump("10" == "1e1"); // 10 == 10 -> true
@@ -3769,8 +3769,8 @@ case "a": // never reached because "a" is already matched with 0
 echo "a";
 break;
 }
-?>
-<?php
+?&gt
+&lt?php
 // Integers
 echo 1 <=> 1; // 0
 echo 1 <=> 2; // -1
@@ -3814,7 +3814,7 @@ $a = (object) ["a" => "b"];
 $b = (object) ["b" => "b"];
 echo $a <=> $b; // 1
 
-?>
+?&gt
 
 For various types, comparison is done according to the following table (in order).
 Comparison with Various Types Type of Operand 1 	Type of Operand 2 	Result
@@ -3827,17 +3827,17 @@ object 	anything 	object is always greater
 array 	anything 	array is always greater
 
 Example #1 Boolean/null comparison
-<?php
+&lt?php
 // Bool and null are compared as bool always
 var_dump(1 == TRUE);  // TRUE - same as (bool)1 == TRUE
 var_dump(0 == FALSE); // TRUE - same as (bool)0 == FALSE
 var_dump(100 < TRUE); // FALSE - same as (bool)100 < TRUE
 var_dump(-10 < FALSE);// FALSE - same as (bool)-10 < FALSE
 var_dump(min(-100, -10, NULL, 10, 100)); // NULL - (bool)NULL < (bool)-100 is FALSE < TRUE
-?>
+?&gt
 
 Example #2 Transcription of standard array comparison
-<?php
+&lt?php
 // Arrays are compared like this with standard comparison operators
 function standard_array_compare($op1, $op2)
 {
@@ -3857,7 +3857,7 @@ if (!array_key_exists($key, $op2)) {
 }
 return 0; // $op1 == $op2
 }
-?>
+?&gt
 
 See also strcasecmp(), strcmp(), Array operators, and the manual section on Types.
 Warning
@@ -3899,7 +3899,7 @@ If you have set a custom error handler function with set_error_handler() then it
 
 If the track_errors feature is enabled, any error message generated by the expression will be saved in the variable $php_errormsg. This variable will be overwritten on each error, so check early if you want to use it.
 
-<?php
+&lt?php
 /* Intentional file error */
 $my_file = @file ('non_existent_file') or
 die ("Failed opening file: error was '$php_errormsg'");
@@ -3908,7 +3908,7 @@ die ("Failed opening file: error was '$php_errormsg'");
 $value = @$cache[$key];
 // will not issue a notice if the index $key doesn't exist.
 
-?>
+?&gt
 
 Note: The @-operator works only on expressions. A simple rule of thumb is: if you can take the value of something, you can prepend the @ operator to it. For instance, you can prepend it to variables, function and include calls, constants, and so forth. You cannot prepend it to function or class definitions, or conditional structures such as if and foreach, and so forth.
 
@@ -3946,10 +3946,10 @@ Currently the "@" error-control operator prefix will even disable error reportin
 
 
 PHP supports one execution operator: backticks (``). Note that these are not single-quotes! PHP will attempt to execute the contents of the backticks as a shell command; the output will be returned (i.e., it won't simply be dumped to output; it can be assigned to a variable). Use of the backtick operator is identical to shell_exec().
-<?php
+&lt?php
 $output = `ls -al`;
 echo "<pre>$output</pre>";
-?>
+?&gt
 
 Note:
 
@@ -3999,7 +3999,7 @@ $a++ 	Post-increment 	Returns $a, then increments $a by one.
 $a-- 	Post-decrement 	Returns $a, then decrements $a by one.
 
 Here's a simple example script:
-<?php
+&lt?php
 echo "<h3>Postincrement</h3>";
 $a = 5;
 echo "Should be 5: " . $a++ . "<br />\n";
@@ -4019,12 +4019,12 @@ echo "<h3>Predecrement</h3>";
 $a = 5;
 echo "Should be 4: " . --$a . "<br />\n";
 echo "Should be 4: " . $a . "<br />\n";
-?>
+?&gt
 
 PHP follows Perl's convention when dealing with arithmetic operations on character variables and not C's. For example, in PHP and Perl $a = 'Z'; $a++; turns $a into 'AA', while in C a = 'Z'; a++; turns a into '[' (ASCII value of 'Z' is 90, ASCII value of '[' is 91). Note that character variables can be incremented but not decremented and even so only plain ASCII alphabets and digits (a-z, A-Z and 0-9) are supported. Incrementing/decrementing other character variables has no effect, the original string is unchanged.
 
 Example #1 Arithmetic Operations on Character Variables
-<?php
+&lt?php
 echo '== Alphabets ==' . PHP_EOL;
 $s = 'W';
 for ($n=0; $n<6; $n++) {
@@ -4040,7 +4040,7 @@ $d = 'A08';
 for ($n=0; $n<6; $n++) {
 echo ++$d . PHP_EOL;
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -4107,7 +4107,7 @@ $a || $b 	Or 	TRUE if either $a or $b is TRUE.
 The reason for the two different variations of "and" and "or" operators is that they operate at different precedences. (See Operator Precedence.)
 
 Example #1 Logical operators illustrated
-<?php
+&lt?php
 
 // --------------------
 // foo() will never get called as those operators are short-circuit
@@ -4142,7 +4142,7 @@ $g = true && false;
 $h = true and false;
 
 var_dump($g, $h);
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -4184,13 +4184,13 @@ bool(true)
 
 There are two string operators. The first is the concatenation operator ('.'), which returns the concatenation of its right and left arguments. The second is the concatenating assignment operator ('.='), which appends the argument on the right side to the argument on the left side. Please read Assignment Operators for more information.
 
-<?php
+&lt?php
 $a = "Hello ";
 $b = $a . "World!"; // now $b contains "Hello World!"
 
 $a = "Hello ";
 $a .= "World!";     // now $a contains "Hello World!"
-?>
+?&gt
 
 
 
@@ -4230,7 +4230,7 @@ $a !== $b 	Non-identity 	TRUE if $a is not identical to $b.
 
 The + operator returns the right-hand array appended to the left-hand array; for keys that exist in both arrays, the elements from the left-hand array will be used, and the matching elements from the right-hand array will be ignored.
 
-<?php
+&lt?php
 $a = array("a" => "apple", "b" => "banana");
 $b = array("a" => "pear", "b" => "strawberry", "c" => "cherry");
 
@@ -4245,7 +4245,7 @@ var_dump($c);
 $a += $b; // Union of $a += $b is $a and $b
 echo "Union of \$a += \$b: \n";
 var_dump($a);
-?>
+?&gt
 When executed, this script will print the following:
 
 Union of $a and $b:
@@ -4279,13 +4279,13 @@ string(6) "cherry"
 Elements of arrays are equal for the comparison if they have the same key and value.
 
 Example #1 Comparing arrays
-<?php
+&lt?php
 $a = array("apple", "banana");
 $b = array(1 => "banana", "0" => "apple");
 
 var_dump($a == $b); // bool(true)
 var_dump($a === $b); // bool(false)
-?>
+?&gt
 
 
 
@@ -4318,7 +4318,7 @@ var_dump($a === $b); // bool(false)
 instanceof is used to determine whether a PHP variable is an instantiated object of a certain class:
 
 Example #1 Using instanceof with classes
-<?php
+&lt?php
 class MyClass
 {
 }
@@ -4330,7 +4330,7 @@ $a = new MyClass;
 
 var_dump($a instanceof MyClass);
 var_dump($a instanceof NotMyClass);
-?>
+?&gt
 
 The above example will output:
 
@@ -4340,7 +4340,7 @@ bool(false)
 instanceof can also be used to determine whether a variable is an instantiated object of a class that inherits from a parent class:
 
 Example #2 Using instanceof with inherited classes
-<?php
+&lt?php
 class ParentClass
 {
 }
@@ -4353,7 +4353,7 @@ $a = new MyClass;
 
 var_dump($a instanceof MyClass);
 var_dump($a instanceof ParentClass);
-?>
+?&gt
 
 The above example will output:
 
@@ -4363,14 +4363,14 @@ bool(true)
 To check if an object is not an instanceof a class, the logical not operator can be used.
 
 Example #3 Using instanceof to check if object is not an instanceof a class
-<?php
+&lt?php
 class MyClass
 {
 }
 
 $a = new MyClass;
 var_dump(!($a instanceof stdClass));
-?>
+?&gt
 
 The above example will output:
 
@@ -4379,7 +4379,7 @@ bool(true)
 Lastly, instanceof can also be used to determine whether a variable is an instantiated object of a class that implements an interface:
 
 Example #4 Using instanceof with interfaces
-<?php
+&lt?php
 interface MyInterface
 {
 }
@@ -4392,7 +4392,7 @@ $a = new MyClass;
 
 var_dump($a instanceof MyClass);
 var_dump($a instanceof MyInterface);
-?>
+?&gt
 
 The above example will output:
 
@@ -4402,7 +4402,7 @@ bool(true)
 Although instanceof is usually used with a literal classname, it can also be used with another object or a string variable:
 
 Example #5 Using instanceof with other variables
-<?php
+&lt?php
 interface MyInterface
 {
 }
@@ -4419,7 +4419,7 @@ $d = 'NotMyClass';
 var_dump($a instanceof $b); // $b is an object of class MyClass
 var_dump($a instanceof $c); // $c is a string 'MyClass'
 var_dump($a instanceof $d); // $d is a string 'NotMyClass'
-?>
+?&gt
 
 The above example will output:
 
@@ -4430,7 +4430,7 @@ bool(false)
 instanceof does not throw any error if the variable being tested is not an object, it simply returns FALSE. Constants, however, are not allowed.
 
 Example #6 Using instanceof to test other variables
-<?php
+&lt?php
 $a = 1;
 $b = NULL;
 $c = imagecreate(5, 5);
@@ -4438,7 +4438,7 @@ var_dump($a instanceof stdClass); // $a is an integer
 var_dump($b instanceof stdClass); // $b is NULL
 var_dump($c instanceof stdClass); // $c is a resource
 var_dump(FALSE instanceof stdClass);
-?>
+?&gt
 
 The above example will output:
 
@@ -4450,10 +4450,10 @@ PHP Fatal error:  instanceof expects an object instance, constant given
 There are a few pitfalls to be aware of. Before PHP version 5.1.0, instanceof would call __autoload() if the class name did not exist. In addition, if the class was not loaded, a fatal error would occur. This can be worked around by using a dynamic class reference, or a string variable containing the class name:
 
 Example #7 Avoiding classname lookups and fatal errors with instanceof in PHP 5.0
-<?php
+&lt?php
 $d = 'NotMyClass';
 var_dump($a instanceof $d); // no fatal error here
-?>
+?&gt
 
 The above example will output:
 
@@ -4530,18 +4530,18 @@ statement
 As described in the section about expressions, expression is evaluated to its Boolean value. If expression evaluates to TRUE, PHP will execute statement, and if it evaluates to FALSE - it'll ignore it. More information about what values evaluate to FALSE can be found in the 'Converting to boolean' section.
 
 The following example would display a is bigger than b if $a is bigger than $b:
-<?php
+&lt?php
 if ($a > $b)
 echo "a is bigger than b";
-?>
+?&gt
 
 Often you'd want to have more than one statement to be executed conditionally. Of course, there's no need to wrap each statement with an if clause. Instead, you can group several statements into a statement group. For example, this code would display a is bigger than b if $a is bigger than $b, and would then assign the value of $a into $b:
-<?php
+&lt?php
 if ($a > $b) {
 echo "a is bigger than b";
 $b = $a;
 }
-?>
+?&gt
 
 If statements can be nested infinitely within other if statements, which provides you with complete flexibility for conditional execution of the various parts of your program.
 
@@ -4576,13 +4576,13 @@ If statements can be nested infinitely within other if statements, which provide
 
 
 Often you'd want to execute a statement if a certain condition is met, and a different statement if the condition is not met. This is what else is for. else extends an if statement to execute a statement in case the expression in the if statement evaluates to FALSE. For example, the following code would display a is greater than b if $a is greater than $b, and a is NOT greater than b otherwise:
-<?php
+&lt?php
 if ($a > $b) {
 echo "a is greater than b";
 } else {
 echo "a is NOT greater than b";
 }
-?>
+?&gt
 The else statement is only executed if the if expression evaluated to FALSE, and if there were any elseif expressions - only if they evaluated to FALSE as well
 
 
@@ -4615,7 +4615,7 @@ The else statement is only executed if the if expression evaluated to FALSE, and
 
 
 elseif, as its name suggests, is a combination of if and else. Like else, it extends an if statement to execute a different statement in case the original if expression evaluates to FALSE. However, unlike else, it will execute that alternative expression only if the elseif conditional expression evaluates to TRUE. For example, the following code would display a is bigger than b, a equal to b or a is smaller than b:
-<?php
+&lt?php
 if ($a > $b) {
 echo "a is bigger than b";
 } elseif ($a == $b) {
@@ -4623,7 +4623,7 @@ echo "a is equal to b";
 } else {
 echo "a is smaller than b";
 }
-?>
+?&gt
 
 There may be several elseifs within the same if statement. The first elseif expression (if any) that evaluates to TRUE would be executed. In PHP, you can also write 'else if' (in two words) and the behavior would be identical to the one of 'elseif' (in a single word). The syntactic meaning is slightly different (if you're familiar with C, this is the same behavior) but the bottom line is that both would result in exactly the same behavior.
 
@@ -4631,7 +4631,7 @@ The elseif statement is only executed if the preceding if expression and any pre
 
 Note: Note that elseif and else if will only be considered exactly the same when using curly brackets as in the above example. When using a colon to define your if/elseif conditions, you must not separate else if into two words, or PHP will fail with a parse error.
 
-<?php
+&lt?php
 
 /* Incorrect Method: */
 if ($a > $b):
@@ -4650,7 +4650,7 @@ else:
 echo $a." is neither greater than or equal to ".$b;
 endif;
 
-?>
+?&gt
 
 
 
@@ -4690,14 +4690,14 @@ endif;
 
 
 PHP offers an alternative syntax for some of its control structures; namely, if, while, for, foreach, and switch. In each case, the basic form of the alternate syntax is to change the opening brace to a colon (:) and the closing brace to endif;, endwhile;, endfor;, endforeach;, or endswitch;, respectively.
-<?php if ($a == 5): ?>
+&lt?php if ($a == 5): ?&gt
 A is equal to 5
-<?php endif; ?>
+&lt?php endif; ?&gt
 
 In the above example, the HTML block "A is equal to 5" is nested within an if statement written in the alternative syntax. The HTML block would be displayed only if $a is equal to 5.
 
 The alternative syntax applies to else and elseif as well. The following is an if structure with elseif and else in the alternative format:
-<?php
+&lt?php
 if ($a == 5):
 echo "a equals 5";
 echo "...";
@@ -4707,7 +4707,7 @@ echo "!!!";
 else:
 echo "a is neither 5 nor 6";
 endif;
-?>
+?&gt
 
 Note:
 
@@ -4716,16 +4716,16 @@ Mixing syntaxes in the same control block is not supported.
 Warning
 
 Any output (including whitespace) between a switch statement and the first case will result in a syntax error. For example, this is invalid:
-<?php switch ($foo): ?>
-<?php case 1: ?>
+&lt?php switch ($foo): ?&gt
+&lt?php case 1: ?&gt
 ...
-<?php endswitch ?>
+&lt?php endswitch ?&gt
 
-Whereas this is valid, as the trailing newline after the switch statement is considered part of the closing ?> and hence nothing is output between the switch and case:
-<?php switch ($foo): ?>
-<?php case 1: ?>
+Whereas this is valid, as the trailing newline after the switch statement is considered part of the closing ?&gt and hence nothing is output between the switch and case:
+&lt?php switch ($foo): ?&gt
+&lt?php case 1: ?&gt
 ...
-<?php endswitch ?>
+&lt?php endswitch ?&gt
 
 
 
@@ -4773,7 +4773,7 @@ statement
 endwhile;
 
 The following examples are identical, and both print the numbers 1 through 10:
-<?php
+&lt?php
 /* example 1 */
 
 $i = 1;
@@ -4790,7 +4790,7 @@ while ($i <= 10):
 echo $i;
 $i++;
 endwhile;
-?>
+?&gt
 
 
 
@@ -4823,17 +4823,17 @@ endwhile;
 do-while loops are very similar to while loops, except the truth expression is checked at the end of each iteration instead of in the beginning. The main difference from regular while loops is that the first iteration of a do-while loop is guaranteed to run (the truth expression is only checked at the end of the iteration), whereas it may not necessarily run with a regular while loop (the truth expression is checked at the beginning of each iteration, if it evaluates to FALSE right from the beginning, the loop execution would end immediately).
 
 There is just one syntax for do-while loops:
-<?php
+&lt?php
 $i = 0;
 do {
 echo $i;
 } while ($i > 0);
-?>
+?&gt
 
 The above loop would run one time exactly, since after the first iteration, when truth expression is checked, it evaluates to FALSE ($i is not bigger than 0) and the loop execution ends.
 
 Advanced C users may be familiar with a different usage of the do-while loop, to allow stopping execution in the middle of code blocks, by encapsulating them with do-while (0), and using the break statement. The following code fragment demonstrates this:
-<?php
+&lt?php
 do {
 if ($i < 5) {
 echo "i is not big enough";
@@ -4848,7 +4848,7 @@ echo "i is ok";
 /* process i */
 
 } while (0);
-?>
+?&gt
 
 
 
@@ -4895,7 +4895,7 @@ At the end of each iteration, expr3 is evaluated (executed).
 Each of the expressions can be empty or contain multiple expressions separated by commas. In expr2, all expressions separated by a comma are evaluated but the result is taken from the last part. expr2 being empty means the loop should be run indefinitely (PHP implicitly considers it as TRUE, like C). This may not be as useless as you might think, since often you'd want to end the loop using a conditional break statement instead of using the for truth expression.
 
 Consider the following examples. All of them display the numbers 1 through 10:
-<?php
+&lt?php
 /* example 1 */
 
 for ($i = 1; $i <= 10; $i++) {
@@ -4925,7 +4925,7 @@ $i++;
 /* example 4 */
 
 for ($i = 1, $j = 0; $i <= 10; $j += $i, print $i, $i++);
-?>
+?&gt
 
 Of course, the first example appears to be the nicest one (or perhaps the fourth), but you may find that being able to use empty expressions in for loops comes in handy in many occasions.
 
@@ -4938,7 +4938,7 @@ endfor;
 
 It's a common thing to many users to iterate through arrays like in the example below.
 
-<?php
+&lt?php
 /*
 * This is an array with some data we want to modify
 * when running through the for loop.
@@ -4951,11 +4951,11 @@ array('name' => 'Pierre', 'salt' => 215863)
 for($i = 0; $i < count($people); ++$i) {
 $people[$i]['salt'] = mt_rand(000000, 999999);
 }
-?>
+?&gt
 
 The above code can be slow, because the array size is fetched on every iteration. Since the size never changes, the loop be easily optimized by using an intermediate variable to store the size instead of repeatedly calling count():
 
-<?php
+&lt?php
 $people = array(
 array('name' => 'Kalle', 'salt' => 856412),
 array('name' => 'Pierre', 'salt' => 215863)
@@ -4964,7 +4964,7 @@ array('name' => 'Pierre', 'salt' => 215863)
 for($i = 0, $size = count($people); $i < $size; ++$i) {
 $people[$i]['salt'] = mt_rand(000000, 999999);
 }
-?>
+?&gt
 
 
 
@@ -5018,18 +5018,18 @@ As foreach relies on the internal array pointer in PHP 5, changing it within the
 In PHP 7, foreach does not use the internal array pointer.
 
 In order to be able to directly modify array elements within the loop precede $value with &. In that case the value will be assigned by reference.
-<?php
+&lt?php
 $arr = array(1, 2, 3, 4);
 foreach ($arr as &$value) {
 $value = $value * 2;
 }
 // $arr is now array(2, 4, 6, 8)
 unset($value); // break the reference with the last element
-?>
+?&gt
 Warning
 
 Reference of a $value and the last array element remain even after the foreach loop. It is recommended to destroy it by unset(). Otherwise you will experience the following behavior:
-<?php
+&lt?php
 $arr = array(1, 2, 3, 4);
 foreach ($arr as &$value) {
 $value = $value * 2;
@@ -5050,21 +5050,21 @@ print_r($arr);
 // 1 => 4 Array ( [0] => 2, [1] => 4, [2] => 6, [3] => 4 )
 // 2 => 6 Array ( [0] => 2, [1] => 4, [2] => 6, [3] => 6 )
 // 3 => 6 Array ( [0] => 2, [1] => 4, [2] => 6, [3] => 6 )
-?>
+?&gt
 
 Before PHP 5.5.0, referencing $value is only possible if the iterated array can be referenced (i.e. if it is a variable). The following code works only as of PHP 5.5.0:
-<?php
+&lt?php
 foreach (array(1, 2, 3, 4) as &$value) {
 $value = $value * 2;
 }
-?>
+?&gt
 
 Note:
 
 foreach does not support the ability to suppress error messages using '@'.
 
 Some more examples to demonstrate usage:
-<?php
+&lt?php
 /* foreach example 1: value only */
 
 $a = array(1, 2, 3, 17);
@@ -5115,7 +5115,7 @@ echo "$v2\n";
 foreach (array(1, 2, 3, 4, 5) as $v) {
 echo "$v\n";
 }
-?>
+?&gt
 Unpacking nested arrays with list() ¶
 
 (PHP 5 >= 5.5.0, PHP 7)
@@ -5123,7 +5123,7 @@ Unpacking nested arrays with list() ¶
 PHP 5.5 added the ability to iterate over an array of arrays and unpack the nested array into loop variables by providing a list() as the value.
 
 For example:
-<?php
+&lt?php
 $array = [
 [1, 2],
 [3, 4],
@@ -5134,7 +5134,7 @@ foreach ($array as list($a, $b)) {
 // and $b contains the second element.
 echo "A: $a; B: $b\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -5142,7 +5142,7 @@ A: 1; B: 2
 A: 3; B: 4
 
 You can provide fewer elements in the list() than there are in the nested array, in which case the leftover array values will be ignored:
-<?php
+&lt?php
 $array = [
 [1, 2],
 [3, 4],
@@ -5152,7 +5152,7 @@ foreach ($array as list($a)) {
 // Note that there is no $b here.
 echo "$a\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -5160,7 +5160,7 @@ The above example will output:
 3
 
 A notice will be generated if there aren't enough array elements to fill the list():
-<?php
+&lt?php
 $array = [
 [1, 2],
 [3, 4],
@@ -5169,7 +5169,7 @@ $array = [
 foreach ($array as list($a, $b, $c)) {
 echo "A: $a; B: $b; C: $c\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -5212,7 +5212,7 @@ break ends execution of the current for, foreach, while, do-while or switch stru
 
 break accepts an optional numeric argument which tells it how many nested enclosing structures are to be broken out of. The default value is 1, only the immediate enclosing structure is broken out of.
 
-<?php
+&lt?php
 $arr = array('one', 'two', 'three', 'four', 'stop', 'five');
 foreach ($arr as $val) {
 if ($val == 'stop') {
@@ -5236,7 +5236,7 @@ default:
  break;
 }
 }
-?>
+?&gt
 
 
 
@@ -5279,7 +5279,7 @@ Note: In PHP the switch statement is considered a looping structure for the purp
 
 continue accepts an optional numeric argument which tells it how many levels of enclosing loops it should skip to the end of. The default value is 1, thus skipping to the end of the current loop.
 
-<?php
+&lt?php
 foreach ($arr as $key => $value) {
 if (!($key % 2)) { // skip even members
 continue;
@@ -5300,17 +5300,17 @@ echo "This never gets output.<br />\n";
 }
 echo "Neither does this.<br />\n";
 }
-?>
+?&gt
 
 Omitting the semicolon after continue can lead to confusion. Here's an example of what you shouldn't do.
 
-<?php
+&lt?php
 for ($i = 0; $i < 5; ++$i) {
 if ($i == 2)
 continue
 print "$i\n";
 }
-?>
+?&gt
 
 One can expect the result to be:
 
@@ -5368,7 +5368,7 @@ Changelog Version 	Description
 The following two examples are two different ways to write the same thing, one using a series of if and elseif statements, and the other using the switch statement:
 
 Example #1 switch structure
-<?php
+&lt?php
 if ($i == 0) {
 echo "i equals 0";
 } elseif ($i == 1) {
@@ -5388,10 +5388,10 @@ case 2:
 echo "i equals 2";
 break;
 }
-?>
+?&gt
 
 Example #2 switch structure allows usage of strings
-<?php
+&lt?php
 switch ($i) {
 case "apple":
 echo "i is apple";
@@ -5403,10 +5403,10 @@ case "cake":
 echo "i is cake";
 break;
 }
-?>
+?&gt
 
 It is important to understand how the switch statement is executed in order to avoid mistakes. The switch statement executes line by line (actually, statement by statement). In the beginning, no code is executed. Only when a case statement is found whose expression evaluates to a value that matches the value of the switch expression does PHP begin to execute the statements. PHP continues to execute the statements until the end of the switch block, or the first time it sees a break statement. If you don't write a break statement at the end of a case's statement list, PHP will go on executing the statements of the following case. For example:
-<?php
+&lt?php
 switch ($i) {
 case 0:
 echo "i equals 0";
@@ -5415,14 +5415,14 @@ echo "i equals 1";
 case 2:
 echo "i equals 2";
 }
-?>
+?&gt
 
 Here, if $i is equal to 0, PHP would execute all of the echo statements! If $i is equal to 1, PHP would execute the last two echo statements. You would get the expected behavior ('i equals 2' would be displayed) only if $i is equal to 2. Thus, it is important not to forget break statements (even though you may want to avoid supplying them on purpose under certain circumstances).
 
 In a switch statement, the condition is evaluated only once and the result is compared to each case statement. In an elseif statement, the condition is evaluated again. If your condition is more complicated than a simple compare and/or is in a tight loop, a switch may be faster.
 
 The statement list for a case can also be empty, which simply passes control into the statement list for the next case.
-<?php
+&lt?php
 switch ($i) {
 case 0:
 case 1:
@@ -5432,10 +5432,10 @@ break;
 case 3:
 echo "i is 3";
 }
-?>
+?&gt
 
 A special case is the default case. This case matches anything that wasn't matched by the other cases. For example:
-<?php
+&lt?php
 switch ($i) {
 case 0:
 echo "i equals 0";
@@ -5449,10 +5449,10 @@ break;
 default:
 echo "i is not equal to 0, 1 or 2";
 }
-?>
+?&gt
 
 The alternative syntax for control structures is supported with switches. For more information, see Alternative syntax for control structures.
-<?php
+&lt?php
 switch ($i):
 case 0:
 echo "i equals 0";
@@ -5466,10 +5466,10 @@ break;
 default:
 echo "i is not equal to 0, 1 or 2";
 endswitch;
-?>
+?&gt
 
 It's possible to use a semicolon instead of a colon after a case like:
-<?php
+&lt?php
 switch($beer)
 {
 case 'tuborg';
@@ -5481,7 +5481,7 @@ default;
 echo 'Please make a new selection...';
 break;
 }
-?>
+?&gt
 
 
 
@@ -5518,19 +5518,19 @@ Version 	Description
 7.0.0 	Added strict_types directive
 
 As directives are handled as the file is being compiled, only literals may be given as directive values. Variables and constants cannot be used. To illustrate:
-<?php
+&lt?php
 // This is valid:
 declare(ticks=1);
 
 // This is invalid:
 const TICK_VALUE = 1;
 declare(ticks=TICK_VALUE);
-?>
+?&gt
 
 The statement part of the declare block will be executed - how it is executed and what side effects occur during execution may depend on the directive set in the directive block.
 
 The declare construct can also be used in the global scope, affecting all code following it (however if the file with declare was included then it does not affect the parent file).
-<?php
+&lt?php
 // these are the same:
 
 // you can use this:
@@ -5541,7 +5541,7 @@ declare(ticks=1) {
 // or you can use this:
 declare(ticks=1);
 // entire script here
-?>
+?&gt
 Ticks ¶
 
 A tick is an event that occurs for every N low-level tickable statements executed by the parser within the declare block. The value for N is specified using ticks=N within the declare block's directive section.
@@ -5551,7 +5551,7 @@ Not all statements are tickable. Typically, condition expressions and argument e
 The event(s) that occur on each tick are specified using the register_tick_function(). See the example below for more details. Note that more than one event can occur for each tick.
 
 Example #1 Tick usage example
-<?php
+&lt?php
 
 declare(ticks=1);
 
@@ -5570,10 +5570,10 @@ $a += 2;
 print($a);
 }
 
-?>
+?&gt
 
 Example #2 Ticks usage example
-<?php
+&lt?php
 
 function tick_handler()
 {
@@ -5591,7 +5591,7 @@ tick_handler();
 }
 tick_handler();
 
-?>
+?&gt
 
 See also register_tick_function() and unregister_tick_function().
 Encoding ¶
@@ -5599,10 +5599,10 @@ Encoding ¶
 A script's encoding can be specified per-script using the encoding directive.
 
 Example #3 Declaring an encoding for the script.
-<?php
+&lt?php
 declare(encoding='ISO-8859-1');
 // code here
-?>
+?&gt
 Caution
 
 When combined with namespaces, the only legal syntax for declare is declare(encoding='...'); where ... is the encoding value. declare(encoding='...') {} will result in a parse error when combined with namespaces.
@@ -5724,15 +5724,15 @@ When a file is included, the code it contains inherits the variable scope of the
 
 Example #1 Basic include example
 vars.php
-<?php
+&lt?php
 
 $color = 'green';
 $fruit = 'apple';
 
-?>
+?&gt
 
 test.php
-<?php
+&lt?php
 
 echo "A $color $fruit"; // A
 
@@ -5740,12 +5740,12 @@ include 'vars.php';
 
 echo "A $color $fruit"; // A green apple
 
-?>
+?&gt
 
 If the include occurs inside a function within the calling file, then all of the code contained in the called file will behave as though it had been defined inside that function. So, it will follow the variable scope of that function. An exception to this rule are magic constants which are evaluated by the parser before the include occurs.
 
 Example #2 Including within functions
-<?php
+&lt?php
 
 function foo()
 {
@@ -5764,14 +5764,14 @@ echo "A $color $fruit";
 foo();                    // A green apple
 echo "A $color $fruit";   // A green
 
-?>
+?&gt
 
 When a file is included, parsing drops out of PHP mode and into HTML mode at the beginning of the target file, and resumes again at the end. For this reason, any code inside the target file which should be executed as PHP code must be enclosed within valid PHP start and end tags.
 
 If "URL include wrappers" are enabled in PHP, you can specify the file to be included using a URL (via HTTP or other supported wrapper - see Supported Protocols and Wrappers for a list of protocols) instead of a local pathname. If the target server interprets the target file as PHP code, variables may be passed to the included file using a URL request string as used with HTTP GET. This is not strictly speaking the same thing as including the file and having it inherit the parent file's variable scope; the script is actually being run on the remote server and the result is then being included into the local script.
 
 Example #3 include through HTTP
-<?php
+&lt?php
 
 /* This example assumes that www.example.com is configured to parse .php
 * files and not .txt files. Also, 'Works' here means that the variables
@@ -5792,7 +5792,7 @@ $bar = 2;
 include 'file.txt';  // Works.
 include 'file.php';  // Works.
 
-?>
+?&gt
 Warning
 Security warning
 
@@ -5805,7 +5805,7 @@ Handling Returns: include returns FALSE on failure and raises a warning. Success
 Because include is a special language construct, parentheses are not needed around its argument. Take care when comparing return value.
 
 Example #4 Comparing return value of include
-<?php
+&lt?php
 // won't work, evaluated as include(('vars.php') == TRUE), i.e. include('')
 if (include('vars.php') == TRUE) {
 echo 'OK';
@@ -5815,27 +5815,27 @@ echo 'OK';
 if ((include 'vars.php') == TRUE) {
 echo 'OK';
 }
-?>
+?&gt
 
 Example #5 include and the return statement
 return.php
-<?php
+&lt?php
 
 $var = 'PHP';
 
 return $var;
 
-?>
+?&gt
 
 noreturn.php
-<?php
+&lt?php
 
 $var = 'PHP';
 
-?>
+?&gt
 
 testreturns.php
-<?php
+&lt?php
 
 $foo = include 'return.php';
 
@@ -5845,7 +5845,7 @@ $bar = include 'noreturn.php';
 
 echo $bar; // prints 1
 
-?>
+?&gt
 
 $bar is the value 1 because the include was successful. Notice the difference between the above examples. The first uses return within the included file while the other does not. If the file can't be included, FALSE is returned and E_WARNING is issued.
 
@@ -5854,7 +5854,7 @@ If there are functions defined in the included file, they can be used in the mai
 Another way to "include" a PHP file into a variable is to capture the output by using the Output Control Functions with include. For example:
 
 Example #6 Using output buffering to include a PHP file into a string
-<?php
+&lt?php
 $string = get_include_contents('somefile.php');
 
 function get_include_contents($filename) {
@@ -5866,7 +5866,7 @@ return ob_get_clean();
 return false;
 }
 
-?>
+?&gt
 
 In order to automatically include files within scripts, see also the auto_prepend_file and auto_append_file configuration options in php.ini.
 
@@ -5939,10 +5939,10 @@ Note:
 With PHP 4, _once functionality differs with case-insensitive operating systems (like Windows) so for example:
 
 Example #1 include_once with a case insensitive OS in PHP 4
-<?php
+&lt?php
 include_once "a.php"; // this will include a.php
 include_once "A.php"; // this will include a.php again! (PHP 4 only)
-?>
+?&gt
 
 This behaviour changed in PHP 5, so for example with Windows the path is normalized first so that C:\PROGRA~1\A.php is realized the same as C:\Program Files\a.php and the file is included just once.
 
@@ -5980,20 +5980,20 @@ This behaviour changed in PHP 5, so for example with Windows the path is normali
 The goto operator can be used to jump to another section in the program. The target point is specified by a label followed by a colon, and the instruction is given as goto followed by the desired target label. This is not a full unrestricted goto. The target label must be within the same file and context, meaning that you cannot jump out of a function or method, nor can you jump into one. You also cannot jump into any sort of loop or switch structure. You may jump out of these, and a common use is to use a goto in place of a multi-level break.
 
 Example #1 goto example
-<?php
+&lt?php
 goto a;
 echo 'Foo';
 
 a:
 echo 'Bar';
-?>
+?&gt
 
 The above example will output:
 
 Bar
 
 Example #2 goto loop example
-<?php
+&lt?php
 for($i=0,$j=50; $i<100; $i++) {
 while($j--) {
 if($j==17) goto end;
@@ -6002,14 +6002,14 @@ if($j==17) goto end;
 echo "i = $i";
 end:
 echo 'j hit 17';
-?>
+?&gt
 
 The above example will output:
 
 j hit 17
 
 Example #3 This will not work
-<?php
+&lt?php
 goto loop;
 for($i=0,$j=50; $i<100; $i++) {
 while($j--) {
@@ -6017,7 +6017,7 @@ loop:
 }
 }
 echo "$i = $i";
-?>
+?&gt
 
 The above example will output:
 
@@ -6057,13 +6057,13 @@ script on line 2
 A function may be defined using syntax such as the following:
 
 Example #1 Pseudo code to demonstrate function uses
-<?php
+&lt?php
 function foo($arg_1, $arg_2, /* ..., */ $arg_n)
 {
 echo "Example function.\n";
 return $retval;
 }
-?>
+?&gt
 
 Any valid PHP code may appear inside a function, even other functions and class definitions.
 
@@ -6077,7 +6077,7 @@ Functions need not be defined before they are referenced, except when a function
 When a function is defined in a conditional manner such as the two examples shown. Its definition must be processed prior to being called.
 
 Example #2 Conditional functions
-<?php
+&lt?php
 
 $makefoo = true;
 
@@ -6104,10 +6104,10 @@ function bar()
 echo "I exist immediately upon program start.\n";
 }
 
-?>
+?&gt
 
 Example #3 Functions within functions
-<?php
+&lt?php
 function foo()
 {
 function bar()
@@ -6127,7 +6127,7 @@ made it accessible. */
 
 bar();
 
-?>
+?&gt
 
 All functions and classes in PHP have the global scope - they can be called outside a function even if they were defined inside and vice versa.
 
@@ -6140,7 +6140,7 @@ Both variable number of arguments and default arguments are supported in functio
 It is possible to call recursive functions in PHP.
 
 Example #4 Recursive functions
-<?php
+&lt?php
 function recursion($a)
 {
 if ($a < 20) {
@@ -6148,7 +6148,7 @@ echo "$a\n";
 recursion($a + 1);
 }
 }
-?>
+?&gt
 
 
 
@@ -6184,12 +6184,12 @@ Information may be passed to functions via the argument list, which is a comma-d
 PHP supports passing arguments by value (the default), passing by reference, and default argument values. Variable-length argument lists are also supported.
 
 Example #1 Passing arrays to functions
-<?php
+&lt?php
 function takes_array($input)
 {
 echo "$input[0] + $input[1] = ", $input[0]+$input[1];
 }
-?>
+?&gt
 Passing arguments by reference ¶
 
 By default, function arguments are passed by value (so that if the value of the argument within the function is changed, it does not get changed outside of the function). To allow a function to modify its arguments, they must be passed by reference.
@@ -6197,7 +6197,7 @@ By default, function arguments are passed by value (so that if the value of the 
 To have an argument to a function always passed by reference, prepend an ampersand (&) to the argument name in the function definition:
 
 Example #2 Passing function parameters by reference
-<?php
+&lt?php
 function add_some_extra(&$string)
 {
 $string .= 'and something extra.';
@@ -6205,13 +6205,13 @@ $string .= 'and something extra.';
 $str = 'This is a string, ';
 add_some_extra($str);
 echo $str;    // outputs 'This is a string, and something extra.'
-?>
+?&gt
 Default argument values ¶
 
 A function may define C++-style default values for scalar arguments as follows:
 
 Example #3 Use of default parameters in functions
-<?php
+&lt?php
 function makecoffee($type = "cappuccino")
 {
 return "Making a cup of $type.\n";
@@ -6219,7 +6219,7 @@ return "Making a cup of $type.\n";
 echo makecoffee();
 echo makecoffee(null);
 echo makecoffee("espresso");
-?>
+?&gt
 
 The above example will output:
 
@@ -6230,7 +6230,7 @@ Making a cup of espresso.
 PHP also allows the use of arrays and the special type NULL as default values, for example:
 
 Example #4 Using non-scalar types as default values
-<?php
+&lt?php
 function makecoffee($types = array("cappuccino"), $coffeeMaker = NULL)
 {
 $device = is_null($coffeeMaker) ? "hands" : $coffeeMaker;
@@ -6238,21 +6238,21 @@ return "Making a cup of ".join(", ", $types)." with $device.\n";
 }
 echo makecoffee();
 echo makecoffee(array("cappuccino", "lavazza"), "teapot");
-?>
+?&gt
 
 The default value must be a constant expression, not (for example) a variable, a class member or a function call.
 
 Note that when using default arguments, any defaults should be on the right side of any non-default arguments; otherwise, things will not work as expected. Consider the following code snippet:
 
 Example #5 Incorrect usage of default function arguments
-<?php
+&lt?php
 function makeyogurt($type = "acidophilus", $flavour)
 {
 return "Making a bowl of $type $flavour.\n";
 }
 
 echo makeyogurt("raspberry");   // won't work as expected
-?>
+?&gt
 
 The above example will output:
 
@@ -6263,14 +6263,14 @@ Making a bowl of raspberry .
 Now, compare the above with this:
 
 Example #6 Correct usage of default function arguments
-<?php
+&lt?php
 function makeyogurt($flavour, $type = "acidophilus")
 {
 return "Making a bowl of $type $flavour.\n";
 }
 
 echo makeyogurt("raspberry");   // works as expected
-?>
+?&gt
 
 The above example will output:
 
@@ -6303,10 +6303,10 @@ Warning
 
 Aliases for the above scalar types are not supported. Instead, they are treated as class or interface names. For example, using boolean as a parameter or return type will require an argument or return value that is an instanceof the class or interface boolean, rather than of type bool:
 
-<?php
+&lt?php
 function test(boolean $param) {}
 test(true);
-?>
+?&gt
 
 The above example will output:
 
@@ -6316,7 +6316,7 @@ Fatal error: Uncaught TypeError: Argument 1 passed to test() must be an instance
 Examples ¶
 
 Example #7 Basic class type declaration
-<?php
+&lt?php
 class C {}
 class D extends C {}
 
@@ -6330,7 +6330,7 @@ echo get_class($c)."\n";
 f(new C);
 f(new D);
 f(new E);
-?>
+?&gt
 
 The above example will output:
 
@@ -6344,7 +6344,7 @@ Stack trace:
 thrown in - on line 8
 
 Example #8 Basic interface type declaration
-<?php
+&lt?php
 interface I { public function f(); }
 class C implements I { public function f() {} }
 
@@ -6357,7 +6357,7 @@ echo get_class($i)."\n";
 
 f(new C);
 f(new E);
-?>
+?&gt
 
 The above example will output:
 
@@ -6370,7 +6370,7 @@ Stack trace:
 thrown in - on line 8
 
 Example #9 Nullable type declaration
-<?php
+&lt?php
 class C {}
 
 function f(C $c = null) {
@@ -6379,7 +6379,7 @@ var_dump($c);
 
 f(new C);
 f(null);
-?>
+?&gt
 
 The above example will output:
 
@@ -6407,7 +6407,7 @@ Note:
 Strict typing is only defined for scalar type declarations, and as such, requires PHP 7.0.0 or later, as scalar type declarations were added in that version.
 
 Example #10 Strict typing
-<?php
+&lt?php
 declare(strict_types=1);
 
 function sum(int $a, int $b) {
@@ -6416,7 +6416,7 @@ return $a + $b;
 
 var_dump(sum(1, 2));
 var_dump(sum(1.5, 2.5));
-?>
+?&gt
 
 The above example will output:
 
@@ -6429,7 +6429,7 @@ Stack trace:
 thrown in - on line 4
 
 Example #11 Weak typing
-<?php
+&lt?php
 function sum(int $a, int $b) {
 return $a + $b;
 }
@@ -6438,7 +6438,7 @@ var_dump(sum(1, 2));
 
 // These will be coerced to integers: note the output below!
 var_dump(sum(1.5, 2.5));
-?>
+?&gt
 
 The above example will output:
 
@@ -6446,7 +6446,7 @@ int(3)
 int(3)
 
 Example #12 Catching TypeError
-<?php
+&lt?php
 declare(strict_types=1);
 
 function sum(int $a, int $b) {
@@ -6459,7 +6459,7 @@ var_dump(sum(1.5, 2.5));
 } catch (TypeError $e) {
 echo 'Error: '.$e->getMessage();
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -6474,7 +6474,7 @@ PHP has support for variable-length argument lists in user-defined functions. Th
 In PHP 5.6 and later, argument lists may include the ... token to denote that the function accepts a variable number of arguments. The arguments will be passed into the given variable as an array; for example:
 
 Example #13 Using ... to access variable arguments
-<?php
+&lt?php
 function sum(...$numbers) {
 $acc = 0;
 foreach ($numbers as $n) {
@@ -6484,7 +6484,7 @@ return $acc;
 }
 
 echo sum(1, 2, 3, 4);
-?>
+?&gt
 
 The above example will output:
 
@@ -6493,7 +6493,7 @@ The above example will output:
 You can also use ... when calling functions to unpack an array or Traversable variable or literal into the argument list:
 
 Example #14 Using ... to provide arguments
-<?php
+&lt?php
 function add($a, $b) {
 return $a + $b;
 }
@@ -6502,7 +6502,7 @@ echo add(...[1, 2])."\n";
 
 $a = [1, 2];
 echo add(...$a);
-?>
+?&gt
 
 The above example will output:
 
@@ -6514,7 +6514,7 @@ You may specify normal positional arguments before the ... token. In this case, 
 It is also possible to add a type hint before the ... token. If this is present, then all arguments captured by ... must be objects of the hinted class.
 
 Example #15 Type hinted variable arguments
-<?php
+&lt?php
 function total_intervals($unit, DateInterval ...$intervals) {
 $time = 0;
 foreach ($intervals as $interval) {
@@ -6529,7 +6529,7 @@ echo total_intervals('d', $a, $b).' days';
 
 // This will fail, since null isn't a DateInterval object.
 echo total_intervals('d', null);
-?>
+?&gt
 
 The above example will output:
 
@@ -6544,7 +6544,7 @@ No special syntax is required to note that a function is variadic; however acces
 The first example above would be implemented as follows in PHP 5.5 and earlier:
 
 Example #16 Accessing variable arguments in PHP 5.5 and earlier
-<?php
+&lt?php
 function sum() {
 $acc = 0;
 foreach (func_get_args() as $n) {
@@ -6554,7 +6554,7 @@ return $acc;
 }
 
 echo sum(1, 2, 3, 4);
-?>
+?&gt
 
 The above example will output:
 
@@ -6599,36 +6599,36 @@ If the return is omitted the value NULL will be returned.
 Use of return
 
 Example #1 Use of return
-<?php
+&lt?php
 function square($num)
 {
 return $num * $num;
 }
 echo square(4);   // outputs '16'.
-?>
+?&gt
 
 A function can not return multiple values, but similar results can be obtained by returning an array.
 
 Example #2 Returning an array to get multiple values
-<?php
+&lt?php
 function small_numbers()
 {
 return array (0, 1, 2);
 }
 list ($zero, $one, $two) = small_numbers();
-?>
+?&gt
 
 To return a reference from a function, use the reference operator & in both the function declaration and when assigning the returned value to a variable:
 
 Example #3 Returning a reference from a function
-<?php
+&lt?php
 function &returns_reference()
 {
 return $someref;
 }
 
 $newref =& returns_reference();
-?>
+?&gt
 
 For more information on references, please check out References Explained.
 Return type declarations ¶
@@ -6644,21 +6644,21 @@ When overriding a parent method, the child's method must match any return type d
 Examples ¶
 
 Example #4 Basic return type declaration
-<?php
+&lt?php
 function sum($a, $b): float {
 return $a + $b;
 }
 
 // Note that a float will be returned.
 var_dump(sum(1, 2));
-?>
+?&gt
 
 The above example will output:
 
 float(3)
 
 Example #5 Strict mode in action
-<?php
+&lt?php
 declare(strict_types=1);
 
 function sum($a, $b): int {
@@ -6667,7 +6667,7 @@ return $a + $b;
 
 var_dump(sum(1, 2));
 var_dump(sum(1, 2.5));
-?>
+?&gt
 
 The above example will output:
 
@@ -6680,7 +6680,7 @@ Stack trace:
 thrown in - on line 5
 
 Example #6 Returning an object
-<?php
+&lt?php
 class C {}
 
 function getC(): C {
@@ -6688,7 +6688,7 @@ return new C;
 }
 
 var_dump(getC());
-?>
+?&gt
 
 The above example will output:
 
@@ -6732,7 +6732,7 @@ PHP supports the concept of variable functions. This means that if a variable na
 Variable functions won't work with language constructs such as echo, print, unset(), isset(), empty(), include, require and the like. Utilize wrapper functions to make use of any of these constructs as variable functions.
 
 Example #1 Variable function example
-<?php
+&lt?php
 function foo() {
 echo "In foo()<br />\n";
 }
@@ -6756,12 +6756,12 @@ $func('test');  // This calls bar()
 
 $func = 'echoit';
 $func('test');  // This calls echoit()
-?>
+?&gt
 
 Object methods can also be called with the variable functions syntax.
 
 Example #2 Variable method example
-<?php
+&lt?php
 class Foo
 {
 function Variable()
@@ -6780,12 +6780,12 @@ $foo = new Foo();
 $funcname = "Variable";
 $foo->$funcname();  // This calls $foo->Variable()
 
-?>
+?&gt
 
 When calling static methods, the function call is stronger than the static property operator:
 
 Example #3 Variable method example with static properties
-<?php
+&lt?php
 class Foo
 {
 static $variable = 'static property';
@@ -6799,12 +6799,12 @@ echo Foo::$variable; // This prints 'static property'. It does need a $variable 
 $variable = "Variable";
 Foo::$variable();  // This calls $foo->Variable() reading $variable in this scope.
 
-?>
+?&gt
 
 As of PHP 5.4.0, you can call any callable stored in a variable.
 
 Example #4 Complex callables
-<?php
+&lt?php
 class Foo
 {
 static function bar()
@@ -6823,7 +6823,7 @@ $func = array(new Foo, "baz");
 $func(); // prints "baz"
 $func = "Foo::bar";
 $func(); // prints "bar" as of PHP 7.0.0; prior, it raised a fatal error
-?>
+?&gt
 
 
 
@@ -6897,17 +6897,17 @@ Anonymous functions, also known as closures, allow the creation of functions whi
 Anonymous functions are implemented using the Closure class.
 
 Example #1 Anonymous function example
-<?php
+&lt?php
 echo preg_replace_callback('~-([a-z])~', function ($match) {
 return strtoupper($match[1]);
 }, 'hello-world');
 // outputs helloWorld
-?>
+?&gt
 
 Closures can also be used as the values of variables; PHP automatically converts such expressions into instances of the Closure internal class. Assigning a closure to a variable uses the same syntax as any other assignment, including the trailing semicolon:
 
 Example #2 Anonymous function variable assignment example
-<?php
+&lt?php
 $greet = function($name)
 {
 printf("Hello %s\r\n", $name);
@@ -6915,12 +6915,12 @@ printf("Hello %s\r\n", $name);
 
 $greet('World');
 $greet('PHP');
-?>
+?&gt
 
 Closures may also inherit variables from the parent scope. Any such variables must be passed to the use language construct. From PHP 7.1, these variables must not include superglobals, $this, or variables with the same name as a parameter.
 
 Example #3 Inheriting variables from the parent scope
-<?php
+&lt?php
 $message = 'hello';
 
 // No "use"
@@ -6959,7 +6959,7 @@ $example = function ($arg) use ($message) {
 var_dump($arg . ' ' . $message);
 };
 $example("hello");
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -6974,7 +6974,7 @@ string(11) "hello world"
 Inheriting variables from the parent scope is not the same as using global variables. Global variables exist in the global scope, which is the same no matter what function is executing. The parent scope of a closure is the function in which the closure was declared (not necessarily the function it was called from). See the following example:
 
 Example #4 Closures and scoping
-<?php
+&lt?php
 // A basic shopping cart which contains a list of added products
 // and the quantity of each product. Includes a method which
 // calculates the total price of the items in the cart using a
@@ -7025,10 +7025,10 @@ $my_cart->add('eggs', 6);
 // Print the total with a 5% sales tax.
 print $my_cart->getTotal(0.05) . "\n";
 // The result is 54.29
-?>
+?&gt
 
 Example #5 Automatic binding of $this
-<?php
+&lt?php
 
 class Test
 {
@@ -7044,7 +7044,7 @@ $object = new Test;
 $function = $object->testing();
 $function();
 
-?>
+?&gt
 
 The above example will output:
 
@@ -7062,7 +7062,7 @@ Static anonymous functions ¶
 As of PHP 5.4, anonymous functions may be declared statically. This prevents them from having the current class automatically bound to them. Objects may also not be bound to them at runtime.
 
 Example #6 Attempting to use $this inside a static anonymous function
-<?php
+&lt?php
 
 class Foo
 {
@@ -7076,7 +7076,7 @@ $func();
 };
 new Foo();
 
-?>
+?&gt
 
 The above example will output:
 
@@ -7084,7 +7084,7 @@ Notice: Undefined variable: this in %s on line %d
 NULL
 
 Example #7 Attempting to bind an object to a static anonymous function
-<?php
+&lt?php
 
 $func = static function() {
 // function body
@@ -7092,7 +7092,7 @@ $func = static function() {
 $func = $func->bindTo(new StdClass);
 $func();
 
-?>
+?&gt
 
 The above example will output:
 
@@ -7170,7 +7170,7 @@ The class name can be any valid label, provided it is not a PHP reserved word. A
 A class may contain its own constants, variables (called "properties"), and functions (called "methods").
 
 Example #1 Simple Class definition
-<?php
+&lt?php
 class SimpleClass
 {
 // property declaration
@@ -7181,14 +7181,14 @@ public function displayVar() {
 echo $this->var;
 }
 }
-?>
+?&gt
 
 The pseudo-variable $this is available when a method is called from within an object context. $this is a reference to the calling object (usually the object to which the method belongs, but possibly another object, if the method is called statically from the context of a secondary object). As of PHP 7.0.0 calling a non-static method statically from an incompatible context results in $this being undefined inside the method. Calling a non-static method statically from an incompatible context has been deprecated as of PHP 5.6.0. As of PHP 7.0.0 calling a non-static method statically has been generally deprecated (even if called from a compatible context). Before PHP 5.6.0 such calls already triggered a strict notice.
 
 Example #2 Some examples of the $this pseudo-variable
 
 We're assuming that error_reporting is disabled for this example; otherwise the following code would trigger deprecated and strict notices, respectively, depending on the PHP version.
-<?php
+&lt?php
 class A
 {
 function foo()
@@ -7220,7 +7220,7 @@ $b = new B();
 $b->bar();
 
 B::bar();
-?>
+?&gt
 
 Output of the above example in PHP 5:
 
@@ -7243,20 +7243,20 @@ To create an instance of a class, the new keyword must be used. An object will a
 If a string containing the name of a class is used with new, a new instance of that class will be created. If the class is in a namespace, its fully qualified name must be used when doing this.
 
 Example #3 Creating an instance
-<?php
+&lt?php
 $instance = new SimpleClass();
 
 // This can also be done with a variable:
 $className = 'SimpleClass';
 $instance = new $className(); // new SimpleClass()
-?>
+?&gt
 
 In the class context, it is possible to create a new object by new self and new parent.
 
 When assigning an already created instance of a class to a new variable, the new variable will access the same instance as the object that was assigned. This behaviour is the same when passing instances to a function. A copy of an already created object can be made by cloning it.
 
 Example #4 Object Assignment
-<?php
+&lt?php
 
 $instance = new SimpleClass();
 
@@ -7270,7 +7270,7 @@ $instance = null; // $instance and $reference become null
 var_dump($instance);
 var_dump($reference);
 var_dump($assigned);
-?>
+?&gt
 
 The above example will output:
 
@@ -7284,7 +7284,7 @@ string(30) "$assigned will have this value"
 PHP 5.3.0 introduced a couple of new ways to create instances of an object:
 
 Example #5 Creating new objects
-<?php
+&lt?php
 class Test
 {
 static public function getNew()
@@ -7305,7 +7305,7 @@ var_dump($obj3 instanceof Test);
 
 $obj4 = Child::getNew();
 var_dump($obj4 instanceof Child);
-?>
+?&gt
 
 The above example will output:
 
@@ -7316,9 +7316,9 @@ bool(true)
 PHP 5.4.0 introduced the possibility to access a member of a newly created object in a single expression:
 
 Example #6 Access member of newly created object
-<?php
+&lt?php
 echo (new DateTime())->format('Y');
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -7329,7 +7329,7 @@ Properties and methods ¶
 Class properties and methods live in separate "namespaces", so it is possible to have a property and a method with the same name. Referring to both a property and a method has the same notation, and whether a property will be accessed or a method will be called, solely depends on the context, i.e. whether the usage is a variable access or a function call.
 
 Example #7 Property access vs. method call
-<?php
+&lt?php
 class Foo
 {
 public $bar = 'property';
@@ -7350,7 +7350,7 @@ method
 That means that calling an anonymous function which has been assigned to a property is not directly possible. Instead the property has to be assigned to a variable first, for instance. As of PHP 7.0.0 it is possible to call such a property directly by enclosing it in parentheses.
 
 Example #8 Calling an anonymous function stored in a property
-<?php
+&lt?php
 class Foo
 {
 public $bar;
@@ -7384,7 +7384,7 @@ The inherited methods and properties can be overridden by redeclaring them with 
 When overriding methods, the parameter signature should remain the same or PHP will generate an E_STRICT level error. This does not apply to the constructor, which allows overriding with different parameters.
 
 Example #9 Simple Class Inheritance
-<?php
+&lt?php
 class ExtendClass extends SimpleClass
 {
 // Redefine the parent method
@@ -7397,7 +7397,7 @@ parent::displayVar();
 
 $extended = new ExtendClass();
 $extended->displayVar();
-?>
+?&gt
 
 The above example will output:
 
@@ -7409,14 +7409,14 @@ a default value
 Since PHP 5.5, the class keyword is also used for class name resolution. You can get a string containing the fully qualified name of the ClassName class by using ClassName::class. This is particularly useful with namespaced classes.
 
 Example #10 Class name resolution
-<?php
+&lt?php
 namespace NS {
 class ClassName {
 }
 
 echo ClassName::class;
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -7471,7 +7471,7 @@ Within class methods non-static properties may be accessed by using -> (Object O
 The pseudo-variable $this is available inside any class method when that method is called from within an object context. $this is a reference to the calling object (usually the object to which the method belongs, but possibly another object, if the method is called statically from the context of a secondary object).
 
 Example #1 property declarations
-<?php
+&lt?php
 class SimpleClass
 {
 // valid as of PHP 5.6.0:
@@ -7495,7 +7495,7 @@ public $var8 = <<<'EOD'
 hello world
 EOD;
 }
-?>
+?&gt
 
 Note:
 
@@ -7504,7 +7504,7 @@ There are some nice functions to handle classes and objects. You might want to t
 As of PHP 5.3.0 heredocs and nowdocs can be used in any static data context, including property declarations.
 
 Example #2 Example of using a nowdoc to initialize a property
-<?php
+&lt?php
 class foo {
 // As of PHP 5.3.0
 public $bar = <<<'EOT'
@@ -7514,7 +7514,7 @@ public $baz = <<<EOT
 baz
 EOT;
 }
-?>
+?&gt
 
 
 
@@ -7556,7 +7556,7 @@ As of PHP 5.3.0, it's possible to reference the class using a variable. The vari
 Note that class constants are allocated once per class, and not for each class instance.
 
 Example #1 Defining and using a constant
-<?php
+&lt?php
 class MyClass
 {
 const CONSTANT = 'constant value';
@@ -7575,10 +7575,10 @@ $class = new MyClass();
 $class->showConstant();
 
 echo $class::CONSTANT."\n"; // As of PHP 5.3.0
-?>
+?&gt
 
 Example #2 Static data example
-<?php
+&lt?php
 class foo {
 // As of PHP 5.3.0
 const BAR = <<<'EOT'
@@ -7589,7 +7589,7 @@ const BAZ = <<<EOT
 baz
 EOT;
 }
-?>
+?&gt
 
 Note:
 
@@ -7598,17 +7598,17 @@ Support for initializing constants with Heredoc and Nowdoc syntax was added in P
 The special ::class constant is available as of PHP 5.5.0, and allows for fully qualified class name resolution at compile time, this is useful for namespaced classes:
 
 Example #3 Namespaced ::class example
-<?php
+&lt?php
 namespace foo {
 class bar {
 }
 
 echo bar::class; // foo\bar
 }
-?>
+?&gt
 
 Example #4 Constant expression example
-<?php
+&lt?php
 const ONE = 1;
 
 class foo {
@@ -7617,7 +7617,7 @@ const TWO = ONE * 2;
 const THREE = ONE + self::TWO;
 const SENTENCE = 'The value of THREE is '.self::THREE;
 }
-?>
+?&gt
 
 It is possible to provide a scalar expression involving numeric and string literals and/or constants in context of a class constant.
 
@@ -7626,7 +7626,7 @@ Note:
 Constant expression support was added in PHP 5.6.0.
 
 Example #5 Class constant visibility modifiers
-<?php
+&lt?php
 class Foo {
 // As of PHP 7.1.0
 public const BAR = 'bar';
@@ -7634,7 +7634,7 @@ private const BAZ = 'baz';
 }
 echo Foo::BAR, PHP_EOL;
 echo Foo::BAZ, PHP_EOL;
-?>
+?&gt
 
 Output of the above example in PHP 7.1:
 
@@ -7693,19 +7693,19 @@ If the class name is used e.g. in call_user_func() then it can contain some dang
 Example #1 Autoload example
 
 This example attempts to load the classes MyClass1 and MyClass2 from the files MyClass1.php and MyClass2.php respectively.
-<?php
+&lt?php
 spl_autoload_register(function ($class_name) {
 include $class_name . '.php';
 });
 
 $obj  = new MyClass1();
 $obj2 = new MyClass2();
-?>
+?&gt
 
 Example #2 Autoload other example
 
 This example attempts to load the interface ITest.
-<?php
+&lt?php
 
 spl_autoload_register(function ($name) {
 var_dump($name);
@@ -7719,12 +7719,12 @@ string(5) "ITest"
 
 Fatal error: Interface 'ITest' not found in ...
 */
-?>
+?&gt
 
 Example #3 Autoloading with exception handling for 5.3.0+
 
 This example throws an exception and demonstrates the try/catch block.
-<?php
+&lt?php
 spl_autoload_register(function ($name) {
 echo "Want to load $name.\n";
 throw new Exception("Unable to load $name.");
@@ -7735,7 +7735,7 @@ $obj = new NonLoadableClass();
 } catch (Exception $e) {
 echo $e->getMessage(), "\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -7745,7 +7745,7 @@ Unable to load NonLoadableClass.
 Example #4 Autoloading with exception handling for 5.3.0+ - Missing custom exception
 
 This example throws an exception for a non-loadable, custom exception.
-<?php
+&lt?php
 spl_autoload_register(function ($name) {
 echo "Want to load $name.\n";
 throw new MissingException("Unable to load $name.");
@@ -7756,7 +7756,7 @@ $obj = new NonLoadableClass();
 } catch (Exception $e) {
 echo $e->getMessage(), "\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -7801,7 +7801,7 @@ PHP 5 allows developers to declare constructor methods for classes. Classes whic
 Note: Parent constructors are not called implicitly if the child class defines a constructor. In order to run a parent constructor, a call to parent::__construct() within the child constructor is required. If the child does not define a constructor then it may be inherited from the parent class just like a normal class method (if it was not declared as private).
 
 Example #1 using new unified constructors
-<?php
+&lt?php
 class BaseClass {
 function __construct() {
 print "In BaseClass constructor\n";
@@ -7828,7 +7828,7 @@ $obj = new SubClass();
 
 // In BaseClass constructor
 $obj = new OtherSubClass();
-?>
+?&gt
 
 For backwards compatibility with PHP 3 and 4, if PHP cannot find a __construct() function for a given class, it will search for the old-style constructor function, by the name of the class. Effectively, it means that the only case that would have compatibility issues is if the class had a method named __construct() which was used for different semantics.
 Warning
@@ -7840,7 +7840,7 @@ Unlike with other methods, PHP will not generate an E_STRICT level error message
 As of PHP 5.3.3, methods with the same name as the last element of a namespaced class name will no longer be treated as constructor. This change doesn't affect non-namespaced classes.
 
 Example #2 Constructors in namespaced classes
-<?php
+&lt?php
 namespace Foo;
 class Bar {
 public function Bar() {
@@ -7848,14 +7848,14 @@ public function Bar() {
 // treated as regular method as of PHP 5.3.3
 }
 }
-?>
+?&gt
 Destructor ¶
 void __destruct ( void )
 
 PHP 5 introduces a destructor concept similar to that of other object-oriented languages, such as C++. The destructor method will be called as soon as there are no other references to a particular object, or in any order during the shutdown sequence.
 
 Example #3 Destructor Example
-<?php
+&lt?php
 
 class MyDestructableClass
 {
@@ -7916,7 +7916,7 @@ Property Visibility ¶
 Class properties must be defined as public, private, or protected. If declared using var, the property will be defined as public.
 
 Example #1 Property declaration
-<?php
+&lt?php
 /**
 * Define MyClass
 */
@@ -7964,7 +7964,7 @@ echo $obj2->protected; // Fatal Error
 echo $obj2->private; // Undefined
 $obj2->printHello(); // Shows Public2, Protected2, Undefined
 
-?>
+?&gt
 
 Note: The PHP 4 method of declaring a variable with the var keyword is still supported for compatibility reasons (as a synonym for the public keyword). In PHP 5 before 5.1.3, its usage would generate an E_STRICT warning.
 
@@ -7973,7 +7973,7 @@ Method Visibility ¶
 Class methods may be defined as public, private, or protected. Methods declared without any explicit visibility keyword are defined as public.
 
 Example #2 Method Declaration
-<?php
+&lt?php
 /**
 * Define MyClass
 */
@@ -8055,13 +8055,13 @@ echo "Foo::testPrivate\n";
 $myFoo = new Foo();
 $myFoo->test(); // Bar::testPrivate
         // Foo::testPublic
-?>
+?&gt
 Constant Visibility ¶
 
 As of PHP 7.1.0, class constants may be defined as public, private, or protected. Constants declared without any explicit visibility keyword are defined as public.
 
 Example #3 Constant Declaration as of PHP 7.1.0
-<?php
+&lt?php
 /**
 * Define MyClass
 */
@@ -8108,13 +8108,13 @@ echo self::MY_PRIVATE; // Fatal Error
 $myclass2 = new MyClass2;
 echo MyClass2::MY_PUBLIC; // Works
 $myclass2->foo2(); // Public and Protected work, not Private
-?>
+?&gt
 Visibility from other objects ¶
 
 Objects of the same type will have access to each others private and protected members even though they are not the same instances. This is because the implementation specific details are already known when inside those objects.
 
 Example #4 Accessing private members of the same object type
-<?php
+&lt?php
 class Test
 {
 private $foo;
@@ -8143,7 +8143,7 @@ $other->bar();
 $test = new Test('test');
 
 $test->baz(new Test('other'));
-?>
+?&gt
 
 The above example will output:
 
@@ -8190,7 +8190,7 @@ Note:
 Unless autoloading is used, then classes must be defined before they are used. If a class extends another, then the parent class must be declared before the child class structure. This rule applies to classes that inherit other classes and interfaces.
 
 Example #1 Inheritance Example
-<?php
+&lt?php
 
 class Foo
 {
@@ -8220,7 +8220,7 @@ $foo->printPHP();       // Output: 'PHP is great'
 $bar->printItem('baz'); // Output: 'Bar: baz'
 $bar->printPHP();       // Output: 'PHP is great'
 
-?>
+?&gt
 
 
 
@@ -8263,7 +8263,7 @@ As of PHP 5.3.0, it's possible to reference the class using a variable. The vari
 Paamayim Nekudotayim would, at first, seem like a strange choice for naming a double-colon. However, while writing the Zend Engine 0.5 (which powers PHP 3), that's what the Zend team decided to call it. It actually does mean double-colon - in Hebrew!
 
 Example #1 :: from outside the class definition
-<?php
+&lt?php
 class MyClass {
 const CONST_VALUE = 'A constant value';
 }
@@ -8272,12 +8272,12 @@ $classname = 'MyClass';
 echo $classname::CONST_VALUE; // As of PHP 5.3.0
 
 echo MyClass::CONST_VALUE;
-?>
+?&gt
 
 Three special keywords self, parent and static are used to access properties or methods from inside the class definition.
 
 Example #2 :: from inside the class definition
-<?php
+&lt?php
 class OtherClass extends MyClass
 {
 public static $my_static = 'static var';
@@ -8292,12 +8292,12 @@ $classname = 'OtherClass';
 $classname::doubleColon(); // As of PHP 5.3.0
 
 OtherClass::doubleColon();
-?>
+?&gt
 
 When an extending class overrides the parents definition of a method, PHP will not call the parent's method. It's up to the extended class on whether or not the parent's method is called. This also applies to Constructors and Destructors, Overloading, and Magic method definitions.
 
 Example #3 Calling a parent's method
-<?php
+&lt?php
 class MyClass
 {
 protected function myFunc() {
@@ -8318,7 +8318,7 @@ echo "OtherClass::myFunc()\n";
 
 $class = new OtherClass();
 $class->myFunc();
-?>
+?&gt
 
 
 
@@ -8364,7 +8364,7 @@ Warning
 In PHP 7, calling non-static methods statically is deprecated, and will generate an E_DEPRECATED warning. Support for calling non-static methods statically may be removed in the future.
 
 Example #1 Static method example
-<?php
+&lt?php
 class Foo {
 public static function aStaticMethod() {
 // ...
@@ -8374,7 +8374,7 @@ public static function aStaticMethod() {
 Foo::aStaticMethod();
 $classname = 'Foo';
 $classname::aStaticMethod(); // As of PHP 5.3.0
-?>
+?&gt
 Static properties ¶
 
 Static properties cannot be accessed through the object using the arrow operator ->.
@@ -8384,7 +8384,7 @@ Like any other PHP static variable, static properties may only be initialized us
 As of PHP 5.3.0, it's possible to reference the class using a variable. The variable's value cannot be a keyword (e.g. self, parent and static).
 
 Example #2 Static property example
-<?php
+&lt?php
 class Foo
 {
 public static $my_static = 'foo';
@@ -8415,7 +8415,7 @@ print $classname::$my_static . "\n"; // As of PHP 5.3.0
 print Bar::$my_static . "\n";
 $bar = new Bar();
 print $bar->fooStatic() . "\n";
-?>
+?&gt
 
 
 
@@ -8451,7 +8451,7 @@ PHP 5 introduces abstract classes and methods. Classes defined as abstract may n
 When inheriting from an abstract class, all methods marked abstract in the parent's class declaration must be defined by the child; additionally, these methods must be defined with the same (or a less restricted) visibility. For example, if the abstract method is defined as protected, the function implementation must be defined as either protected or public, but not private. Furthermore the signatures of the methods must match, i.e. the type hints and the number of required arguments must be the same. For example, if the child class defines an optional argument, where the abstract method's signature does not, there is no conflict in the signature. This also applies to constructors as of PHP 5.4. Before 5.4 constructor signatures could differ.
 
 Example #1 Abstract class example
-<?php
+&lt?php
 abstract class AbstractClass
 {
 // Force Extending class to define this method
@@ -8493,7 +8493,7 @@ echo $class1->prefixValue('FOO_') ."\n";
 $class2 = new ConcreteClass2;
 $class2->printOut();
 echo $class2->prefixValue('FOO_') ."\n";
-?>
+?&gt
 
 The above example will output:
 
@@ -8503,7 +8503,7 @@ ConcreteClass2
 FOO_ConcreteClass2
 
 Example #2 Abstract class example
-<?php
+&lt?php
 abstract class AbstractClass
 {
 // Our abstract method only needs to define the required arguments
@@ -8530,7 +8530,7 @@ return "{$prefix}{$separator} {$name}";
 $class = new ConcreteClass;
 echo $class->prefixName("Pacman"), "\n";
 echo $class->prefixName("Pacwoman"), "\n";
-?>
+?&gt
 
 The above example will output:
 
@@ -8597,7 +8597,7 @@ It's possible for interfaces to have constants. Interface constants work exactly
 Examples ¶
 
 Example #1 Interface example
-<?php
+&lt?php
 
 // Declare the interface 'iTemplate'
 interface iTemplate
@@ -8639,10 +8639,10 @@ public function setVariable($name, $var)
 $this->vars[$name] = $var;
 }
 }
-?>
+?&gt
 
 Example #2 Extendable Interfaces
-<?php
+&lt?php
 interface a
 {
 public function foo();
@@ -8676,10 +8676,10 @@ public function baz(Foo $foo)
 {
 }
 }
-?>
+?&gt
 
 Example #3 Multiple interface inheritance
-<?php
+&lt?php
 interface a
 {
 public function foo();
@@ -8709,10 +8709,10 @@ public function baz()
 {
 }
 }
-?>
+?&gt
 
 Example #4 Interfaces with constants
-<?php
+&lt?php
 interface a
 {
 const b = 'Interface constant';
@@ -8728,7 +8728,7 @@ class b implements a
 {
 const b = 'Class constant';
 }
-?>
+?&gt
 
 An interface, together with type-hinting, provides a good way to make sure that a particular object contains particular methods. See instanceof operator and type hinting.
 
@@ -8772,7 +8772,7 @@ Traits are a mechanism for code reuse in single inheritance languages such as PH
 A Trait is similar to a class, but only intended to group functionality in a fine-grained and consistent way. It is not possible to instantiate a Trait on its own. It is an addition to traditional inheritance and enables horizontal composition of behavior; that is, the application of class members without requiring inheritance.
 
 Example #1 Trait example
-<?php
+&lt?php
 trait ezcReflectionReturnInfo {
 function getReturnType() { /*1*/ }
 function getReturnDescription() { /*2*/ }
@@ -8787,7 +8787,7 @@ class ezcReflectionFunction extends ReflectionFunction {
 use ezcReflectionReturnInfo;
 /* ... */
 }
-?>
+?&gt
 Precedence ¶
 
 An inherited member from a base class is overridden by a member inserted by a Trait. The precedence order is that members from the current class override Trait methods, which in turn override inherited methods.
@@ -8795,7 +8795,7 @@ An inherited member from a base class is overridden by a member inserted by a Tr
 Example #2 Precedence Order Example
 
 An inherited method from a base class is overridden by the method inserted into MyHelloWorld from the SayWorld Trait. The behavior is the same for methods defined in the MyHelloWorld class. The precedence order is that methods from the current class override Trait methods, which in turn override methods from the base class.
-<?php
+&lt?php
 class Base {
 public function sayHello() {
 echo 'Hello ';
@@ -8815,14 +8815,14 @@ use SayWorld;
 
 $o = new MyHelloWorld();
 $o->sayHello();
-?>
+?&gt
 
 The above example will output:
 
 Hello World!
 
 Example #3 Alternate Precedence Order Example
-<?php
+&lt?php
 trait HelloWorld {
 public function sayHello() {
 echo 'Hello World!';
@@ -8838,7 +8838,7 @@ echo 'Hello Universe!';
 
 $o = new TheWorldIsNotEnough();
 $o->sayHello();
-?>
+?&gt
 
 The above example will output:
 
@@ -8849,7 +8849,7 @@ Multiple Traits ¶
 Multiple Traits can be inserted into a class by listing them in the use statement, separated by commas.
 
 Example #4 Multiple Traits Usage
-<?php
+&lt?php
 trait Hello {
 public function sayHello() {
 echo 'Hello ';
@@ -8873,7 +8873,7 @@ $o = new MyHelloWorld();
 $o->sayHello();
 $o->sayWorld();
 $o->sayExclamationMark();
-?>
+?&gt
 
 The above example will output:
 
@@ -8892,7 +8892,7 @@ Example #5 Conflict Resolution
 In this example, Talker uses the traits A and B. Since A and B have conflicting methods, it defines to use the variant of smallTalk from trait B, and the variant of bigTalk from trait A.
 
 The Aliased_Talker makes use of the as operator to be able to use B's bigTalk implementation under an additional alias talk.
-<?php
+&lt?php
 trait A {
 public function smallTalk() {
 echo 'a';
@@ -8925,7 +8925,7 @@ A::bigTalk insteadof B;
 B::bigTalk as talk;
 }
 }
-?>
+?&gt
 
 Note:
 
@@ -8936,7 +8936,7 @@ Changing Method Visibility ¶
 Using the as syntax, one can also adjust the visibility of the method in the exhibiting class.
 
 Example #6 Changing Method Visibility
-<?php
+&lt?php
 trait HelloWorld {
 public function sayHello() {
 echo 'Hello World!';
@@ -8953,13 +8953,13 @@ use HelloWorld { sayHello as protected; }
 class MyClass2 {
 use HelloWorld { sayHello as private myPrivateHello; }
 }
-?>
+?&gt
 Traits Composed from Traits ¶
 
 Just as classes can make use of traits, so can other traits. By using one or more traits in a trait definition, it can be composed partially or entirely of the members defined in those other traits.
 
 Example #7 Traits Composed from Traits
-<?php
+&lt?php
 trait Hello {
 public function sayHello() {
 echo 'Hello ';
@@ -8983,7 +8983,7 @@ use HelloWorld;
 $o = new MyHelloWorld();
 $o->sayHello();
 $o->sayWorld();
-?>
+?&gt
 
 The above example will output:
 
@@ -8994,7 +8994,7 @@ Abstract Trait Members ¶
 Traits support the use of abstract methods in order to impose requirements upon the exhibiting class.
 
 Example #8 Express Requirements by Abstract Methods
-<?php
+&lt?php
 trait Hello {
 public function sayHelloWorld() {
 echo 'Hello'.$this->getWorld();
@@ -9012,13 +9012,13 @@ public function setWorld($val) {
 $this->world = $val;
 }
 }
-?>
+?&gt
 Static Trait Members ¶
 
 Traits can define both static members and static methods.
 
 Example #9 Static Variables
-<?php
+&lt?php
 trait Counter {
 public function inc() {
 static $c = 0;
@@ -9037,10 +9037,10 @@ use Counter;
 
 $o = new C1(); $o->inc(); // echo 1
 $p = new C2(); $p->inc(); // echo 1
-?>
+?&gt
 
 Example #10 Static Methods
-<?php
+&lt?php
 trait StaticExample {
 public static function doSomething() {
 return 'Doing something';
@@ -9052,13 +9052,13 @@ use StaticExample;
 }
 
 Example::doSomething();
-?>
+?&gt
 Properties ¶
 
 Traits can also define properties.
 
 Example #11 Defining Properties
-<?php
+&lt?php
 trait PropertiesTrait {
 public $x = 1;
 }
@@ -9069,12 +9069,12 @@ use PropertiesTrait;
 
 $example = new PropertiesExample;
 $example->x;
-?>
+?&gt
 
 If a trait defines a property then a class can not define a property with the same name unless it is compatible (same visibility and initial value), otherwise a fatal error is issued. Before PHP 7.0.0, defining a property in the class with the same visibility and initial value as in the trait, raised an E_STRICT notice.
 
 Example #12 Conflict Resolution
-<?php
+&lt?php
 trait PropertiesTrait {
 public $same = true;
 public $different = false;
@@ -9085,7 +9085,7 @@ use PropertiesTrait;
 public $same = true; // Allowed as of PHP 7.0.0; E_STRICT notice formerly
 public $different = true; // Fatal error
 }
-?>
+?&gt
 
 
 
@@ -9118,7 +9118,7 @@ public $different = true; // Fatal error
 
 
 Support for anonymous classes was added in PHP 7. Anonymous classes are useful when simple, one-off objects need to be created.
-<?php
+&lt?php
 
 // Pre PHP 7 code
 class Logger
@@ -9140,7 +9140,7 @@ echo $msg;
 });
 
 They can pass arguments through to their constructors, extend other classes, implement interfaces, and use traits just like a normal class can:
-<?php
+&lt?php
 
 class SomeClass {}
 interface SomeInterface {}
@@ -9165,7 +9165,7 @@ int(10)
 }
 
 Nesting an anonymous class within another class does not give it access to any private or protected methods or properties of that outer class. In order to use the outer class' protected properties or methods, the anonymous class can extend the outer class. To use the private properties of the outer class in the anonymous class, they must be passed through its constructor:
-<?php
+&lt?php
 
 class Outer
 {
@@ -9202,7 +9202,7 @@ The above example will output:
 6
 
 All objects created by the same anonymous class declaration are instances of that very class.
-<?php
+&lt?php
 function anonymous_class()
 {
 return new class {};
@@ -9221,7 +9221,7 @@ same class
 Note:
 
 Note that anonymous classes are assigned a name by the engine, as demonstrated in the following example. This name has to be regarded an implementation detail, which should not be relied upon.
-<?php
+&lt?php
 echo get_class(new class {});
 
 The above example will output something similar to:
@@ -9304,7 +9304,7 @@ The return value of __set() is ignored because of the way PHP processes the assi
 $a = $obj->b = 8;
 
 Example #1 Overloading properties via the __get(), __set(), __isset() and __unset() methods
-<?php
+&lt?php
 class PropertyTest
 {
 /**  Location for overloaded data.  */
@@ -9379,7 +9379,7 @@ echo "Privates are visible inside the class, so __get() not used...\n";
 echo $obj->getHidden() . "\n";
 echo "Privates not visible outside of class, so __get() is used...\n";
 echo $obj->hidden . "\n";
-?>
+?&gt
 
 The above example will output:
 
@@ -9415,7 +9415,7 @@ __callStatic() is triggered when invoking inaccessible methods in a static conte
 The $name argument is the name of the method being called. The $arguments argument is an enumerated array containing the parameters passed to the $name'ed method.
 
 Example #2 Overloading methods via the __call() and __callStatic() methods
-<?php
+&lt?php
 class MethodTest
 {
 public function __call($name, $arguments)
@@ -9438,7 +9438,7 @@ $obj = new MethodTest;
 $obj->runTest('in object context');
 
 MethodTest::runTest('in static context');  // As of PHP 5.3.0
-?>
+?&gt
 
 The above example will output:
 
@@ -9478,7 +9478,7 @@ Calling static method 'runTest' in static context
 PHP 5 provides a way for objects to be defined so it is possible to iterate through a list of items, with, for example a foreach statement. By default, all visible properties will be used for the iteration.
 
 Example #1 Simple Object Iteration
-<?php
+&lt?php
 class MyClass
 {
 public $var1 = 'value 1';
@@ -9506,7 +9506,7 @@ echo "\n";
 
 $class->iterateVisible();
 
-?>
+?&gt
 
 The above example will output:
 
@@ -9526,7 +9526,7 @@ As the output shows, the foreach iterated through all of the visible properties 
 To take it a step further, the Iterator interface may be implemented. This allows the object to dictate how it will be iterated and what values will be available on each iteration.
 
 Example #2 Object Iteration implementing Iterator
-<?php
+&lt?php
 class MyIterator implements Iterator
 {
 private $var = array();
@@ -9581,7 +9581,7 @@ $it = new MyIterator($values);
 foreach ($it as $a => $b) {
 print "$a: $b\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -9606,7 +9606,7 @@ valid:
 The IteratorAggregate interface can be used as an alternative to implementing all of the Iterator methods. IteratorAggregate only requires the implementation of a single method, IteratorAggregate::getIterator(), which should return an instance of a class implementing Iterator.
 
 Example #3 Object Iteration implementing IteratorAggregate
-<?php
+&lt?php
 class MyCollection implements IteratorAggregate
 {
 private $items = array();
@@ -9630,7 +9630,7 @@ $coll->add('value 3');
 foreach ($coll as $key => $val) {
 echo "key/value: [$key -> $val]\n\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -9710,7 +9710,7 @@ Conversely, unserialize() checks for the presence of a function with the magic n
 The intended use of __wakeup() is to reestablish any database connections that may have been lost during serialization and perform other reinitialization tasks.
 
 Example #1 Sleep and wakeup
-<?php
+&lt?php
 class Connection
 {
 protected $link;
@@ -9738,7 +9738,7 @@ public function __wakeup()
 {
 $this->connect();
 }
-}?>
+}?&gt
 __toString() ¶
 public string __toString ( void )
 
@@ -9748,7 +9748,7 @@ Warning
 You cannot throw an exception from within a __toString() method. Doing so will result in a fatal error.
 
 Example #2 Simple example
-<?php
+&lt?php
 // Declare a simple class
 class TestClass
 {
@@ -9767,7 +9767,7 @@ return $this->foo;
 
 $class = new TestClass('Hello');
 echo $class;
-?>
+?&gt
 
 The above example will output:
 
@@ -9784,7 +9784,7 @@ Note:
 This feature is available since PHP 5.3.0.
 
 Example #3 Using __invoke()
-<?php
+&lt?php
 class CallableClass
 {
 public function __invoke($x)
@@ -9795,7 +9795,7 @@ var_dump($x);
 $obj = new CallableClass;
 $obj(5);
 var_dump(is_callable($obj));
-?>
+?&gt
 
 The above example will output:
 
@@ -9810,7 +9810,7 @@ This static method is called for classes exported by var_export() since PHP 5.1.
 The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
 
 Example #4 Using __set_state() (since PHP 5.1.0)
-<?php
+&lt?php
 
 class A
 {
@@ -9836,7 +9836,7 @@ eval('$b = ' . var_export($a, true) . ';'); // $b = A::__set_state(array(
                                    // ));
 var_dump($b);
 
-?>
+?&gt
 
 The above example will output:
 
@@ -9857,7 +9857,7 @@ This method is called by var_dump() when dumping an object to get the properties
 This feature was added in PHP 5.6.0.
 
 Example #5 Using __debugInfo()
-<?php
+&lt?php
 class C {
 private $prop;
 
@@ -9873,7 +9873,7 @@ return [
 }
 
 var_dump(new C(42));
-?>
+?&gt
 
 The above example will output:
 
@@ -9914,7 +9914,7 @@ int(1764)
 PHP 5 introduces the final keyword, which prevents child classes from overriding a method by prefixing the definition with final. If the class itself is being defined final then it cannot be extended.
 
 Example #1 Final methods example
-<?php
+&lt?php
 class BaseClass {
 public function test() {
 echo "BaseClass::test() called\n";
@@ -9931,10 +9931,10 @@ echo "ChildClass::moreTesting() called\n";
 }
 }
 // Results in Fatal error: Cannot override final method BaseClass::moreTesting()
-?>
+?&gt
 
 Example #2 Final class example
-<?php
+&lt?php
 final class BaseClass {
 public function test() {
 echo "BaseClass::test() called\n";
@@ -9949,7 +9949,7 @@ echo "BaseClass::moreTesting() called\n";
 class ChildClass extends BaseClass {
 }
 // Results in Fatal error: Class ChildClass may not inherit from final class (BaseClass)
-?>
+?&gt
 
 Note: Properties cannot be declared final, only classes and methods may be declared as final.
 
@@ -9997,7 +9997,7 @@ void __clone ( void )
 Once the cloning is complete, if a __clone() method is defined, then the newly created object's __clone() method will be called, to allow any necessary properties that need to be changed.
 
 Example #1 Cloning an object
-<?php
+&lt?php
 class SubObject
 {
 static $instances = 0;
@@ -10039,7 +10039,7 @@ print_r($obj);
 print("Cloned Object:\n");
 print_r($obj2);
 
-?>
+?&gt
 
 The above example will output:
 
@@ -10075,10 +10075,10 @@ MyCloneable Object
 PHP 7.0.0 introduced the possibility to access a member of a freshly cloned object in a single expression:
 
 Example #2 Access member of freshly cloned object
-<?php
+&lt?php
 $dateTime = new DateTime();
 echo (clone $dateTime)->format('Y');
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -10120,7 +10120,7 @@ When using the identity operator (===), object variables are identical if and on
 An example will clarify these rules.
 
 Example #1 Example of object comparison in PHP 5
-<?php
+&lt?php
 function bool2str($bool)
 {
 if ($bool === false) {
@@ -10169,7 +10169,7 @@ compareObjects($o, $q);
 
 echo "\nInstances of two different classes\n";
 compareObjects($o, $r);
-?>
+?&gt
 
 The above example will output:
 
@@ -10243,10 +10243,10 @@ Warning
 
 Aliases for the above scalar types are not supported. Instead, they are treated as class or interface names. For example, using boolean as a parameter or return type will require an argument or return value that is an instanceof the class or interface boolean, rather than of type bool:
 
-<?php
+&lt?php
 function test(boolean $param) {}
 test(true);
-?>
+?&gt
 
 The above example will output:
 
@@ -10292,7 +10292,7 @@ Limitations of self:: ¶
 Static references to the current class like self:: or __CLASS__ are resolved using the class in which the function belongs, as in where it was defined:
 
 Example #1 self:: usage
-<?php
+&lt?php
 class A {
 public static function who() {
 echo __CLASS__;
@@ -10309,7 +10309,7 @@ echo __CLASS__;
 }
 
 B::test();
-?>
+?&gt
 
 The above example will output:
 
@@ -10320,7 +10320,7 @@ Late Static Bindings' usage ¶
 Late static bindings tries to solve that limitation by introducing a keyword that references the class that was initially called at runtime. Basically, a keyword that would allow you to reference B from test() in the previous example. It was decided not to introduce a new keyword but rather use static that was already reserved.
 
 Example #2 static:: simple usage
-<?php
+&lt?php
 class A {
 public static function who() {
 echo __CLASS__;
@@ -10337,7 +10337,7 @@ echo __CLASS__;
 }
 
 B::test();
-?>
+?&gt
 
 The above example will output:
 
@@ -10348,7 +10348,7 @@ Note:
 In non-static contexts, the called class will be the class of the object instance. Since $this-> will try to call private methods from the same scope, using static:: may give different results. Another difference is that static:: can only refer to static properties.
 
 Example #3 static:: usage in a non-static context
-<?php
+&lt?php
 class A {
 private function foo() {
 echo "success!\n";
@@ -10374,7 +10374,7 @@ $b = new B();
 $b->test();
 $c = new C();
 $c->test();   //fails
-?>
+?&gt
 
 The above example will output:
 
@@ -10390,7 +10390,7 @@ Note:
 Late static bindings' resolution will stop at a fully resolved static call with no fallback. On the other hand, static calls using keywords like parent:: or self:: will forward the calling information.
 
 Example #4 Forwarding and non-forwarding calls
-<?php
+&lt?php
 class A {
 public static function foo() {
     static::who();
@@ -10419,7 +10419,7 @@ public static function who() {
 }
 
 C::test();
-?>
+?&gt
 
 The above example will output:
 
@@ -10463,7 +10463,7 @@ One of the key-points of PHP 5 OOP that is often mentioned is that "objects are 
 A PHP reference is an alias, which allows two different variables to write to the same value. As of PHP 5, an object variable doesn't contain the object itself as value anymore. It only contains an object identifier which allows object accessors to find the actual object. When an object is sent by argument, returned or assigned to another variable, the different variables are not aliases: they hold a copy of the identifier, which points to the same object.
 
 Example #1 References and Objects
-<?php
+&lt?php
 class A {
 public $foo = 1;
 }
@@ -10493,7 +10493,7 @@ $obj->foo = 2;
 foo($e);
 echo $e->foo."\n";
 
-?>
+?&gt
 
 The above example will output:
 
@@ -10537,7 +10537,7 @@ The above example will output:
 serialize() returns a string containing a byte-stream representation of any value that can be stored in PHP. unserialize() can use this string to recreate the original variable values. Using serialize to save an object will save all variables in an object. The methods in an object will not be saved, only the name of the class.
 
 In order to be able to unserialize() an object, the class of that object needs to be defined. That is, if you have an object of class A and serialize this, you'll get a string that refers to class A and contains all values of variables contained in it. If you want to be able to unserialize this in another file, an object of class A, the definition of class A must be present in that file first. This can be done for example by storing the class definition of class A in an include file and including this file or making use of the spl_autoload_register() function.
-<?php
+&lt?php
 // classa.inc:
 
 class A {
@@ -10567,7 +10567,7 @@ $a = unserialize($s);
 
 // now use the function show_one() of the $a object.
 $a->show_one();
-?>
+?&gt
 
 If an application is using sessions and uses session_register() to register objects, these objects are serialized automatically at the end of each PHP page, and are unserialized automatically on each of the following pages. This means that these objects can show up on any of the application's pages once they become part of the session. However, the session_register() is removed since PHP 5.4.0.
 
@@ -10676,7 +10676,7 @@ Ability to alias (or shorten) Extra_Long_Names designed to alleviate the first p
 PHP Namespaces provide a way in which to group related classes, interfaces, functions and constants. Here is an example of namespace syntax in PHP:
 
 Example #1 Namespace syntax example
-<?php
+&lt?php
 namespace my\name; // see "Defining Namespaces" section
 
 class MyClass {}
@@ -10693,7 +10693,7 @@ $d = namespace\MYCONST; // see "namespace operator and __NAMESPACE__
              // constant" section
 $d = __NAMESPACE__ . '\MYCONST';
 echo constant($d); // see "Namespaces and dynamic language features" section
-?>
+?&gt
 
 Note: Namespace names are case-insensitive.
 
@@ -10734,21 +10734,21 @@ Although any valid PHP code can be contained within a namespace, only the follow
 Namespaces are declared using the namespace keyword. A file containing a namespace must declare the namespace at the top of the file before any other code - with one exception: the declare keyword.
 
 Example #1 Declaring a single namespace
-<?php
+&lt?php
 namespace MyProject;
 
 const CONNECT_OK = 1;
 class Connection { /* ... */ }
 function connect() { /* ... */ }
 
-?>
+?&gt
 The only code construct allowed before a namespace declaration is the declare statement, for defining encoding of a source file. In addition, no non-PHP code may precede a namespace declaration, including extra whitespace:
 
 Example #2 Declaring a single namespace
 <html>
-<?php
+&lt?php
 namespace MyProject; // fatal error - namespace must be the first statement in the script
-?>
+?&gt
 
 In addition, unlike any other PHP construct, the same namespace may be defined in multiple files, allowing splitting up of a namespace's contents across the filesystem.
 
@@ -10784,14 +10784,14 @@ In addition, unlike any other PHP construct, the same namespace may be defined i
 Much like directories and files, PHP namespaces also contain the ability to specify a hierarchy of namespace names. Thus, a namespace name can be defined with sub-levels:
 
 Example #1 Declaring a single namespace with hierarchy
-<?php
+&lt?php
 namespace MyProject\Sub\Level;
 
 const CONNECT_OK = 1;
 class Connection { /* ... */ }
 function connect() { /* ... */  }
 
-?>
+?&gt
 The above example creates constant MyProject\Sub\Level\CONNECT_OK, class MyProject\Sub\Level\Connection and function MyProject\Sub\Level\connect.
 
 
@@ -10826,7 +10826,7 @@ The above example creates constant MyProject\Sub\Level\CONNECT_OK, class MyProje
 Multiple namespaces may also be declared in the same file. There are two allowed syntaxes.
 
 Example #1 Declaring multiple namespaces, simple combination syntax
-<?php
+&lt?php
 namespace MyProject;
 
 const CONNECT_OK = 1;
@@ -10838,12 +10838,12 @@ namespace AnotherProject;
 const CONNECT_OK = 1;
 class Connection { /* ... */ }
 function connect() { /* ... */  }
-?>
+?&gt
 
 This syntax is not recommended for combining namespaces into a single file. Instead it is recommended to use the alternate bracketed syntax.
 
 Example #2 Declaring multiple namespaces, bracketed syntax
-<?php
+&lt?php
 namespace MyProject {
 
 const CONNECT_OK = 1;
@@ -10857,14 +10857,14 @@ const CONNECT_OK = 1;
 class Connection { /* ... */ }
 function connect() { /* ... */  }
 }
-?>
+?&gt
 
 It is strongly discouraged as a coding practice to combine multiple namespaces into the same file. The primary use case is to combine multiple PHP scripts into the same file.
 
 To combine global non-namespaced code with namespaced code, only bracketed syntax is supported. Global code should be encased in a namespace statement with no namespace name as in:
 
 Example #3 Declaring multiple namespaces and unnamespaced code
-<?php
+&lt?php
 namespace MyProject {
 
 const CONNECT_OK = 1;
@@ -10877,12 +10877,12 @@ session_start();
 $a = MyProject\connect();
 echo MyProject\Connection::start();
 }
-?>
+?&gt
 
 No PHP code may exist outside of the namespace brackets except for an opening declare statement.
 
 Example #4 Declaring multiple namespaces and unnamespaced code
-<?php
+&lt?php
 declare(encoding='UTF-8');
 namespace MyProject {
 
@@ -10896,7 +10896,7 @@ session_start();
 $a = MyProject\connect();
 echo MyProject\Connection::start();
 }
-?>
+?&gt
 
 
 
@@ -10941,7 +10941,7 @@ Fully qualified name, or a prefixed name with global prefix operator like $a = n
 Here is an example of the three kinds of syntax in actual code:
 
 file1.php
-<?php
+&lt?php
 namespace Foo\Bar\subnamespace;
 
 const FOO = 1;
@@ -10950,10 +10950,10 @@ class foo
 {
 static function staticmethod() {}
 }
-?>
+?&gt
 
 file2.php
-<?php
+&lt?php
 namespace Foo\Bar;
 include 'file1.php';
 
@@ -10979,12 +10979,12 @@ echo subnamespace\FOO; // resolves to constant Foo\Bar\subnamespace\FOO
 \Foo\Bar\foo(); // resolves to function Foo\Bar\foo
 \Foo\Bar\foo::staticmethod(); // resolves to class Foo\Bar\foo, method staticmethod
 echo \Foo\Bar\FOO; // resolves to constant Foo\Bar\FOO
-?>
+?&gt
 
 Note that to access any global class, function or constant, a fully qualified name can be used, such as \strlen() or \Exception or \INI_ALL.
 
 Example #1 Accessing global classes, functions and constants from within a namespace
-<?php
+&lt?php
 namespace Foo;
 
 function strlen() {}
@@ -10994,7 +10994,7 @@ class Exception {}
 $a = \strlen('hi'); // calls global function strlen
 $b = \INI_ALL; // accesses global constant INI_ALL
 $c = new \Exception('error'); // instantiates global class Exception
-?>
+?&gt
 
 
 
@@ -11032,7 +11032,7 @@ PHP's implementation of namespaces is influenced by its dynamic nature as a prog
 Example #1 Dynamically accessing elements
 
 example1.php:
-<?php
+&lt?php
 class classname
 {
 function __construct()
@@ -11051,11 +11051,11 @@ $obj = new $a; // prints classname::__construct
 $b = 'funcname';
 $b(); // prints funcname
 echo constant('constname'), "\n"; // prints global
-?>
+?&gt
 One must use the fully qualified name (class name with namespace prefix). Note that because there is no difference between a qualified and a fully qualified Name inside a dynamic class name, function name, or constant name, the leading backslash is not necessary.
 
 Example #2 Dynamically accessing namespaced elements
-<?php
+&lt?php
 namespace namespacename;
 class classname
 {
@@ -11081,7 +11081,7 @@ $b = '\namespacename\funcname';
 $b(); // also prints namespacename\funcname
 echo constant('\namespacename\constname'), "\n"; // prints namespaced
 echo constant('namespacename\constname'), "\n"; // also prints namespaced
-?>
+?&gt
 
 Be sure to read the note about escaping namespace names in strings.
 
@@ -11121,21 +11121,21 @@ PHP supports two ways of abstractly accessing elements within the current namesp
 The value of __NAMESPACE__ is a string that contains the current namespace name. In global, un-namespaced code, it contains an empty string.
 
 Example #1 __NAMESPACE__ example, namespaced code
-<?php
+&lt?php
 namespace MyProject;
 
 echo '"', __NAMESPACE__, '"'; // outputs "MyProject"
-?>
+?&gt
 
 Example #2 __NAMESPACE__ example, global code
-<?php
+&lt?php
 
 echo '"', __NAMESPACE__, '"'; // outputs ""
-?>
+?&gt
 The __NAMESPACE__ constant is useful for dynamically constructing names, for instance:
 
 Example #3 using __NAMESPACE__ for dynamic name construction
-<?php
+&lt?php
 namespace MyProject;
 
 function get($classname)
@@ -11143,12 +11143,12 @@ function get($classname)
 $a = __NAMESPACE__ . '\\' . $classname;
 return new $a;
 }
-?>
+?&gt
 
 The namespace keyword can be used to explicitly request an element from the current namespace or a sub-namespace. It is the namespace equivalent of the self operator for classes.
 
 Example #4 the namespace operator, inside a namespace
-<?php
+&lt?php
 namespace MyProject;
 
 use blah\blah as mine; // see "Using namespaces: Aliasing/Importing"
@@ -11161,17 +11161,17 @@ namespace\sub\func(); // calls function MyProject\sub\func()
 namespace\cname::method(); // calls static method "method" of class MyProject\cname
 $a = new namespace\sub\cname(); // instantiates object of class MyProject\sub\cname
 $b = namespace\CONSTANT; // assigns value of constant MyProject\CONSTANT to $b
-?>
+?&gt
 
 Example #5 the namespace operator, in global code
-<?php
+&lt?php
 
 namespace\func(); // calls function func()
 namespace\sub\func(); // calls function sub\func()
 namespace\cname::method(); // calls static method "method" of class cname
 $a = new namespace\sub\cname(); // instantiates object of class sub\cname
 $b = namespace\CONSTANT; // assigns value of constant CONSTANT to $b
-?>
+?&gt
 
 
 
@@ -11210,7 +11210,7 @@ All versions of PHP that support namespaces support three kinds of aliasing or i
 In PHP, aliasing is accomplished with the use operator. Here is an example showing all 5 kinds of importing:
 
 Example #1 importing/aliasing with the use operator
-<?php
+&lt?php
 namespace foo;
 use My\Full\Classname as Another;
 
@@ -11236,47 +11236,47 @@ $a = new ArrayObject(array(1)); // instantiates object of class ArrayObject
 // without the "use ArrayObject" we would instantiate an object of class foo\ArrayObject
 func(); // calls function My\Full\functionName
 echo CONSTANT; // echoes the value of My\Full\CONSTANT
-?>
+?&gt
 Note that for namespaced names (fully qualified namespace names containing namespace separator, such as Foo\Bar as opposed to global names that do not, such as FooBar), the leading backslash is unnecessary and not recommended, as import names must be fully qualified, and are not processed relative to the current namespace.
 
 PHP additionally supports a convenience shortcut to place multiple use statements on the same line
 
 Example #2 importing/aliasing with the use operator, multiple use statements combined
-<?php
+&lt?php
 use My\Full\Classname as Another, My\Full\NSname;
 
 $obj = new Another; // instantiates object of class My\Full\Classname
 NSname\subns\func(); // calls function My\Full\NSname\subns\func
-?>
+?&gt
 
 Importing is performed at compile-time, and so does not affect dynamic class, function or constant names.
 
 Example #3 Importing and dynamic names
-<?php
+&lt?php
 use My\Full\Classname as Another, My\Full\NSname;
 
 $obj = new Another; // instantiates object of class My\Full\Classname
 $a = 'Another';
 $obj = new $a;      // instantiates object of class Another
-?>
+?&gt
 
 In addition, importing only affects unqualified and qualified names. Fully qualified names are absolute, and unaffected by imports.
 
 Example #4 Importing and fully qualified names
-<?php
+&lt?php
 use My\Full\Classname as Another, My\Full\NSname;
 
 $obj = new Another; // instantiates object of class My\Full\Classname
 $obj = new \Another; // instantiates object of class Another
 $obj = new Another\thing; // instantiates object of class My\Full\Classname\thing
 $obj = new \Another\thing; // instantiates object of class Another\thing
-?>
+?&gt
 Scoping rules for importing ¶
 
 The use keyword must be declared in the outermost scope of a file (the global scope) or inside namespace declarations. This is because the importing is done at compile time and not runtime, so it cannot be block scoped. The following example will show an illegal use of the use keyword:
 
 Example #5 Illegal importing rule
-<?php
+&lt?php
 namespace Languages;
 
 function toGreenlandic()
@@ -11285,7 +11285,7 @@ use Languages\Danish;
 
 // ...
 }
-?>
+?&gt
 
 Note:
 
@@ -11294,7 +11294,7 @@ Importing rules are per file basis, meaning included files will NOT inherit the 
 Group use declarations ¶
 
 From PHP 7.0 onwards, classes, functions and constants being imported from the same namespace can be grouped together in a single use statement.
-<?php
+&lt?php
 
 // Pre PHP 7 code
 use some\namespace\ClassA;
@@ -11350,7 +11350,7 @@ use const some\namespace\{ConstA, ConstB, ConstC};
 Without any namespace definition, all class and function definitions are placed into the global space - as it was in PHP before namespaces were supported. Prefixing a name with \ will specify that the name is required from the global space even in the context of the namespace.
 
 Example #1 Using global space specification
-<?php
+&lt?php
 namespace A\B\C;
 
 /* This function is A\B\C\fopen */
@@ -11359,7 +11359,7 @@ function fopen() {
 $f = \fopen(...); // call global fopen
 return $f;
 }
-?>
+?&gt
 
 
 
@@ -11393,7 +11393,7 @@ return $f;
 Inside a namespace, when PHP encounters an unqualified Name in a class name, function or constant context, it resolves these with different priorities. Class names always resolve to the current namespace name. Thus to access internal or non-namespaced user classes, one must refer to them with their fully qualified Name as in:
 
 Example #1 Accessing global classes inside a namespace
-<?php
+&lt?php
 namespace A\B\C;
 class Exception extends \Exception {}
 
@@ -11401,12 +11401,12 @@ $a = new Exception('hi'); // $a is an object of class A\B\C\Exception
 $b = new \Exception('hi'); // $b is an object of class Exception
 
 $c = new ArrayObject; // fatal error, class A\B\C\ArrayObject not found
-?>
+?&gt
 
 For functions and constants, PHP will fall back to global functions or constants if a namespaced function or constant does not exist.
 
 Example #2 global functions/constants fallback inside a namespace
-<?php
+&lt?php
 namespace A\B\C;
 
 const E_ERROR = 45;
@@ -11424,7 +11424,7 @@ echo "is array\n";
 } else {
 echo "is not array\n";
 }
-?>
+?&gt
 
 
 
@@ -11483,7 +11483,7 @@ It looks for a function from the current namespace: A\B\foo().
 It tries to find and call the global function foo().
 
 Example #1 Name resolutions illustrated
-<?php
+&lt?php
 namespace A;
 use B\D, C\E as F;
 
@@ -11541,7 +11541,7 @@ A\B::foo();   // calls method "foo" of class "B" from namespace "A\A"
 
 \A\B::foo();  // calls method "foo" of class "B" from namespace "A"
    // if class "A\B" not found, it tries to autoload class "A\B"
-?>
+?&gt
 
 
 
@@ -11580,20 +11580,20 @@ If I don't use namespaces, should I care about any of this? ¶
 No. Namespaces do not affect any existing code in any way, or any as-yet-to-be-written code that does not contain namespaces. You can write this code if you wish:
 
 Example #1 Accessing global classes outside a namespace
-<?php
+&lt?php
 $a = new \stdClass;
-?>
+?&gt
 
 This is functionally equivalent to:
 
 Example #2 Accessing global classes outside a namespace
-<?php
+&lt?php
 $a = new stdClass;
-?>
+?&gt
 How do I use internal or global classes in a namespace? ¶
 
 Example #3 Accessing internal classes in namespaces
-<?php
+&lt?php
 namespace foo;
 $a = new \stdClass;
 
@@ -11603,11 +11603,11 @@ $a = \DirectoryIterator::CURRENT_AS_FILEINFO;
 
 // extending an internal or global class
 class MyException extends \Exception {}
-?>
+?&gt
 How do I use namespaces classes, functions, or constants in their own namespace? ¶
 
 Example #4 Accessing internal classes, functions or constants in namespaces
-<?php
+&lt?php
 namespace foo;
 
 class MyClass {}
@@ -11625,18 +11625,18 @@ $a = \globalfunc();
 
 // accessing a global constant
 $b = \INI_ALL;
-?>
+?&gt
 How does a name like \my\name or \name resolve? ¶
 
 Names that begin with a \ always resolve to what they look like, so \my\name is in fact my\name, and \Exception is Exception.
 
 Example #5 Fully Qualified names
-<?php
+&lt?php
 namespace foo;
 $a = new \my\name(); // instantiates "my\name" class
 echo \strlen('hi'); // calls function "strlen"
 $a = \INI_ALL; // $a is set to the value of constant "INI_ALL"
-?>
+?&gt
 How does a name like my\name resolve? ¶
 
 Names that contain a backslash but do not begin with a backslash like my\name can be resolved in 2 different ways.
@@ -11646,7 +11646,7 @@ If there is an import statement that aliases another name to my, then the import
 Otherwise, the current namespace name is prepended to my\name.
 
 Example #6 Qualified names
-<?php
+&lt?php
 namespace foo;
 use blah\blah as foo;
 
@@ -11654,7 +11654,7 @@ $a = new my\name(); // instantiates "foo\my\name" class
 foo\bar::name(); // calls static method "name" in class "blah\blah\bar"
 my\bar(); // calls function "foo\my\bar"
 $a = my\BAR; // sets $a to the value of constant "foo\my\BAR"
-?>
+?&gt
 How does an unqualified class name like name resolve? ¶
 
 Class names that do not contain a backslash like name can be resolved in 2 different ways.
@@ -11664,13 +11664,13 @@ If there is an import statement that aliases another name to name, then the impo
 Otherwise, the current namespace name is prepended to name.
 
 Example #7 Unqualified class names
-<?php
+&lt?php
 namespace foo;
 use blah\blah as foo;
 
 $a = new name(); // instantiates "foo\name" class
 foo::name(); // calls static method "name" in class "blah\blah"
-?>
+?&gt
 How does an unqualified function name or unqualified constant name like name resolve? ¶
 
 Function or constant names that do not contain a backslash like name can be resolved in 2 different ways.
@@ -11680,7 +11680,7 @@ First, the current namespace name is prepended to name.
 Finally, if the constant or function name does not exist in the current namespace, a global constant or function name is used if it exists.
 
 Example #8 Unqualified function or constant names
-<?php
+&lt?php
 namespace foo;
 use blah\blah as foo;
 
@@ -11703,103 +11703,103 @@ $c = foo(); // calls function "foo\foo" - import is not applied
 
 $a = FOO; // sets $a to value of constant "foo\FOO" - import is not applied
 $b = INI_ALL; // sets $b to value of global constant "INI_ALL"
-?>
+?&gt
 Import names cannot conflict with classes defined in the same file. ¶
 
 The following script combinations are legal:
 
 file1.php
-<?php
+&lt?php
 namespace my\stuff;
 class MyClass {}
-?>
+?&gt
 
 another.php
-<?php
+&lt?php
 namespace another;
 class thing {}
-?>
+?&gt
 
 file2.php
-<?php
+&lt?php
 namespace my\stuff;
 include 'file1.php';
 include 'another.php';
 
 use another\thing as MyClass;
 $a = new MyClass; // instantiates class "thing" from namespace another
-?>
+?&gt
 
 There is no name conflict, even though the class MyClass exists within the my\stuff namespace, because the MyClass definition is in a separate file. However, the next example causes a fatal error on name conflict because MyClass is defined in the same file as the use statement.
-<?php
+&lt?php
 namespace my\stuff;
 use another\thing as MyClass;
 class MyClass {} // fatal error: MyClass conflicts with import statement
 $a = new MyClass;
-?>
+?&gt
 Nested namespaces are not allowed. ¶
 
 PHP does not allow nesting namespaces
-<?php
+&lt?php
 namespace my\stuff {
 namespace nested {
 class foo {}
 }
 }
-?>
+?&gt
 However, it is easy to simulate nested namespaces like so:
-<?php
+&lt?php
 namespace my\stuff\nested {
 class foo {}
 }
-?>
+?&gt
 Before PHP 5.6 neither functions nor constants can be imported via the use statement. ¶
 
 Before PHP 5.6 the only elements that are affected by use statements are namespaces and class names. In order to shorten a long constant or function, import its containing namespace.
-<?php
+&lt?php
 namespace mine;
 use ultra\long\ns\name;
 
 $a = name\CONSTANT;
 name\func();
-?>
+?&gt
 As of PHP 5.6 aliasing or importing function and constant names is allowed.
 Dynamic namespace names (quoted identifiers) should escape backslash ¶
 
 It is very important to realize that because the backslash is used as an escape character within strings, it should always be doubled when used inside a string. Otherwise there is a risk of unintended consequences:
 
 Example #9 Dangers of using namespaced names inside a double-quoted string
-<?php
+&lt?php
 $a = "dangerous\name"; // \n is a newline inside double quoted strings!
 $obj = new $a;
 
 $a = 'not\at\all\dangerous'; // no problems here.
 $obj = new $a;
-?>
+?&gt
 Inside a single-quoted string, the backslash escape sequence is much safer to use, but it is still recommended practice to escape backslashes in all strings as a best practice.
 Undefined Constants referenced using any backslash die with fatal error ¶
 
 Any undefined constant that is unqualified like FOO will produce a notice explaining that PHP assumed FOO was the value of the constant. Any constant, qualified or fully qualified, that contains a backslash will produce a fatal error if not found.
 
 Example #10 Undefined constants
-<?php
+&lt?php
 namespace bar;
 $a = FOO; // produces notice - undefined constants "FOO" assumed "FOO";
 $a = \FOO; // fatal error, undefined namespace constant FOO
 $a = Bar\FOO; // fatal error, undefined namespace constant bar\Bar\FOO
 $a = \Bar\FOO; // fatal error, undefined namespace constant Bar\FOO
-?>
+?&gt
 Cannot override special constants NULL, TRUE, FALSE, ZEND_THREAD_SAFE or ZEND_DEBUG_BUILD ¶
 
 Any attempt to define a namespaced constant that is a special, built-in constant results in a fatal error
 
 Example #11 Undefined constants
-<?php
+&lt?php
 namespace bar;
 const NULL = 0; // fatal error;
 const true = 'stupid'; // also fatal error;
 // etc.
-?>
+?&gt
 
 
 
@@ -11919,7 +11919,7 @@ As the Error hierarchy does not inherit from Exception, code that uses catch (Ex
 A User defined Exception class can be defined by extending the built-in Exception class. The members and properties below, show what is accessible within the child class that derives from the built-in Exception class.
 
 Example #1 The Built in Exception class
-<?php
+&lt?php
 class Exception extends Throwable
 {
 protected $message = 'Unknown exception';   // exception message
@@ -11945,7 +11945,7 @@ final public  function getTraceAsString();  // formatted string of trace
 // Overrideable
 public function __toString();               // formatted string for display
 }
-?>
+?&gt
 
 If a class extends the built-in Exception class and re-defines the constructor, it is highly recommended that it also call parent::__construct() to ensure all available data has been properly assigned. The __toString() method can be overridden to provide a custom output when the object is presented as a string.
 
@@ -11954,7 +11954,7 @@ Note:
 Exceptions cannot be cloned. Attempting to clone an Exception will result in a fatal E_ERROR error.
 
 Example #2 Extending the Exception class (PHP 5.3.0+)
-<?php
+&lt?php
 /**
 * Define a custom exception class
 */
@@ -12064,12 +12064,12 @@ echo "Default Exception caught\n", $e;
 // Continue execution
 var_dump($o); // TestException
 echo "\n\n";
-?>
+?&gt
 
 Note:
 
 Versions of PHP 5, prior to PHP 5.3.0 do not support nesting of exceptions. The following code fragment can be used as a replacement MyException class if you wish to run this example.
-<?php
+&lt?php
 /**
 * Define a custom exception class
 */
@@ -12092,7 +12092,7 @@ public function customFunction() {
  echo "A custom function for this type of exception\n";
 }
 }
-?>
+?&gt
 
 
 
@@ -12134,7 +12134,7 @@ A simple example of this is to reimplement the range() function as a generator. 
 As an alternative, we can implement an xrange() generator, which will only ever need enough memory to create an Iterator object and track the current state of the generator internally, which turns out to be less than 1 kilobyte.
 
 Example #1 Implementing range() as a generator
-<?php
+&lt?php
 function xrange($start, $limit, $step = 1) {
 if ($start < $limit) {
 if ($step <= 0) {
@@ -12170,7 +12170,7 @@ echo 'Single digit odd numbers from xrange(): ';
 foreach (xrange(1, 9, 2) as $number) {
 echo "$number ";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -12226,7 +12226,7 @@ yield keyword ¶
 The heart of a generator function is the yield keyword. In its simplest form, a yield statement looks much like a return statement, except that instead of stopping execution of the function and returning, yield instead provides a value to the code looping over the generator and pauses execution of the generator function.
 
 Example #1 A simple example of yielding values
-<?php
+&lt?php
 function gen_one_to_three() {
 for ($i = 1; $i <= 3; $i++) {
 // Note that $i is preserved between yields.
@@ -12238,7 +12238,7 @@ $generator = gen_one_to_three();
 foreach ($generator as $value) {
 echo "$value\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -12268,7 +12268,7 @@ PHP also supports associative arrays, and generators are no different. In additi
 The syntax for yielding a key/value pair is very similar to that used to define an associative array, as shown below.
 
 Example #2 Yielding a key/value pair
-<?php
+&lt?php
 /*
 * The input is semi-colon separated fields, with the first
 * field being an ID to use as a key.
@@ -12294,7 +12294,7 @@ echo "$id:\n";
 echo "    $fields[0]\n";
 echo "    $fields[1]\n";
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -12317,7 +12317,7 @@ Yielding null values ¶
 Yield can be called without an argument to yield a NULL value with an automatic key.
 
 Example #3 Yielding NULLs
-<?php
+&lt?php
 function gen_three_nulls() {
 foreach (range(1, 3) as $i) {
 yield;
@@ -12325,7 +12325,7 @@ yield;
 }
 
 var_dump(iterator_to_array(gen_three_nulls()));
-?>
+?&gt
 
 The above example will output:
 
@@ -12343,7 +12343,7 @@ Yielding by reference ¶
 Generator functions are able to yield values by reference as well as by value. This is done in the same way as returning references from functions: by prepending an ampersand to the function name.
 
 Example #4 Yielding values by reference
-<?php
+&lt?php
 function &gen_reference() {
 $value = 3;
 
@@ -12360,7 +12360,7 @@ yield $value;
 foreach (gen_reference() as &$number) {
 echo (--$number).'... ';
 }
-?>
+?&gt
 
 The above example will output:
 
@@ -12379,7 +12379,7 @@ yield from does not reset the keys. It preserves the keys returned by the Traver
 A common case where this matters is iterator_to_array() returning a keyed array by default, leading to possibly unexpected results. iterator_to_array() has a second parameter use_keys which can be set to FALSE to collect all the values while ignoring the keys returned by the Generator.
 
 Example #5 yield from with iterator_to_array()
-<?php
+&lt?php
 function from() {
 yield 1; // key 0
 yield 2; // key 1
@@ -12392,7 +12392,7 @@ yield 4; // key 1
 }
 // pass false as second parameter to get an array [0, 1, 2, 3, 4]
 var_dump(iterator_to_array(gen()));
-?>
+?&gt
 
 The above example will output:
 
@@ -12406,7 +12406,7 @@ int(3)
 }
 
 Example #6 Basic use of yield from
-<?php
+&lt?php
 function count_to_ten() {
 yield 1;
 yield 2;
@@ -12429,14 +12429,14 @@ yield 8;
 foreach (count_to_ten() as $num) {
 echo "$num ";
 }
-?>
+?&gt
 
 The above example will output:
 
 1 2 3 4 5 6 7 8 9 10
 
 Example #7 yield from and return values
-<?php
+&lt?php
 function count_to_ten() {
 yield 1;
 yield 2;
@@ -12465,7 +12465,7 @@ foreach ($gen as $num) {
 echo "$num ";
 }
 echo $gen->getReturn();
-?>
+?&gt
 
 The above example will output:
 
@@ -12502,7 +12502,7 @@ The above example will output:
 
 
 The primary advantage of generators is their simplicity. Much less boilerplate code has to be written compared to implementing an Iterator class, and the code is generally much more readable. For example, the following function and class are equivalent:
-<?php
+&lt?php
 function getLinesFromFile($fileName) {
 if (!$fileHandle = fopen($fileName, 'r')) {
 return;
@@ -12558,7 +12558,7 @@ public function __destruct() {
 fclose($this->fileHandle);
 }
 }
-?>
+?&gt
 
 This flexibility does come at a cost, however: generators are forward-only iterators, and cannot be rewound once iteration has started. This also means that the same generator can't be iterated over multiple times: the generator will need to be rebuilt by calling the generator function again.
 
@@ -12627,9 +12627,9 @@ There are three basic operations performed using references: assigning by refere
 Assign By Reference ¶
 
 In the first of these, PHP references allow you to make two variables refer to the same content. Meaning, when you do:
-<?php
+&lt?php
 $a =& $b;
-?>
+?&gt
 it means that $a and $b point to the same content.
 
 Note:
@@ -12641,7 +12641,7 @@ Note:
 If you assign, pass, or return an undefined variable by reference, it will get created.
 
 Example #1 Using references with undefined variables
-<?php
+&lt?php
 function foo(&$var) { }
 
 foo($a); // $a is "created" and assigned to null
@@ -12653,19 +12653,19 @@ var_dump(array_key_exists('b', $b)); // bool(true)
 $c = new StdClass;
 foo($c->d);
 var_dump(property_exists($c, 'd')); // bool(true)
-?>
+?&gt
 
 The same syntax can be used with functions that return references:
-<?php
+&lt?php
 $foo =& find_var($bar);
-?>
+?&gt
 Since PHP 5, new returns a reference automatically, so using =& in this context is deprecated and produces an E_DEPRECATED message in PHP 5.3 and later, and an E_STRICT message in earlier versions. As of PHP 7.0 it is syntactically invalid. (Technically, the difference is that, in PHP 5, object variables, much like resources, are a mere pointer to the actual object data, so these object references are not "references" in the same sense used before (aliases). For more information, see Objects and references.)
 Warning
 
 If you assign a reference to a variable declared global inside a function, the reference will be visible only inside the function. You can avoid this by using the $GLOBALS array.
 
 Example #2 Referencing global variables inside functions
-<?php
+&lt?php
 $var1 = "Example variable";
 $var2 = "";
 
@@ -12683,7 +12683,7 @@ global_references(false);
 echo "var2 is set to '$var2'\n"; // var2 is set to ''
 global_references(true);
 echo "var2 is set to '$var2'\n"; // var2 is set to 'Example variable'
-?>
+?&gt
 Think about global $var; as a shortcut to $var =& $GLOBALS['var'];. Thus assigning another reference to $var only changes the local variable's reference.
 
 Note:
@@ -12691,26 +12691,26 @@ Note:
 If you assign a value to a variable with references in a foreach statement, the references are modified too.
 
 Example #3 References and foreach statement
-<?php
+&lt?php
 $ref = 0;
 $row =& $ref;
 foreach (array(1, 2, 3) as $row) {
 // do something
 }
 echo $ref; // 3 - last element of the iterated array
-?>
+?&gt
 
 While not being strictly an assignment by reference, expressions created with the language construct array() can also behave as such by prefixing & to the array element to add. Example:
-<?php
+&lt?php
 $a = 1;
 $b = array(2, 3);
 $arr = array(&$a, &$b[0], &$b[1]);
 $arr[0]++; $arr[1]++; $arr[2]++;
 /* $a == 2, $b == array(3, 4); */
-?>
+?&gt
 
 Note, however, that references inside arrays are potentially dangerous. Doing a normal (not by reference) assignment with a reference on the right side does not turn the left side into a reference, but references inside arrays are preserved in these normal assignments. This also applies to function calls where the array is passed by value. Example:
-<?php
+&lt?php
 /* Assignment of scalar variables */
 $a = 1;
 $b =& $a;
@@ -12724,12 +12724,12 @@ $arr2 = $arr; //not an assignment-by-reference!
 $arr2[0]++;
 /* $a == 2, $arr == array(2) */
 /* The contents of $arr are changed even though it's not a reference! */
-?>
+?&gt
 In other words, the reference behavior of arrays is defined in an element-by-element basis; the reference behavior of individual elements is dissociated from the reference status of the array container.
 Pass By Reference ¶
 
 The second thing references do is to pass variables by reference. This is done by making a local variable in a function and a variable in the calling scope referencing the same content. Example:
-<?php
+&lt?php
 function foo(&$var)
 {
 $var++;
@@ -12737,7 +12737,7 @@ $var++;
 
 $a=5;
 foo($a);
-?>
+?&gt
 will make $a to be 6. This happens because in the function foo the variable $var refers to the same content as $a. For more information on this, read the passing by reference section.
 
 
@@ -12770,13 +12770,13 @@ will make $a to be 6. This happens because in the function foo the variable $var
 
 
 As said before, references are not pointers. That means, the following construct won't do what you expect:
-<?php
+&lt?php
 function foo(&$var)
 {
 $var =& $GLOBALS["baz"];
 }
 foo($bar);
-?>
+?&gt
 
 What happens is that $var in foo will be bound with $bar in the caller, but then re-bound with $GLOBALS["baz"]. There's no way to bind $bar in the calling scope to something else using the reference mechanism, since $bar is not available in the function foo (it is represented by $var, but $var has only variable contents and not name-to-value binding in the calling symbol table). You can use returning references to reference variables selected by the function.
 
@@ -12810,7 +12810,7 @@ What happens is that $var in foo will be bound with $bar in the caller, but then
 
 
 You can pass a variable by reference to a function so the function can modify the variable. The syntax is as follows:
-<?php
+&lt?php
 function foo(&$var)
 {
 $var++;
@@ -12819,7 +12819,7 @@ $var++;
 $a=5;
 foo($a);
 // $a is 6 here
-?>
+?&gt
 
 Note: There is no reference sign on a function call - only on function definitions. Function definitions alone are enough to correctly pass the argument by reference. As of PHP 5.3.0, you will get a warning saying that "call-time pass-by-reference" is deprecated when you use & in foo(&$a);. And as of PHP 5.4.0, call-time pass-by-reference was removed, so using it will raise a fatal error.
 
@@ -12828,7 +12828,7 @@ The following things can be passed by reference:
 Variables, i.e. foo($a)
 
 References returned from functions, i.e.:
-<?php
+&lt?php
 function foo(&$var)
 {
 $var++;
@@ -12839,11 +12839,11 @@ $a = 5;
 return $a;
 }
 foo(bar());
-?>
+?&gt
 See more about returning by reference.
 
 No other expressions should be passed by reference, as the result is undefined. For example, the following examples of passing by reference are invalid:
-<?php
+&lt?php
 function foo(&$var)
 {
 $var++;
@@ -12865,7 +12865,7 @@ class Foobar
 
 foo(new Foobar()) // Produces a notice as of PHP 7.0.7
        // Notice: Only variables should be passed by reference
-?>
+?&gt
 
 
 
@@ -12897,7 +12897,7 @@ foo(new Foobar()) // Produces a notice as of PHP 7.0.7
 
 
 Returning by reference is useful when you want to use a function to find to which variable a reference should be bound. Do not use return-by-reference to increase performance. The engine will automatically optimize this on its own. Only return references when you have a valid technical reason to do so. To return references, use this syntax:
-<?php
+&lt?php
 class foo {
 public $value = 42;
 
@@ -12910,7 +12910,7 @@ $obj = new foo;
 $myValue = &$obj->getValue(); // $myValue is a reference to $obj->value, which is 42.
 $obj->value = 2;
 echo $myValue;                // prints the new value of $obj->value, i.e. 2.
-?>
+?&gt
 In this example, the property of the object returned by the getValue function would be set, not the copy, as it would be without using reference syntax.
 
 Note: Unlike parameter passing, here you have to use & in both places - to indicate that you want to return by reference, not a copy, and to indicate that reference binding, rather than usual assignment, should be done for $myValue.
@@ -12918,22 +12918,22 @@ Note: Unlike parameter passing, here you have to use & in both places - to indic
 Note: If you try to return a reference from a function with the syntax: return ($this->value); this will not work as you are attempting to return the result of an expression, and not a variable, by reference. You can only return variables by reference from a function - nothing else. Since PHP 5.1.0, an E_NOTICE error is issued if the code tries to return a dynamic expression or a result of the new operator.
 
 To use the returned reference, you must use reference assigment:
-<?php
+&lt?php
 function &collector() {
 static $collection = array();
 return $collection;
 }
 $collection = &collector();
 $collection[] = 'foo';
-?>
+?&gt
 To pass the returned reference to another function expecting a reference you can use this syntax:
-<?php
+&lt?php
 function &collector() {
 static $collection = array();
 return $collection;
 }
 array_push(collector(), 'foo');
-?>
+?&gt
 
 Note: Note that array_push(&collector(), 'foo'); will not work, it results in a fatal error.
 
@@ -12965,11 +12965,11 @@ Note: Note that array_push(&collector(), 'foo'); will not work, it results in a 
 
 
 When you unset the reference, you just break the binding between variable name and variable content. This does not mean that variable content will be destroyed. For example:
-<?php
+&lt?php
 $a = 1;
 $b =& $a;
 unset($a);
-?>
+?&gt
 won't unset $b, just $a.
 
 Again, it might be useful to think about this as analogous to the Unix unlink call.
@@ -13005,9 +13005,9 @@ Many syntax constructs in PHP are implemented via referencing mechanisms, so eve
 global References ¶
 
 When you declare a variable as global $var you are in fact creating reference to a global variable. That means, this is the same as:
-<?php
+&lt?php
 $var =& $GLOBALS["var"];
-?>
+?&gt
 
 This also means that unsetting $var won't unset the global variable.
 $this ¶
@@ -13093,7 +13093,7 @@ An associative array containing references to all variables which are currently 
 Examples ¶
 
 Example #1 $GLOBALS example
-<?php
+&lt?php
 function test() {
 $foo = "local variable";
 
@@ -13103,7 +13103,7 @@ echo '$foo in current scope: ' . $foo . "\n";
 
 $foo = "Example content";
 test();
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -13259,9 +13259,9 @@ Original version of 'PATH_INFO' before processed by PHP.
 Examples ¶
 
 Example #1 $_SERVER example
-<?php
+&lt?php
 echo $_SERVER['SERVER_NAME'];
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -13307,9 +13307,9 @@ Version 	Description
 Examples ¶
 
 Example #1 $_GET example
-<?php
+&lt?php
 echo 'Hello ' . htmlspecialchars($_GET["name"]) . '!';
-?>
+?&gt
 
 Assuming the user entered http://example.com/?name=Hannes
 
@@ -13358,9 +13358,9 @@ $HTTP_POST_VARS contains the same initial information, but is not a superglobal.
 Examples ¶
 
 Example #1 $_POST example
-<?php
+&lt?php
 echo 'Hello ' . htmlspecialchars($_POST["name"]) . '!';
-?>
+?&gt
 
 Assuming the user POSTed name=Hannes
 
@@ -13504,9 +13504,9 @@ $HTTP_ENV_VARS contains the same initial information, but is not a superglobal. 
 Examples ¶
 
 Example #1 $_ENV example
-<?php
+&lt?php
 echo 'My username is ' .$_ENV["USER"] . '!';
-?>
+?&gt
 
 Assuming "bjori" executes this script
 
@@ -13558,9 +13558,9 @@ $HTTP_COOKIE_VARS contains the same initial information, but is not a supergloba
 Examples ¶
 
 Example #1 $_COOKIE example
-<?php
+&lt?php
 echo 'Hello ' . htmlspecialchars($_COOKIE["name"]) . '!';
-?>
+?&gt
 
 Assuming the "name" cookie has been set earlier
 
@@ -13603,10 +13603,10 @@ Warning
 This feature has been DEPRECATED as of PHP 7.2.0. Relying on this feature is highly discouraged.
 
 Example #1 $php_errormsg example
-<?php
+&lt?php
 @strpos();
 echo $php_errormsg;
-?>
+?&gt
 The above example will output something similar to:
 
 Wrong parameter count for strpos()
@@ -13689,14 +13689,14 @@ The $http_response_header array is similar to the get_headers() function. When u
 Examples ¶
 
 Example #1 $http_response_header example
-<?php
+&lt?php
 function get_contents() {
 file_get_contents("http://example.com");
 var_dump($http_response_header);
 }
 get_contents();
 var_dump($http_response_header);
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -13762,9 +13762,9 @@ Note: This variable is not available when register_argc_argv is disabled.
 Examples ¶
 
 Example #1 $argc example
-<?php
+&lt?php
 var_dump($argc);
-?>
+?&gt
 
 When executing the example with: php script.php arg1 arg2 arg3
 
@@ -13812,9 +13812,9 @@ Note: This variable is not available when register_argc_argv is disabled.
 Examples ¶
 
 Example #1 $argv example
-<?php
+&lt?php
 var_dump($argv);
-?>
+?&gt
 
 When executing the example with: php script.php arg1 arg2 arg3
 
@@ -13992,7 +13992,7 @@ severity
 Examples ¶
 
 Example #1 Use set_error_handler() to change error messages into ErrorException.
-<?php
+&lt?php
 function exception_error_handler($severity, $message, $file, $line) {
     if (!(error_reporting() & $severity)) {
         // This error code is not included in error_reporting
@@ -14004,7 +14004,7 @@ set_error_handler("exception_error_handler");
 
 /* Trigger exception */
 strpos();
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -14529,7 +14529,7 @@ Examples ¶
 Example #1 Basic usage
 
 This example demonstrates in which order methods are called when using foreach with an iterator.
-<?php
+&lt?php
 class myIterator implements Iterator {
 private $position = 0;
 private $array = array(
@@ -14574,7 +14574,7 @@ foreach($it as $key => $value) {
 var_dump($key, $value);
 echo "\n";
 }
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -14639,7 +14639,7 @@ abstract public Traversable getIterator ( void )
 }
 
 Example #1 Basic usage
-<?php
+&lt?php
 class myData implements IteratorAggregate {
 public $property1 = "Public property one";
 public $property2 = "Public property two";
@@ -14660,7 +14660,7 @@ foreach($obj as $key => $value) {
 var_dump($key, $value);
 echo "\n";
 }
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -14767,7 +14767,7 @@ abstract public void offsetUnset ( mixed $offset )
 }
 
 Example #1 Basic usage
-<?php
+&lt?php
 class obj implements ArrayAccess {
 private $container = array();
 
@@ -14812,7 +14812,7 @@ $obj[] = 'Append 1';
 $obj[] = 'Append 2';
 $obj[] = 'Append 3';
 print_r($obj);
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -14874,7 +14874,7 @@ abstract public void unserialize ( string $serialized )
 }
 
 Example #1 Basic usage
-<?php
+&lt?php
 class obj implements Serializable {
 private $data;
 public function __construct() {
@@ -14899,7 +14899,7 @@ var_dump($ser);
 $newobj = unserialize($ser);
 
 var_dump($newobj->getData());
-?>
+?&gt
 
 The above example will output something similar to:
 
@@ -15084,7 +15084,7 @@ Setting this option to TRUE will set SOL_TCP,NO_DELAY=1 appropriately, thus disa
 
 
 Example #1 Basic bindto usage example
-<?php
+&lt?php
 // connect to the internet using the '192.168.0.100' IP
 $opts = array(
 'socket' => array(
@@ -15124,7 +15124,7 @@ $context = stream_context_create($opts);
 // ...and use it to fetch the data
 echo file_get_contents('http://www.example.com', false, $context);
 
-?>
+?&gt
 
 
 
@@ -15466,7 +15466,7 @@ proxy string
       Examples ¶
 
       Example #1 Fetch a page and send POST data
-      <?php
+      &lt?php
 
       $postdata = http_build_query(
           array(
@@ -15487,7 +15487,7 @@ proxy string
 
       $result = file_get_contents('http://example.com/submit.php', false, $context);
 
-      ?>
+      ?&gt
 
 
 
@@ -15666,7 +15666,7 @@ proxy string
                       Examples ¶
 
                       Example #1 Basic password usage example
-                      <?php
+                      &lt?php
                       // Read encrypted archive
                       $opts = array(
                           'zip' => array(
@@ -15679,7 +15679,7 @@ proxy string
                       // ...and use it to fetch the data
                       echo file_get_contents('zip://test.zip#test.txt', false, $context);
 
-                      ?>
+                      ?&gt
 
 
 
@@ -15965,19 +15965,19 @@ data://text/plain;base64,
 Examples ¶
 
 Example #1 Print data:// contents
-<?php
+&lt?php
 // prints "I love PHP"
 echo file_get_contents('data://text/plain;base64,SSBsb3ZlIFBIUAo=');
-?>
+?&gt
 
 Example #2 Fetch the media type
-<?php
+&lt?php
 $fp   = fopen('data://text/plain;base64,', 'r');
 $meta = stream_get_meta_data($fp);
 
 // prints "text/plain"
 echo $meta['mediatype'];
-?>
+?&gt
 
 
 
@@ -16101,24 +16101,24 @@ ssh2.sftp://user:pass@example.com:22/path/to/filename
 Examples ¶
 
 Example #1 Opening a stream from an active connection
-<?php
+&lt?php
 $session = ssh2_connect('example.com', 22);
 ssh2_auth_pubkey_file($session, 'username', '/home/username/.ssh/id_rsa.pub',
                                           '/home/username/.ssh/id_rsa', 'secret');
 $stream = fopen("ssh2.tunnel://$session/remote.example.com:1234", 'r');
-?>
+?&gt
 
 Example #2 This $session variable must be kept available!
 
 In order to use the ssh2.*://$session wrappers you must keep the $session resource variable. The code below will not have the desired effect:
-<?php
+&lt?php
 $session = ssh2_connect('example.com', 22);
 ssh2_auth_pubkey_file($session, 'username', '/home/username/.ssh/id_rsa.pub',
                                           '/home/username/.ssh/id_rsa', 'secret');
 $connection_string = "ssh2.sftp://$session/";
 unset($session);
 $stream = fopen($connection_string . "path/to/file", 'r');
-?>
+?&gt
 
 unset() closes the session, because $connection_string does not hold a reference to the $session variable, just a string cast derived from it. This also happens when the unset() is implicit because of leaving scope (like in a function).
 
@@ -16175,7 +16175,7 @@ Usage ¶
   Examples ¶
 
   Example #1 Traversing a RAR archive
-  <?php
+  &lt?php
 
   class MyRecDirIt extends RecursiveDirectoryIterator {
       function current() {
@@ -16192,7 +16192,7 @@ Usage ¶
   foreach ($it as $s) {
       echo $s, "\n";
   }
-  ?>
+  ?&gt
 
   The above example will output something similar to:
 
@@ -16211,7 +16211,7 @@ Usage ¶
       \-אּ\אּ_2\file6_אּ.txt
 
   Example #2 Opening an encrypted file (header encryption)
-  <?php
+  &lt?php
   $stream = fopen("rar://" .
       rawurlencode(dirname(__FILE__)) . DIRECTORY_SEPARATOR .
       'encrypted_headers.rar' . '#encfile1.txt', "r", false,
@@ -16228,7 +16228,7 @@ Usage ¶
   /* creation and last access date is opt-in in WinRAR, hence most
    * files don't have them */
   var_dump(fstat($stream));
-  ?>
+  ?&gt
 
   The above example will output something similar to:
 
