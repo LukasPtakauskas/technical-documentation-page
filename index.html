@@ -1,203 +1,202 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <title> technical documentation PHP </title>
-
-<meta charset="UTF-8">
-
-<meta name="author" content="Lukas Ptakauskas">
-
-<meta http-equiv="refresh" content="30">
+  <meta charset="UTF-8">
+  <meta name="author" content="Lukas Ptakauskas">
+  <meta name="author_mail" content="lukas.ptakauskas@gmail.com">
+  <meta http-equiv="refresh" content="100">
 
    <link rel="stylesheet" href="style.css">
-<head>
+</head>
 <body>
 <nav id="navbar">
   <header>PHP Documentation</header>
-  <a class="nav-link" rel="Internal" href="#Basic_syntax"><li>Basic syntax</li></a>
-  <a class="nav-link" rel="Internal" href="#PHP_tags"><li>PHP tags</li></a>
-  <a class="nav-link" rel="Internal" href="#Escaping_from_HTML"><li>Escaping from HTML</li></a>
-  <a class="nav-link" rel="Internal" href="#Instruction_separation"><li>Instruction separation</li></a>
-  <a class="nav-link" rel="Internal" href="#Comments"><li>Comments</li></a>
-  <a class="nav-link" rel="Internal" href="#Types"><li>Types</li></a>
-  <a class="nav-link" rel="Internal" href="#Introduction"><li>Introduction</li></a>
-  <a class="nav-link" rel="Internal" href="#Booleans"><li>Booleans</li></a>
-  <a class="nav-link" rel="Internal" href="#Integers"><li>Integers</li></a>
-  <a class="nav-link" rel="Internal" href="#Floating_point_numbers"><li>Floating point numbers</li></a>
-  <a class="nav-link" rel="Internal" href="#Strings"><li>Strings</li></a>
-  <a class="nav-link" rel="Internal" href="#Arrays"><li>Arrays</li></a>
-  <a class="nav-link" rel="Internal" href="#Iterables"><li>Iterables</li></a>
-  <a class="nav-link" rel="Internal" href="#Objects"><li>Objects</li></a>
-  <a class="nav-link" rel="Internal" href="#Resources"><li>Resources</li></a>
-  <a class="nav-link" rel="Internal" href="#NULL"><li>NULL</li></a>
-  <a class="nav-link" rel="Internal" href="#Callbacks_/_Callables"><li>Callbacks / Callables</li></a>
-  <a class="nav-link" rel="Internal" href="#Pseudo-types_and_variables_used_in_this_documentation"><li>Pseudo-types and variables used in this documentation</li></a>
-  <a class="nav-link" rel="Internal" href="#Type_Juggling"><li>Type Juggling</li></a>
-  <a class="nav-link" rel="Internal" href="#Variables"><li>Variables</li></a>
-  <a class="nav-link" rel="Internal" href="#Variable_Basics"><li>Variable Basics</li></a>
-  <a class="nav-link" rel="Internal" href="#Predefined_Variables"><li>Predefined Variables</li></a>
-  <a class="nav-link" rel="Internal" href="#Variable_scope"><li>Variable scope</li></a>
-  <a class="nav-link" rel="Internal" href="#Variable_variables"><li>Variable variables</li></a>
-  <a class="nav-link" rel="Internal" href="#Variables_From_External_Sources"><li>Variables From External Sources</li></a>
-  <a class="nav-link" rel="Internal" href="#Constants"><li>Constants</li></a>
-  <a class="nav-link" rel="Internal" href="#Syntax"><li>Syntax</li></a>
-  <a class="nav-link" rel="Internal" href="#Magic_constants"><li>Magic constants</li></a>
-  <a class="nav-link" rel="Internal" href="#Expressions"><li>Expressions</li></a>
-  <a class="nav-link" rel="Internal" href="#Expression"><li>Expression</li></a>
-  <a class="nav-link" rel="Internal" href="#Operators"><li>Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Operator_Precedence"><li>Operator Precedence</li></a>
-  <a class="nav-link" rel="Internal" href="#Arithmetic_Operators"><li>Arithmetic Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Assignment_Operators"><li>Assignment Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Bitwise_Operators"><li>Bitwise Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Comparison_Operators"><li>Comparison Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Error_Control_Operators"><li>Error Control Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Execution_Operators"><li>Execution Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Incrementing/Decrementing_Operators"><li>Incrementing/Decrementing Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Logical_Operators"><li>Logical Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#String_Operators"><li>String Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Array_Operators"><li>Array Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Type_Operators"><li>Type Operators</li></a>
-  <a class="nav-link" rel="Internal" href="#Control_Structures"><li>Control Structures</li></a>
-  <a class="nav-link" rel="Internal" href="#Introduction"><li>Introduction</li></a>
-  <a class="nav-link" rel="Internal" href="#if"><li>if</li></a>
-  <a class="nav-link" rel="Internal" href="#else"><li>else</li></a>
-  <a class="nav-link" rel="Internal" href="#elseif/else_if"><li>elseif/else if</li></a>
-  <a class="nav-link" rel="Internal" href="#Alternative_syntax_for_control_structures"><li>Alternative syntax for control structures</li></a>
-  <a class="nav-link" rel="Internal" href="#while"><li>while</li></a>
-  <a class="nav-link" rel="Internal" href="#do-while"><li>do-while</li></a>
-  <a class="nav-link" rel="Internal" href="#for"><li>for</li></a>
-  <a class="nav-link" rel="Internal" href="#foreach"><li>foreach</li></a>
-  <a class="nav-link" rel="Internal" href="#break"><li>break</li></a>
-  <a class="nav-link" rel="Internal" href="#continue"><li>continue</li></a>
-  <a class="nav-link" rel="Internal" href="#switch"><li>switch</li></a>
-  <a class="nav-link" rel="Internal" href="#declare"><li>declare</li></a>
-  <a class="nav-link" rel="Internal" href="#return"><li>return</li></a>
-  <a class="nav-link" rel="Internal" href="#require"><li>require</li></a>
-  <a class="nav-link" rel="Internal" href="#include"><li>include</li></a>
-  <a class="nav-link" rel="Internal" href="#require_once"><li>require_once</li></a>
-  <a class="nav-link" rel="Internal" href="#include_once"><li>include_once</li></a>
-  <a class="nav-link" rel="Internal" href="#goto"><li>goto</li></a>
-  <a class="nav-link" rel="Internal" href="#Functions"><li>Functions</li></a>
-  <a class="nav-link" rel="Internal" href="#User-defined_functions"><li>User-defined functions</li></a>
-  <a class="nav-link" rel="Internal" href="#Function_arguments"><li>Function arguments</li></a>
-  <a class="nav-link" rel="Internal" href="#Returning_values"><li>Returning values</li></a>
-  <a class="nav-link" rel="Internal" href="#Variable_functions"><li>Variable functions</li></a>
-  <a class="nav-link" rel="Internal" href="#Internal_(built-in)_functions"><li>Internal (built-in) functions</li></a>
-  <a class="nav-link" rel="Internal" href="#Anonymous_functions"><li>Anonymous functions</li></a>
-  <a class="nav-link" rel="Internal" href="#Classes_and_Objects"><li>Classes and Objects</li></a>
-  <a class="nav-link" rel="Internal" href="#Introduction"><li>Introduction</li></a>
-  <a class="nav-link" rel="Internal" href="#The_Basics"><li>The Basics</li></a>
-  <a class="nav-link" rel="Internal" href="#Properties"><li>Properties</li></a>
-  <a class="nav-link" rel="Internal" href="#Class_Constants"><li>Class Constants</li></a>
-  <a class="nav-link" rel="Internal" href="#Autoloading_Classes"><li>Autoloading Classes</li></a>
-  <a class="nav-link" rel="Internal" href="#Constructors_and_Destructors"><li>Constructors and Destructors</li></a>
-  <a class="nav-link" rel="Internal" href="#Visibility"><li>Visibility</li></a>
-  <a class="nav-link" rel="Internal" href="#Object_Inheritance"><li>Object Inheritance</li></a>
-  <a class="nav-link" rel="Internal" href="#Scope_Resolution_Operator_(::)"><li>Scope Resolution Operator (::)</li></a>
-  <a class="nav-link" rel="Internal" href="#Static_Keyword"><li>Static Keyword</li></a>
-  <a class="nav-link" rel="Internal" href="#Class_Abstraction"><li>Class Abstraction</li></a>
-  <a class="nav-link" rel="Internal" href="#Object_Interfaces"><li>Object Interfaces</li></a>
-  <a class="nav-link" rel="Internal" href="#Traits"><li>Traits</li></a>
-  <a class="nav-link" rel="Internal" href="#Anonymous_classes"><li>Anonymous classes</li></a>
-  <a class="nav-link" rel="Internal" href="#Overloading"><li>Overloading</li></a>
-  <a class="nav-link" rel="Internal" href="#Object_Iteration"><li>Object Iteration</li></a>
-  <a class="nav-link" rel="Internal" href="#Magic_Methods"><li>Magic Methods</li></a>
-  <a class="nav-link" rel="Internal" href="#Final_Keyword"><li>Final Keyword</li></a>
-  <a class="nav-link" rel="Internal" href="#Object_Cloning"><li>Object Cloning</li></a>
-  <a class="nav-link" rel="Internal" href="#Comparing_Objects"><li>Comparing Objects</li></a>
-  <a class="nav-link" rel="Internal" href="#Type_Hinting"><li>Type Hinting</li></a>
-  <a class="nav-link" rel="Internal" href="#Late_Static_Bindings"><li>Late Static Bindings</li></a>
-  <a class="nav-link" rel="Internal" href="#Objects_and_references"><li>Objects and references</li></a>
-  <a class="nav-link" rel="Internal" href="#Object_Serialization"><li>Object Serialization</li></a>
-  <a class="nav-link" rel="Internal" href="#OOP_Changelog"><li>OOP Changelog</li></a>
-  <a class="nav-link" rel="Internal" href="#Namespaces"><li>Namespaces</li></a>
-  <a class="nav-link" rel="Internal" href="#Namespaces_overview"><li>Namespaces overview</li></a>
-  <a class="nav-link" rel="Internal" href="#Defining_namespaces"><li>Defining namespaces</li></a>
-  <a class="nav-link" rel="Internal" href="#Declaring_sub-namespaces"><li>Declaring sub-namespaces</li></a>
-  <a class="nav-link" rel="Internal" href="#Defining_multiple_namespaces_in_the_same_file"><li>Defining multiple namespaces in the same file</li></a>
-  <a class="nav-link" rel="Internal" href="#Using_namespaces:_Basics"><li>Using namespaces: Basics</li></a>
-  <a class="nav-link" rel="Internal" href="#Namespaces_and_dynamic_language_features"><li>Namespaces and dynamic language features</li></a>
-  <a class="nav-link" rel="Internal" href="#namespace_keyword_and___NAMESPACE___constant"><li>namespace keyword and __NAMESPACE__ constant</li></a>
-  <a class="nav-link" rel="Internal" href="#Using_namespaces:_Aliasing/Importing"><li>Using namespaces: Aliasing/Importing</li></a>
-  <a class="nav-link" rel="Internal" href="#Global_space"><li>Global space</li></a>
-  <a class="nav-link" rel="Internal" href="#Using_namespaces:_fallback_to_global_function/constant"><li>Using namespaces: fallback to global function/constant</li></a>
-  <a class="nav-link" rel="Internal" href="#Name_resolution_rules"><li>Name resolution rules</li></a>
-  <a class="nav-link" rel="Internal" href="#FAQ:_things_you_need_to_know_about_namespaces"><li>FAQ: things you need to know about namespaces</li></a>
-  <a class="nav-link" rel="Internal" href="#Errors"><li>Errors</li></a>
-  <a class="nav-link" rel="Internal" href="#Errors_Basics"><li>Errors Basics</li></a>
-  <a class="nav-link" rel="Internal" href="#Errors_in_PHP_7"><li>Errors in PHP 7</li></a>
-  <a class="nav-link" rel="Internal" href="#Exceptions"><li>Exceptions</li></a>
-  <a class="nav-link" rel="Internal" href="#Extending_Exceptions"><li>Extending Exceptions</li></a>
-  <a class="nav-link" rel="Internal" href="#Generators"><li>Generators</li></a>
-  <a class="nav-link" rel="Internal" href="#Generators_overview"><li>Generators overview</li></a>
-  <a class="nav-link" rel="Internal" href="#Generator_syntax"><li>Generator syntax</li></a>
-  <a class="nav-link" rel="Internal" href="#Comparing_generators_with_Iterator_objects"><li>Comparing generators with Iterator objects</li></a>
-  <a class="nav-link" rel="Internal" href="#References_Explained"><li>References Explained</li></a>
-  <a class="nav-link" rel="Internal" href="#What_References_Are"><li>What References Are</li></a>
-  <a class="nav-link" rel="Internal" href="#What_References_Do"><li>What References Do</li></a>
-  <a class="nav-link" rel="Internal" href="#What_References_Are_Not"><li>What References Are Not</li></a>
-  <a class="nav-link" rel="Internal" href="#Passing_by_Reference"><li>Passing by Reference</li></a>
-  <a class="nav-link" rel="Internal" href="#Returning_References"><li>Returning References</li></a>
-  <a class="nav-link" rel="Internal" href="#Unsetting_References"><li>Unsetting References</li></a>
-  <a class="nav-link" rel="Internal" href="#Spotting_References"><li>Spotting References</li></a>
-  <a class="nav-link" rel="Internal" href="#Predefined_Variables"><li>Predefined Variables</li></a>
-  <a class="nav-link" rel="Internal" href="#Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes"><li>Superglobals — Superglobals are built-in variables that are always available in all scopes</li></a>
-  <a class="nav-link" rel="Internal" href="#$GLOBALS_—_References_all_variables_available_in_global_scope"><li>$GLOBALS — References all variables available in global scope</li></a>
-  <a class="nav-link" rel="Internal" href="#$_SERVER_—_Server_and_execution_environment_information"><li>$_SERVER — Server and execution environment information</li></a>
-  <a class="nav-link" rel="Internal" href="#$_GET_—_HTTP_GET_variables"><li>$_GET — HTTP GET variables</li></a>
-  <a class="nav-link" rel="Internal" href="#$_POST_—_HTTP_POST_variables"><li>$_POST — HTTP POST variables</li></a>
-  <a class="nav-link" rel="Internal" href="#$_FILES_—_HTTP_File_Upload_variables"><li>$_FILES — HTTP File Upload variables</li></a>
-  <a class="nav-link" rel="Internal" href="#$_REQUEST_—_HTTP_Request_variables"><li>$_REQUEST — HTTP Request variables</li></a>
-  <a class="nav-link" rel="Internal" href="#$_SESSION_—_Session_variables"><li>$_SESSION — Session variables</li></a>
-  <a class="nav-link" rel="Internal" href="#$_ENV_—_Environment_variables"><li>$_ENV — Environment variables</li></a>
-  <a class="nav-link" rel="Internal" href="#$_COOKIE_—_HTTP_Cookies"><li>$_COOKIE — HTTP Cookies</li></a>
-  <a class="nav-link" rel="Internal" href="#$php_errormsg_—_The_previous_error_message"><li>$php_errormsg — The previous error message</li></a>
-  <a class="nav-link" rel="Internal" href="#$HTTP_RAW_POST_DATA_—_Raw_POST_data"><li>$HTTP_RAW_POST_DATA — Raw POST data</li></a>
-  <a class="nav-link" rel="Internal" href="#$http_response_header_—_HTTP_response_headers"><li>$http_response_header — HTTP response headers</li></a>
-  <a class="nav-link" rel="Internal" href="#$argc_—_The_number_of_arguments_passed_to_script"><li>$argc — The number of arguments passed to script</li></a>
-  <a class="nav-link" rel="Internal" href="#$argv_—_Array_of_arguments_passed_to_script"><li>$argv — Array of arguments passed to script</li></a>
-  <a class="nav-link" rel="Internal" href="#Predefined_Exceptions"><li>Predefined Exceptions</li></a>
-  <a class="nav-link" rel="Internal" href="#Exception"><li>Exception</li></a>
-  <a class="nav-link" rel="Internal" href="#ErrorException"><li>ErrorException</li></a>
-  <a class="nav-link" rel="Internal" href="#Error"><li>Error</li></a>
-  <a class="nav-link" rel="Internal" href="#ArgumentCountError"><li>ArgumentCountError</li></a>
-  <a class="nav-link" rel="Internal" href="#ArithmeticError"><li>ArithmeticError</li></a>
-  <a class="nav-link" rel="Internal" href="#AssertionError"><li>AssertionError</li></a>
-  <a class="nav-link" rel="Internal" href="#DivisionByZeroError"><li>DivisionByZeroError</li></a>
-  <a class="nav-link" rel="Internal" href="#CompileError"><li>CompileError</li></a>
-  <a class="nav-link" rel="Internal" href="#ParseError"><li>ParseError</li></a>
-  <a class="nav-link" rel="Internal" href="#TypeError"><li>TypeError</li></a>
-  <a class="nav-link" rel="Internal" href="#Predefined_Interfaces_and_Classes"><li>Predefined Interfaces and Classes</li></a>
-  <a class="nav-link" rel="Internal" href="#Traversable_—_The_Traversable_interface"><li>Traversable — The Traversable interface</li></a>
-  <a class="nav-link" rel="Internal" href="#Iterator_—_The_Iterator_interface"><li>Iterator — The Iterator interface</li></a>
-  <a class="nav-link" rel="Internal" href="#IteratorAggregate_—_The_IteratorAggregate_interface"><li>IteratorAggregate — The IteratorAggregate interface</li></a>
-  <a class="nav-link" rel="Internal" href="#Throwable"><li>Throwable</li></a>
-  <a class="nav-link" rel="Internal" href="#ArrayAccess_—_The_ArrayAccess_interface"><li>ArrayAccess — The ArrayAccess interface</li></a>
-  <a class="nav-link" rel="Internal" href="#Serializable_—_The_Serializable_interface"><li>Serializable — The Serializable interface</li></a>
-  <a class="nav-link" rel="Internal" href="#Closure_—_The_Closure_class"><li>Closure — The Closure class</li></a>
-  <a class="nav-link" rel="Internal" href="#Generator_—_The_Generator_class"><li>Generator — The Generator class</li></a>
-  <a class="nav-link" rel="Internal" href="#Context_options_and_parameters"><li>Context options and parameters</li></a>
-  <a class="nav-link" rel="Internal" href="#Socket_context_options_—_Socket_context_option_listing"><li>Socket context options — Socket context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#HTTP_context_options_—_HTTP_context_option_listing"><li>HTTP context options — HTTP context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#FTP_context_options_—_FTP_context_option_listing"><li>FTP context options — FTP context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#SSL_context_options_—_SSL_context_option_listing"><li>SSL context options — SSL context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#CURL_context_options_—_CURL_context_option_listing"><li>CURL context options — CURL context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#Phar_context_options_—_Phar_context_option_listing"><li>Phar context options — Phar context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#MongoDB_context_options_—_MongoDB_context_option_listing"><li>MongoDB context options — MongoDB context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#Context_parameters_—_Context_parameter_listing"><li>Context parameters — Context parameter listing</li></a>
-  <a class="nav-link" rel="Internal" href="#Zip_context_options_—_Zip_context_option_listing"><li>Zip context options — Zip context option listing</li></a>
-  <a class="nav-link" rel="Internal" href="#Supported_Protocols_and_Wrappers"><li>Supported Protocols and Wrappers</li></a>
-  <a class="nav-link" rel="Internal" href="#file://_—_Accessing_local_filesystem"><li>file:// — Accessing local filesystem</li></a>
-  <a class="nav-link" rel="Internal" href="#http://_—_Accessing_HTTP(s)_URLs"><li>http:// — Accessing HTTP(s) URLs</li></a>
-  <a class="nav-link" rel="Internal" href="#ftp://_—_Accessing_FTP(s)_URLs"><li>ftp:// — Accessing FTP(s) URLs</li></a>
-  <a class="nav-link" rel="Internal" href="#php://_—_Accessing_various_I/O_streams"><li>php:// — Accessing various I/O streams</li></a>
-  <a class="nav-link" rel="Internal" href="#zlib://_—_Compression_Streams"><li>zlib:// — Compression Streams</li></a>
-  <a class="nav-link" rel="Internal" href="#data://_—_Data_(RFC_2397)"><li>data:// — Data (RFC 2397)</li></a>
-  <a class="nav-link" rel="Internal" href="#glob://_—_Find_pathnames_matching_pattern"><li>glob:// — Find pathnames matching pattern</li></a>
-  <a class="nav-link" rel="Internal" href="#phar://_—_PHP_Archive"><li>phar:// — PHP Archive</li></a>
-  <a class="nav-link" rel="Internal" href="#ssh2://_—_Secure_Shell_2"><li>ssh2:// — Secure Shell 2</li></a>
-  <a class="nav-link" rel="Internal" href="#rar://_—_RAR"><li>rar:// — RAR</li></a>
-  <a class="nav-link" rel="Internal" href="#ogg://_—_Audio_streams"><li>ogg:// — Audio streams</li></a>
-  <a class="nav-link" rel="Internal" href="#expect://_—_Process_Interaction_Streams"><li>expect:// — Process Interaction Streams</li></a>
+  <a class="nav-link" rel="bookmark" href="#Basic_syntax"> Basic syntax </a>
+  <a class="nav-link" rel="bookmark" href="#PHP_tags"> PHP tags </a>
+  <a class="nav-link" rel="bookmark" href="#Escaping_from_HTML"> Escaping from HTML </a>
+  <a class="nav-link" rel="bookmark" href="#Instruction_separation"> Instruction separation </a>
+  <a class="nav-link" rel="bookmark" href="#Comments"> Comments </a>
+  <a class="nav-link" rel="bookmark" href="#Types"> Types </a>
+  <a class="nav-link" rel="bookmark" href="#Types_Introduction"> Types Introduction </a>
+  <a class="nav-link" rel="bookmark" href="#Booleans"> Booleans </a>
+  <a class="nav-link" rel="bookmark" href="#Integers"> Integers </a>
+  <a class="nav-link" rel="bookmark" href="#Floating_point_numbers"> Floating point numbers </a>
+  <a class="nav-link" rel="bookmark" href="#Strings"> Strings </a>
+  <a class="nav-link" rel="bookmark" href="#Arrays"> Arrays </a>
+  <a class="nav-link" rel="bookmark" href="#Iterables"> Iterables </a>
+  <a class="nav-link" rel="bookmark" href="#Objects"> Objects </a>
+  <a class="nav-link" rel="bookmark" href="#Resources"> Resources </a>
+  <a class="nav-link" rel="bookmark" href="#NULL"> NULL </a>
+  <a class="nav-link" rel="bookmark" href="#Callbacks_/_Callables"> Callbacks / Callables </a>
+  <a class="nav-link" rel="bookmark" href="#Pseudo-types_and_variables_used_in_this_documentation"> Pseudo-types and variables used in this documentation </a>
+  <a class="nav-link" rel="bookmark" href="#Type_Juggling"> Type Juggling </a>
+  <a class="nav-link" rel="bookmark" href="#Variables"> Variables </a>
+  <a class="nav-link" rel="bookmark" href="#Variable_Basics"> Variable Basics </a>
+  <a class="nav-link" rel="bookmark" href="#Predefined_Variable"> Predefined Variable </a>
+  <a class="nav-link" rel="bookmark" href="#Variable_scope"> Variable scope </a>
+  <a class="nav-link" rel="bookmark" href="#Variable_variables"> Variable variables </a>
+  <a class="nav-link" rel="bookmark" href="#Variables_From_External_Sources"> Variables From External Sources </a>
+  <a class="nav-link" rel="bookmark" href="#Constants"> Constants </a>
+  <a class="nav-link" rel="bookmark" href="#Syntax"> Syntax </a>
+  <a class="nav-link" rel="bookmark" href="#Magic_constants"> Magic constants </a>
+  <a class="nav-link" rel="bookmark" href="#Expressions"> Expressions </a>
+  <a class="nav-link" rel="bookmark" href="#Expression"> Expression </a>
+  <a class="nav-link" rel="bookmark" href="#Operators"> Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Operator_Precedence"> Operator Precedence </a>
+  <a class="nav-link" rel="bookmark" href="#Arithmetic_Operators"> Arithmetic Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Assignment_Operators"> Assignment Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Bitwise_Operators"> Bitwise Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Comparison_Operators"> Comparison Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Error_Control_Operators"> Error Control Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Execution_Operators"> Execution Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Incrementing/Decrementing_Operators"> Incrementing/Decrementing Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Logical_Operators"> Logical Operators </a>
+  <a class="nav-link" rel="bookmark" href="#String_Operators"> String Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Array_Operators"> Array Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Type_Operators"> Type Operators </a>
+  <a class="nav-link" rel="bookmark" href="#Control_Structures"> Control Structures </a>
+  <a class="nav-link" rel="bookmark" href="#Control_Structures_Introduction"> Control Structures Introduction </a>
+  <a class="nav-link" rel="bookmark" href="#if"> if </a>
+  <a class="nav-link" rel="bookmark" href="#else"> else </a>
+  <a class="nav-link" rel="bookmark" href="#elseif/else_if"> elseif/else if </a>
+  <a class="nav-link" rel="bookmark" href="#Alternative_syntax_for_control_structures"> Alternative syntax for control structures </a>
+  <a class="nav-link" rel="bookmark" href="#while"> while </a>
+  <a class="nav-link" rel="bookmark" href="#do-while"> do-while </a>
+  <a class="nav-link" rel="bookmark" href="#for"> for </a>
+  <a class="nav-link" rel="bookmark" href="#foreach"> foreach </a>
+  <a class="nav-link" rel="bookmark" href="#break"> break </a>
+  <a class="nav-link" rel="bookmark" href="#continue"> continue </a>
+  <a class="nav-link" rel="bookmark" href="#switch"> switch </a>
+  <a class="nav-link" rel="bookmark" href="#declare"> declare </a>
+  <a class="nav-link" rel="bookmark" href="#return"> return </a>
+  <a class="nav-link" rel="bookmark" href="#require"> require </a>
+  <a class="nav-link" rel="bookmark" href="#include"> include </a>
+  <a class="nav-link" rel="bookmark" href="#require_once"> require_once </a>
+  <a class="nav-link" rel="bookmark" href="#include_once"> include_once </a>
+  <a class="nav-link" rel="bookmark" href="#goto"> goto </a>
+  <a class="nav-link" rel="bookmark" href="#Functions"> Functions </a>
+  <a class="nav-link" rel="bookmark" href="#User-defined_functions"> User-defined functions </a>
+  <a class="nav-link" rel="bookmark" href="#Function_arguments"> Function arguments </a>
+  <a class="nav-link" rel="bookmark" href="#Returning_values"> Returning values </a>
+  <a class="nav-link" rel="bookmark" href="#Variable_functions"> Variable functions </a>
+  <a class="nav-link" rel="bookmark" href="#bookmark_(built-in)_functions"> bookmark (built-in) functions </a>
+  <a class="nav-link" rel="bookmark" href="#Anonymous_functions"> Anonymous functions </a>
+  <a class="nav-link" rel="bookmark" href="#Classes_And_Objects"> Classes and Objects </a>
+  <a class="nav-link" rel="bookmark" href="#Control_Structures_Introduction"> Control Structures Introduction </a>
+  <a class="nav-link" rel="bookmark" href="#The_Basics"> The Basics </a>
+  <a class="nav-link" rel="bookmark" href="#Properties"> Properties </a>
+  <a class="nav-link" rel="bookmark" href="#Class_Constants"> Class Constants </a>
+  <a class="nav-link" rel="bookmark" href="#Autoloading_Classes"> Autoloading Classes </a>
+  <a class="nav-link" rel="bookmark" href="#Constructors_and_Destructors"> Constructors and Destructors </a>
+  <a class="nav-link" rel="bookmark" href="#Visibility"> Visibility </a>
+  <a class="nav-link" rel="bookmark" href="#Object_Inheritance"> Object Inheritance </a>
+  <a class="nav-link" rel="bookmark" href="#Scope_Resolution_Operator_(::)"> Scope Resolution Operator (::) </a>
+  <a class="nav-link" rel="bookmark" href="#Static_Keyword"> Static Keyword </a>
+  <a class="nav-link" rel="bookmark" href="#Class_Abstraction"> Class Abstraction </a>
+  <a class="nav-link" rel="bookmark" href="#Object_Interfaces"> Object Interfaces </a>
+  <a class="nav-link" rel="bookmark" href="#Traits"> Traits </a>
+  <a class="nav-link" rel="bookmark" href="#Anonymous_classes"> Anonymous classes </a>
+  <a class="nav-link" rel="bookmark" href="#Overloading"> Overloading </a>
+  <a class="nav-link" rel="bookmark" href="#Object_Iteration"> Object Iteration </a>
+  <a class="nav-link" rel="bookmark" href="#Magic_Methods"> Magic Methods </a>
+  <a class="nav-link" rel="bookmark" href="#Final_Keyword"> Final Keyword </a>
+  <a class="nav-link" rel="bookmark" href="#Object_Cloning"> Object Cloning </a>
+  <a class="nav-link" rel="bookmark" href="#Comparing_Objects"> Comparing Objects </a>
+  <a class="nav-link" rel="bookmark" href="#Type_Hinting"> Type Hinting </a>
+  <a class="nav-link" rel="bookmark" href="#Late_Static_Bindings"> Late Static Bindings </a>
+  <a class="nav-link" rel="bookmark" href="#Objects_and_references"> Objects and references </a>
+  <a class="nav-link" rel="bookmark" href="#Object_Serialization"> Object Serialization </a>
+  <a class="nav-link" rel="bookmark" href="#OOP_Changelog"> OOP Changelog </a>
+  <a class="nav-link" rel="bookmark" href="#Namespaces"> Namespaces </a>
+  <a class="nav-link" rel="bookmark" href="#Namespaces_overview"> Namespaces overview </a>
+  <a class="nav-link" rel="bookmark" href="#Defining_namespaces"> Defining namespaces </a>
+  <a class="nav-link" rel="bookmark" href="#Declaring_sub-namespaces"> Declaring sub-namespaces </a>
+  <a class="nav-link" rel="bookmark" href="#Defining_multiple_namespaces_in_the_same_file"> Defining multiple namespaces in the same file </a>
+  <a class="nav-link" rel="bookmark" href="#Using_namespaces:_Basics"> Using namespaces: Basics </a>
+  <a class="nav-link" rel="bookmark" href="#Namespaces_and_dynamic_language_features"> Namespaces and dynamic language features </a>
+  <a class="nav-link" rel="bookmark" href="#namespace_keyword_and___NAMESPACE___constant"> namespace keyword and __NAMESPACE__ constant </a>
+  <a class="nav-link" rel="bookmark" href="#Using_namespaces:_Aliasing/Importing"> Using namespaces: Aliasing/Importing </a>
+  <a class="nav-link" rel="bookmark" href="#Global_space"> Global space </a>
+  <a class="nav-link" rel="bookmark" href="#Using_namespaces:_fallback_to_global_function/constant"> Using namespaces: fallback to global function/constant </a>
+  <a class="nav-link" rel="bookmark" href="#Name_resolution_rules"> Name resolution rules </a>
+  <a class="nav-link" rel="bookmark" href="#FAQ:_things_you_need_to_know_about_namespaces"> FAQ: things you need to know about namespaces </a>
+  <a class="nav-link" rel="bookmark" href="#Errors"> Errors </a>
+  <a class="nav-link" rel="bookmark" href="#Errors_Basics"> Errors Basics </a>
+  <a class="nav-link" rel="bookmark" href="#Errors_in_PHP_7"> Errors in PHP 7 </a>
+  <a class="nav-link" rel="bookmark" href="#Exceptions"> Exceptions </a>
+  <a class="nav-link" rel="bookmark" href="#Extending_Exceptions"> Extending Exceptions </a>
+  <a class="nav-link" rel="bookmark" href="#Generators"> Generators </a>
+  <a class="nav-link" rel="bookmark" href="#Generators_overview"> Generators overview </a>
+  <a class="nav-link" rel="bookmark" href="#Generator_syntax"> Generator syntax </a>
+  <a class="nav-link" rel="bookmark" href="#Comparing_generators_with_Iterator_objects"> Comparing generators with Iterator objects </a>
+  <a class="nav-link" rel="bookmark" href="#References_Explained"> References Explained </a>
+  <a class="nav-link" rel="bookmark" href="#What_References_Are"> What References Are </a>
+  <a class="nav-link" rel="bookmark" href="#What_References_Do"> What References Do </a>
+  <a class="nav-link" rel="bookmark" href="#What_References_Are_Not"> What References Are Not </a>
+  <a class="nav-link" rel="bookmark" href="#Passing_by_Reference"> Passing by Reference </a>
+  <a class="nav-link" rel="bookmark" href="#Returning_References"> Returning References </a>
+  <a class="nav-link" rel="bookmark" href="#Unsetting_References"> Unsetting References </a>
+  <a class="nav-link" rel="bookmark" href="#Spotting_References"> Spotting References </a>
+  <a class="nav-link" rel="bookmark" href="#Predefined_Variables"> Predefined Variables </a>
+  <a class="nav-link" rel="bookmark" href="#Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes"> Superglobals — Superglobals are built-in variables that are always available in all scopes </a>
+  <a class="nav-link" rel="bookmark" href="#$GLOBALS_—_References_all_variables_available_in_global_scope"> $GLOBALS — References all variables available in global scope </a>
+  <a class="nav-link" rel="bookmark" href="#$_SERVER_—_Server_and_execution_environment_information"> $_SERVER — Server and execution environment information </a>
+  <a class="nav-link" rel="bookmark" href="#$_GET_—_HTTP_GET_variables"> $_GET — HTTP GET variables </a>
+  <a class="nav-link" rel="bookmark" href="#$_POST_—_HTTP_POST_variables"> $_POST — HTTP POST variables </a>
+  <a class="nav-link" rel="bookmark" href="#$_FILES_—_HTTP_File_Upload_variables"> $_FILES — HTTP File Upload variables </a>
+  <a class="nav-link" rel="bookmark" href="#$_REQUEST_—_HTTP_Request_variables"> $_REQUEST — HTTP Request variables </a>
+  <a class="nav-link" rel="bookmark" href="#$_SESSION_—_Session_variables"> $_SESSION — Session variables </a>
+  <a class="nav-link" rel="bookmark" href="#$_ENV_—_Environment_variables"> $_ENV — Environment variables </a>
+  <a class="nav-link" rel="bookmark" href="#$_COOKIE_—_HTTP_Cookies"> $_COOKIE — HTTP Cookies </a>
+  <a class="nav-link" rel="bookmark" href="#$php_errormsg_—_The_previous_error_message"> $php_errormsg — The previous error message </a>
+  <a class="nav-link" rel="bookmark" href="#$HTTP_RAW_POST_DATA_—_Raw_POST_data"> $HTTP_RAW_POST_DATA — Raw POST data </a>
+  <a class="nav-link" rel="bookmark" href="#$http_response_header_—_HTTP_response_headers"> $http_response_header — HTTP response headers </a>
+  <a class="nav-link" rel="bookmark" href="#$argc_—_The_number_of_arguments_passed_to_script"> $argc — The number of arguments passed to script </a>
+  <a class="nav-link" rel="bookmark" href="#$argv_—_Array_of_arguments_passed_to_script"> $argv — Array of arguments passed to script </a>
+  <a class="nav-link" rel="bookmark" href="#Predefined_Exceptions"> Predefined Exceptions </a>
+  <a class="nav-link" rel="bookmark" href="#Exception"> Exception </a>
+  <a class="nav-link" rel="bookmark" href="#ErrorException"> ErrorException </a>
+  <a class="nav-link" rel="bookmark" href="#Error"> Error </a>
+  <a class="nav-link" rel="bookmark" href="#ArgumentCountError"> ArgumentCountError </a>
+  <a class="nav-link" rel="bookmark" href="#ArithmeticError"> ArithmeticError </a>
+  <a class="nav-link" rel="bookmark" href="#AssertionError"> AssertionError </a>
+  <a class="nav-link" rel="bookmark" href="#DivisionByZeroError"> DivisionByZeroError </a>
+  <a class="nav-link" rel="bookmark" href="#CompileError"> CompileError </a>
+  <a class="nav-link" rel="bookmark" href="#ParseError"> ParseError </a>
+  <a class="nav-link" rel="bookmark" href="#TypeError"> TypeError </a>
+  <a class="nav-link" rel="bookmark" href="#Predefined_Interfaces_and_Classes"> Predefined Interfaces and Classes </a>
+  <a class="nav-link" rel="bookmark" href="#Traversable_—_The_Traversable_interface"> Traversable — The Traversable interface </a>
+  <a class="nav-link" rel="bookmark" href="#Iterator_—_The_Iterator_interface"> Iterator — The Iterator interface </a>
+  <a class="nav-link" rel="bookmark" href="#IteratorAggregate_—_The_IteratorAggregate_interface"> IteratorAggregate — The IteratorAggregate interface </a>
+  <a class="nav-link" rel="bookmark" href="#Throwable"> Throwable </a>
+  <a class="nav-link" rel="bookmark" href="#ArrayAccess_—_The_ArrayAccess_interface"> ArrayAccess — The ArrayAccess interface </a>
+  <a class="nav-link" rel="bookmark" href="#Serializable_—_The_Serializable_interface"> Serializable — The Serializable interface </a>
+  <a class="nav-link" rel="bookmark" href="#Closure_—_The_Closure_class"> Closure — The Closure class </a>
+  <a class="nav-link" rel="bookmark" href="#Generator_—_The_Generator_class"> Generator — The Generator class </a>
+  <a class="nav-link" rel="bookmark" href="#Context_options_and_parameters"> Context options and parameters </a>
+  <a class="nav-link" rel="bookmark" href="#Socket_context_options_—_Socket_context_option_listing"> Socket context options — Socket context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#HTTP_context_options_—_HTTP_context_option_listing"> HTTP context options — HTTP context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#FTP_context_options_—_FTP_context_option_listing"> FTP context options — FTP context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#SSL_context_options_—_SSL_context_option_listing"> SSL context options — SSL context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#CURL_context_options_—_CURL_context_option_listing"> CURL context options — CURL context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#Phar_context_options_—_Phar_context_option_listing"> Phar context options — Phar context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#MongoDB_context_options_—_MongoDB_context_option_listing"> MongoDB context options — MongoDB context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#Context_parameters_—_Context_parameter_listing"> Context parameters — Context parameter listing </a>
+  <a class="nav-link" rel="bookmark" href="#Zip_context_options_—_Zip_context_option_listing"> Zip context options — Zip context option listing </a>
+  <a class="nav-link" rel="bookmark" href="#Supported_Protocols_and_Wrappers"> Supported Protocols and Wrappers </a>
+  <a class="nav-link" rel="bookmark" href="#file://_—_Accessing_local_filesystem"> file:// — Accessing local filesystem </a>
+  <a class="nav-link" rel="bookmark" href="#http://_—_Accessing_HTTP(s)_URLs"> http:// — Accessing HTTP(s) URLs </a>
+  <a class="nav-link" rel="bookmark" href="#ftp://_—_Accessing_FTP(s)_URLs"> ftp:// — Accessing FTP(s) URLs </a>
+  <a class="nav-link" rel="bookmark" href="#php://_—_Accessing_various_I/O_streams"> php:// — Accessing various I/O streams </a>
+  <a class="nav-link" rel="bookmark" href="#zlib://_—_Compression_Streams"> zlib:// — Compression Streams </a>
+  <a class="nav-link" rel="bookmark" href="#data://_—_Data_(RFC_2397)"> data:// — Data (RFC 2397) </a>
+  <a class="nav-link" rel="bookmark" href="#glob://_—_Find_pathnames_matching_pattern"> glob:// — Find pathnames matching pattern </a>
+  <a class="nav-link" rel="bookmark" href="#phar://_—_PHP_Archive"> phar:// — PHP Archive </a>
+  <a class="nav-link" rel="bookmark" href="#ssh2://_—_Secure_Shell_2"> ssh2:// — Secure Shell 2 </a>
+  <a class="nav-link" rel="bookmark" href="#rar://_—_RAR"> rar:// — RAR </a>
+  <a class="nav-link" rel="bookmark" href="#ogg://_—_Audio_streams"> ogg:// — Audio streams </a>
+  <a class="nav-link" rel="bookmark" href="#expect://_—_Process_Interaction_Streams"> expect:// — Process Interaction Streams </a>
 </nav>
 
 
@@ -221,7 +220,7 @@
 
 
   <h1 id="Types"> Types </h1>
-  <section class="main-section" id="Introduction"><header>Introduction</header></section>
+  <section class="main-section" id="Types_Introduction"><header>Types Introduction</header></section>
   <section class="main-section" id="Booleans"><header>Booleans</header></section>
   <section class="main-section" id="Integers"><header>Integers</header></section>
   <section class="main-section" id="Floating_point_numbers"><header>Floating point numbers</header></section>
@@ -242,7 +241,7 @@
 
   <h1 id="Variables"> Variables </h1>
   <section class="main-section" id="Variable_Basics"><header>Variable Basics</header></section>
-  <section class="main-section" id="Predefined_Variables"><header>Predefined Variables</header></section>
+  <section class="main-section" id="Predefined_Variable"><header>Predefined Variable</header></section>
   <section class="main-section" id="Variable_scope"><header>Variable scope</header></section>
   <section class="main-section" id="Variable_variables"><header>Variable variables</header></section>
   <section class="main-section" id="Variables_From_External_Sources"><header>Variables From External Sources</header></section>
@@ -291,7 +290,7 @@
 
 
   <h1 id="Control_structures"> Control Structures </h1>
-  <section class="main-section" id="Introduction"><header>Introduction</header></section>
+  <section class="main-section" id="Control_Structures_Introduction"><header>Control Structures Introduction</header></section>
   <section class="main-section" id="if"><header>if</header></section>
   <section class="main-section" id="else"><header>else</header></section>
   <section class="main-section" id="elseif/else_if"><header>elseif/else if</header></section>
@@ -325,13 +324,13 @@
   <section class="main-section" id="Function_arguments"><header>Function arguments</header></section>
   <section class="main-section" id="Returning_values"><header>Returning values</header></section>
   <section class="main-section" id="Variable_functions"><header>Variable functions</header></section>
-  <section class="main-section" id="Internal_(built-in)_functions"><header>Internal (built-in) functions</header></section>
+  <section class="main-section" id="bookmark_(built-in)_functions"><header>bookmark (built-in) functions</header></section>
   <section class="main-section" id="Anonymous_functions"><header>Anonymous functions</header></section>
 
 
 
-  <h1 id="Classes_and_objects"> Classes and Objects </h1>
-  <section class="main-section" id="Introduction"><header>Introduction</header></section>
+  <h1 id="Classes_And_Objects"> Classes and Objects </h1>
+  <section class="main-section" id="Classes_And_Objects_Introduction"><header> Classes and Objects Introduction</header></section>
   <section class="main-section" id="The_Basics"><header>The Basics</header></section>
   <section class="main-section" id="Properties"><header>Properties</header></section>
   <section class="main-section" id="Class_Constants"><header>Class Constants</header></section>
@@ -367,9 +366,9 @@
     <section class="main-section" id="Using_namespaces:_Basics"><header>Using namespaces: Basics</header></section>
     <section class="main-section" id="Namespaces_and_dynamic_language_features"><header>Namespaces and dynamic language features</header></section>
     <section class="main-section" id="namespace_keyword"><header>namespace keyword and __NAMESPACE__ constant</header></section>
-    <section class="main-section" id="Using_namespaces"><header>Using namespaces: Aliasing/Importing</header></section>
+    <section class="main-section" id="Using_namespaces:_Aliasing/Importing"><header>Using namespaces: Aliasing/Importing</header></section>
     <section class="main-section" id="Global_space"><header>Global space</header></section>
-    <section class="main-section" id="Using_namespaces"><header>Using namespaces: fallback to global function/constant</header></section>
+    <section class="main-section" id="Using_namespaces:_fallback_to_global_function/constant<"><header>Using namespaces: fallback to global function/constant</header></section>
     <section class="main-section" id="Name_resolution"><header>Name resolution rules</header></section>
     <section class="main-section" id="FAQ"><header>FAQ: things you need to know about namespaces</header></section>
 
