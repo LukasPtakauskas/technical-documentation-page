@@ -33,7 +33,7 @@
   <a class="nav-link" rel="Internal" href="#Pseudo-types_and_variables_used_in_this_documentation"><li>Pseudo-types and variables used in this documentation</li></a>
   <a class="nav-link" rel="Internal" href="#Type_Juggling"><li>Type Juggling</li></a>
   <a class="nav-link" rel="Internal" href="#Variables"><li>Variables</li></a>
-  <a class="nav-link" rel="Internal" href="#Basics"><li>Basics</li></a>
+  <a class="nav-link" rel="Internal" href="#Variable_Basics"><li>Variable Basics</li></a>
   <a class="nav-link" rel="Internal" href="#Predefined_Variables"><li>Predefined Variables</li></a>
   <a class="nav-link" rel="Internal" href="#Variable_scope"><li>Variable scope</li></a>
   <a class="nav-link" rel="Internal" href="#Variable_variables"><li>Variable variables</li></a>
@@ -42,6 +42,7 @@
   <a class="nav-link" rel="Internal" href="#Syntax"><li>Syntax</li></a>
   <a class="nav-link" rel="Internal" href="#Magic_constants"><li>Magic constants</li></a>
   <a class="nav-link" rel="Internal" href="#Expressions"><li>Expressions</li></a>
+  <a class="nav-link" rel="Internal" href="#Expression"><li>Expression</li></a>
   <a class="nav-link" rel="Internal" href="#Operators"><li>Operators</li></a>
   <a class="nav-link" rel="Internal" href="#Operator_Precedence"><li>Operator Precedence</li></a>
   <a class="nav-link" rel="Internal" href="#Arithmetic_Operators"><li>Arithmetic Operators</li></a>
@@ -122,7 +123,7 @@
   <a class="nav-link" rel="Internal" href="#Name_resolution_rules"><li>Name resolution rules</li></a>
   <a class="nav-link" rel="Internal" href="#FAQ:_things_you_need_to_know_about_namespaces"><li>FAQ: things you need to know about namespaces</li></a>
   <a class="nav-link" rel="Internal" href="#Errors"><li>Errors</li></a>
-  <a class="nav-link" rel="Internal" href="#Basics"><li>Basics</li></a>
+  <a class="nav-link" rel="Internal" href="#Errors_Basics"><li>Errors Basics</li></a>
   <a class="nav-link" rel="Internal" href="#Errors_in_PHP_7"><li>Errors in PHP 7</li></a>
   <a class="nav-link" rel="Internal" href="#Exceptions"><li>Exceptions</li></a>
   <a class="nav-link" rel="Internal" href="#Extending_Exceptions"><li>Extending Exceptions</li></a>
@@ -209,7 +210,7 @@
 
 
 
-  <h1 id="basic_syntax"> Basic syntax </h1>
+  <h1 id="Basic_syntax"> Basic syntax </h1>
   <section class="main-section" id="PHP_tags"><header>PHP tags</header></section>
   <section class="main-section" id="Escaping_from_HTML"><header>Escaping from HTML</header></section>
   <section class="main-section" id="Instruction_separation"><header>Instruction separation</header></section>
@@ -219,7 +220,7 @@
 
 
 
-  <h1 id="types"> Types </h1>
+  <h1 id="Types"> Types </h1>
   <section class="main-section" id="Introduction"><header>Introduction</header></section>
   <section class="main-section" id="Booleans"><header>Booleans</header></section>
   <section class="main-section" id="Integers"><header>Integers</header></section>
@@ -239,8 +240,8 @@
 
 
 
-  <h1 id="variables"> Variables </h1>
-  <section class="main-section" id="Basics"><header>Basics</header></section>
+  <h1 id="Variables"> Variables </h1>
+  <section class="main-section" id="Variable_Basics"><header>Variable Basics</header></section>
   <section class="main-section" id="Predefined_Variables"><header>Predefined Variables</header></section>
   <section class="main-section" id="Variable_scope"><header>Variable scope</header></section>
   <section class="main-section" id="Variable_variables"><header>Variable variables</header></section>
@@ -249,7 +250,7 @@
 
 
 
-  <h1 id="constants"> Constants </h1>
+  <h1 id="Constants"> Constants </h1>
   <section class="main-section" id="Syntax"><header>Syntax</header></section>
   <section class="main-section" id="Magic_constants"><header>Magic constants</header></section>
 
@@ -259,7 +260,7 @@
 
 
 
-  <h1 id="expressions"> Expressions </h1>
+  <h1 id="Expressions"> Expressions </h1>
   <section class="main-section" id="Expression"><header>Expression</header></section>
 
 
@@ -289,7 +290,7 @@
 
 
 
-  <h1 id="control_structures"> Control Structures </h1>
+  <h1 id="Control_structures"> Control Structures </h1>
   <section class="main-section" id="Introduction"><header>Introduction</header></section>
   <section class="main-section" id="if"><header>if</header></section>
   <section class="main-section" id="else"><header>else</header></section>
@@ -319,7 +320,7 @@
 
 
 
-  <h1 id="functions"> Functions </h1>
+  <h1 id="Functions"> Functions </h1>
   <section class="main-section" id="User-defined_functions"><header>User-defined functions</header></section>
   <section class="main-section" id="Function_arguments"><header>Function arguments</header></section>
   <section class="main-section" id="Returning_values"><header>Returning values</header></section>
@@ -329,7 +330,7 @@
 
 
 
-  <h1 id="classes_and_objects"> Classes and Objects </h1>
+  <h1 id="Classes_and_objects"> Classes and Objects </h1>
   <section class="main-section" id="Introduction"><header>Introduction</header></section>
   <section class="main-section" id="The_Basics"><header>The Basics</header></section>
   <section class="main-section" id="Properties"><header>Properties</header></section>
@@ -358,12 +359,12 @@
 
 
 
-<h1 id="namespaces"> Namespaces </h1>
+<h1 id="Namespaces"> Namespaces </h1>
     <section class="main-section" id="Namespaces_overview"><header>Namespaces overview</header></section>
     <section class="main-section" id="Defining_namespaces"><header>Defining namespaces</header></section>
     <section class="main-section" id="Declaring_sub"><header>Declaring sub-namespaces</header></section>
     <section class="main-section" id="Defining_multiple"><header>Defining multiple namespaces in the same file</header></section>
-    <section class="main-section" id="Using_namespaces"><header>Using namespaces: Basics</header></section>
+    <section class="main-section" id="Using_namespaces:_Basics"><header>Using namespaces: Basics</header></section>
     <section class="main-section" id="Namespaces_and_dynamic_language_features"><header>Namespaces and dynamic language features</header></section>
     <section class="main-section" id="namespace_keyword"><header>namespace keyword and __NAMESPACE__ constant</header></section>
     <section class="main-section" id="Using_namespaces"><header>Using namespaces: Aliasing/Importing</header></section>
@@ -380,8 +381,8 @@
 
 
 
-  <h1 id="errors"> Errors </h1>
-  <section class="main-section" id="Basics"><header>Basics</header></section>
+  <h1 id="Errors"> Errors </h1>
+  <section class="main-section" id="Errors_Basics"><header>Errors Basics</header></section>
   <section class="main-section" id="Errors_in_PHP_7"><header>Errors in PHP 7</header></section>
 
 
@@ -390,7 +391,7 @@
 
 
 
-  <h1 id="exceptions"> Exceptions </h1>
+  <h1 id="Exceptions"> Exceptions </h1>
   <section class="main-section" id="Extending_Exceptions"><header>Extending Exceptions</header></section>
 
 
@@ -400,7 +401,7 @@
 
 
 
-  <h1 id="generators"> Generators </h1>
+  <h1 id="Generators"> Generators </h1>
   <section class="main-section" id="Generators_overview"><header>Generators overview</header></section>
   <section class="main-section" id="Generator_syntax"><header>Generator syntax</header></section>
   <section class="main-section" id="Comparing_generators_with_Iterator_objects"><header>Comparing generators with Iterator objects</header></section>
@@ -410,7 +411,7 @@
 
 
 
-  <h1 id="references_explained"> References Explained </h1>
+  <h1 id="References_Explained"> References Explained </h1>
   <section class="main-section" id="What_References_Are"><header>What References Are</header></section>
   <section class="main-section" id="What_References_Do"><header>What References Do</header></section>
   <section class="main-section" id="What_References_Are_Not"><header>What References Are Not</header></section>
@@ -419,28 +420,28 @@
   <section class="main-section" id="Unsetting_References"><header>Unsetting References</header></section>
   <section class="main-section" id="Spotting_References"><header>Spotting References</header></section>
 
-<h1 id="predefined_variables"> Predefined Variables </h1>
-  <section class="main-section" id="Superglobals"><header>Superglobals — Superglobals are built-in variables that are always available in all scopes</header></section>
-  <section class="main-section" id="$GLOBALS"><header>$GLOBALS — References all variables available in global scope</header></section>
-  <section class="main-section" id="$_SERVER"><header>$_SERVER — Server and execution environment information</header></section>
-  <section class="main-section" id="$_GET"><header>$_GET — HTTP GET variables</header></section>
-  <section class="main-section" id="$_POST"><header>$_POST — HTTP POST variables</header></section>
-  <section class="main-section" id="$_FILES"><header>$_FILES — HTTP File Upload variables</header></section>
-  <section class="main-section" id="$_REQUEST"><header>$_REQUEST — HTTP Request variables</header></section>
-  <section class="main-section" id="$_SESSION"><header>$_SESSION — Session variables</header></section>
-  <section class="main-section" id="$_ENV"><header>$_ENV — Environment variables</header></section>
-  <section class="main-section" id="$_COOKIE"><header>$_COOKIE — HTTP Cookies</header></section>
-  <section class="main-section" id="php_errormsg"><header>$php_errormsg — The previous error message</header></section>
-  <section class="main-section" id="$HTTP_RAW_POST_DATA"><header>$HTTP_RAW_POST_DATA — Raw POST data</header></section>
-  <section class="main-section" id="$http_response_header"><header>$http_response_header — HTTP response headers</header></section>
-  <section class="main-section" id="$argc"><header>$argc — The number of arguments passed to script</header></section>
-  <section class="main-section" id="$argv"><header>$argv — Array of arguments passed to script</header></section>
+<h1 id="Predefined_Variables"> Predefined Variables </h1>
+  <section class="main-section" id="Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes"><header>Superglobals — Superglobals are built-in variables that are always available in all scopes</header></section>
+  <section class="main-section" id="$GLOBALS_—_References_all_variables_available_in_global_scope"><header>$GLOBALS — References all variables available in global scope</header></section>
+  <section class="main-section" id="$_SERVER_—_Server_and_execution_environment_information"><header>$_SERVER — Server and execution environment information</header></section>
+  <section class="main-section" id="$_GET_—_HTTP_GET_variables"><header>$_GET — HTTP GET variables</header></section>
+  <section class="main-section" id="$_POST_—_HTTP_POST_variables"><header>$_POST — HTTP POST variables</header></section>
+  <section class="main-section" id="$_FILES_—_HTTP_File_Upload_variables"><header>$_FILES — HTTP File Upload variables</header></section>
+  <section class="main-section" id="$_REQUEST_—_HTTP_Request_variables"><header>$_REQUEST — HTTP Request variables</header></section>
+  <section class="main-section" id="$_SESSION_—_Session_variables"><header>$_SESSION — Session variables</header></section>
+  <section class="main-section" id="$_ENV_—_Environment_variables"><header>$_ENV — Environment variables</header></section>
+  <section class="main-section" id="$_COOKIE_—_HTTP_Cookies"><header>$_COOKIE — HTTP Cookies</header></section>
+  <section class="main-section" id="$php_errormsg_—_The_previous_error_message"><header>$php_errormsg — The previous error message</header></section>
+  <section class="main-section" id="$HTTP_RAW_POST_DATA_—_Raw_POST_data"><header>$HTTP_RAW_POST_DATA — Raw POST data</header></section>
+  <section class="main-section" id="$http_response_header_—_HTTP_response_headers"><header>$http_response_header — HTTP response headers</header></section>
+  <section class="main-section" id="$argc_—_The_number_of_arguments_passed_to_script"><header>$argc — The number of arguments passed to script</header></section>
+  <section class="main-section" id="$argv_—_Array_of_arguments_passed_to_script"><header>$argv — Array of arguments passed to script</header></section>
 
 
 
 
 
-  <h1 id="predefined_exceptions"> Predefined Exceptions </h1>
+  <h1 id="Predefined_Exceptions"> Predefined Exceptions </h1>
   <section class="main-section" id="Exception"><header>Exception</header></section>
   <section class="main-section" id="ErrorException"><header>ErrorException</header></section>
   <section class="main-section" id="Error"><header>Error</header></section>
@@ -455,32 +456,26 @@
 
 
 
-
-
-
-
-  <h1 id="predefined_interfaces_and_classes"> Predefined Interfaces and Classes </h1>
-  <section class="main-section" id="Traversable"><header>Traversable — The Traversable interface</header></section>
-  <section class="main-section" id="Iterator"><header>Iterator — The Iterator interface</header></section>
-  <section class="main-section" id="Iterator"><header>IteratorAggregate — The IteratorAggregate interface</header></section>
+  <h1 id="Predefined_Interfaces_and_Classes"> Predefined Interfaces and Classes </h1>
+  <section class="main-section" id="Traversable_—_The_Traversable_interface"><header>Traversable — The Traversable interface</header></section>
+  <section class="main-section" id="Iterator_—_The_Iterator_interface"><header>Iterator — The Iterator interface</header></section>
+  <section class="main-section" id="IteratorAggregate_—_The_IteratorAggregate_interface"><header>IteratorAggregate — The IteratorAggregate interface</header></section>
   <section class="main-section" id="Throwable"><header>Throwable</header></section>
-  <section class="main-section" id="Array"><header>AsrrayAccess — The ArrayAccess interface</header></section>
-  <section class="main-section" id="Serializable"><header>Serializable — The Serializable interface</header></section>
-  <section class="main-section" id="Closure"><header>Closure — The Closure class</header></section>
-  <section class="main-section" id="Generator"><header>Generator — The Generator class</header></section>
+  <section class="main-section" id="ArrayAccess_—_The_ArrayAccess_interface"><header>AsrrayAccess — The ArrayAccess interface</header></section>
+  <section class="main-section" id="Serializable_—_The_Serializable_interface"><header>Serializable — The Serializable interface</header></section>
+  <section class="main-section" id="Closure_—_The_Closure_class"><header>Closure — The Closure class</header></section>
+  <section class="main-section" id="Generator_—_The_Generator_class"><header>Generator — The Generator class</header></section>
 
-  <h1 id="context_options_and_parameter"> Context options and parameters </h1>
-  <section class="main-section" id="Socket"><header>Socket context options — Socket context option listing</header></section>
-  <section class="main-section" id="HTTP"><header>HTTP context options — HTTP context option listing</header></section>
-  <section class="main-section" id="FTP"><header>FTP context options — FTP context option listing</header></section>
-  <section class="main-section" id="SSL"><header>SSL context options — SSL context option listing</header></section>
-  <section class="main-section" id="CURL"><header>CURL context options — CURL context option listing</header></section>
-  <section class="main-section" id="Phar"><header>Phar context options — Phar context option listing</header></section>
-  <section class="main-section" id="MongoDB"><header>MongoDB context options — MongoDB context option listing</header></section>
-  <section class="main-section" id="Context"><header>Context parameters — Context parameter listing</header></section>
-  <section class="main-section" id="Zip"><header>Zip context options — Zip context option listing</header></section>
-
-
+  <h1 id="Context_options_and_parameters"> Context options and parameters </h1>
+  <section class="main-section" id="Socket_context_options_—_Socket_context_option_listing"><header>Socket context options — Socket context option listing</header></section>
+  <section class="main-section" id="HTTP_context_options_—_HTTP_context_option_listing"><header>HTTP context options — HTTP context option listing</header></section>
+  <section class="main-section" id="FTP_context_options_—_FTP_context_option_listing"><header>FTP context options — FTP context option listing</header></section>
+  <section class="main-section" id="SSL_context_options_—_SSL_context_option_listing"><header>SSL context options — SSL context option listing</header></section>
+  <section class="main-section" id="CURL_context_options_—_CURL_context_option_listing"><header>CURL context options — CURL context option listing</header></section>
+  <section class="main-section" id="Phar_context_options_—_Phar_context_option_listing"><header>Phar context options — Phar context option listing</header></section>
+  <section class="main-section" id="MongoDB_context_options_—_MongoDB_context_option_listing"><header>MongoDB context options — MongoDB context option listing</header></section>
+  <section class="main-section" id="Context_parameters_—_Context_parameter_listing"><header>Context parameters — Context parameter listing</header></section>
+  <section class="main-section" id="Zip_context_options_—_Zip_context_option_listing"><header>Zip context options — Zip context option listing</header></section>
 
 
 
@@ -489,19 +484,21 @@
 
 
 
-  <h1 id="supported_protocols_and_wrappers"> Supported Protocols and Wrappers </h1>
-  <section class="main-section" id="file"><header>file:// — Accessing local filesystem</header></section>
-  <section class="main-section" id="http"><header>http:// — Accessing HTTP(s) URLs</header></section>
-  <section class="main-section" id="ftp"><header>ftp:// — Accessing FTP(s) URLs</header></section>
-  <section class="main-section" id="php"><header>php:// — Accessing various I/O streams</header></section>
-  <section class="main-section" id="zlib"><header>zlib:// — Compression Streams</header></section>
-  <section class="main-section" id="data"><header>data:// — Data (RFC 2397)</header></section>
-  <section class="main-section" id="glob"><header>glob:// — Find pathnames matching pattern</header></section>
-  <section class="main-section" id="phar"><header>phar:// — PHP Archive</header></section>
-  <section class="main-section" id="ssh2"><header>ssh2:// — Secure Shell 2</header></section>
-  <section class="main-section" id="rar"><header>rar:// — RAR</header></section>
-  <section class="main-section" id="ogg"><header>ogg:// — Audio streams</header></section>
-  <section class="main-section" id="expect"><header>expect:// — Process Interaction Streams</header></section>
+
+
+  <h1 id="Supported_Protocols_and_Wrappers"> Supported Protocols and Wrappers </h1>
+  <section class="main-section" id="file://_—_Accessing_local_filesystem"><header>file:// — Accessing local filesystem</header></section>
+  <section class="main-section" id="http://_—_Accessing_HTTP(s)_URLs"><header>http:// — Accessing HTTP(s) URLs</header></section>
+  <section class="main-section" id="ftp://_—_Accessing_FTP(s)_URLs"><header>ftp:// — Accessing FTP(s) URLs</header></section>
+  <section class="main-section" id="php://_—_Accessing_various_I/O_streams"><header>php:// — Accessing various I/O streams</header></section>
+  <section class="main-section" id="zlib://_—_Compression_Streams"><header>zlib:// — Compression Streams</header></section>
+  <section class="main-section" id="data://_—_Data_(RFC_2397)"><header>data:// — Data (RFC 2397)</header></section>
+  <section class="main-section" id="glob://_—_Find_pathnames_matching_pattern"><header>glob:// — Find pathnames matching pattern</header></section>
+  <section class="main-section" id="phar://_—_PHP_Archive"><header>phar:// — PHP Archive</header></section>
+  <section class="main-section" id="ssh2://_—_Secure_Shell_2"><header>ssh2:// — Secure Shell 2</header></section>
+  <section class="main-section" id="rar://_—_RAR"><header>rar:// — RAR</header></section>
+  <section class="main-section" id="ogg://_—_Audio_streams"><header>ogg:// — Audio streams</header></section>
+  <section class="main-section" id="expect://_—_Process_Interaction_Streams"><header>expect:// — Process Interaction Streams</header></section>
 
 
 
