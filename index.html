@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title> technical documentation PHP </title>
   <meta charset="UTF-8">
@@ -7,600 +8,607 @@
   <meta name="author_mail" content="lukas.ptakauskas@gmail.com">
   <meta http-equiv="refresh" content="100">
 
-   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<nav id="navbar">
-  <header>PHP Documentation</header>
-  <a class="nav-link" rel="bookmark" href="#Basic_syntax"> Basic syntax </a>
-  <a class="nav-link" rel="bookmark" href="#PHP_tags"> PHP tags </a>
-  <a class="nav-link" rel="bookmark" href="#Escaping_from_HTML"> Escaping from HTML </a>
-  <a class="nav-link" rel="bookmark" href="#Instruction_separation"> Instruction separation </a>
-  <a class="nav-link" rel="bookmark" href="#Comments"> Comments </a>
-  <a class="nav-link" rel="bookmark" href="#Types"> Types </a>
-  <a class="nav-link" rel="bookmark" href="#Types_Introduction"> Types Introduction </a>
-  <a class="nav-link" rel="bookmark" href="#Booleans"> Booleans </a>
-  <a class="nav-link" rel="bookmark" href="#Integers"> Integers </a>
-  <a class="nav-link" rel="bookmark" href="#Floating_point_numbers"> Floating point numbers </a>
-  <a class="nav-link" rel="bookmark" href="#Strings"> Strings </a>
-  <a class="nav-link" rel="bookmark" href="#Arrays"> Arrays </a>
-  <a class="nav-link" rel="bookmark" href="#Iterables"> Iterables </a>
-  <a class="nav-link" rel="bookmark" href="#Objects"> Objects </a>
-  <a class="nav-link" rel="bookmark" href="#Resources"> Resources </a>
-  <a class="nav-link" rel="bookmark" href="#NULL"> NULL </a>
-  <a class="nav-link" rel="bookmark" href="#Callbacks_/_Callables"> Callbacks / Callables </a>
-  <a class="nav-link" rel="bookmark" href="#Pseudo-types_and_variables_used_in_this_documentation"> Pseudo-types and variables used in this documentation </a>
-  <a class="nav-link" rel="bookmark" href="#Type_Juggling"> Type Juggling </a>
-  <a class="nav-link" rel="bookmark" href="#Variables"> Variables </a>
-  <a class="nav-link" rel="bookmark" href="#Variable_Basics"> Variable Basics </a>
-  <a class="nav-link" rel="bookmark" href="#Predefined_Variable"> Predefined Variable </a>
-  <a class="nav-link" rel="bookmark" href="#Variable_scope"> Variable scope </a>
-  <a class="nav-link" rel="bookmark" href="#Variable_variables"> Variable variables </a>
-  <a class="nav-link" rel="bookmark" href="#Variables_From_External_Sources"> Variables From External Sources </a>
-  <a class="nav-link" rel="bookmark" href="#Constants"> Constants </a>
-  <a class="nav-link" rel="bookmark" href="#Syntax"> Syntax </a>
-  <a class="nav-link" rel="bookmark" href="#Magic_constants"> Magic constants </a>
-  <a class="nav-link" rel="bookmark" href="#Expressions"> Expressions </a>
-  <a class="nav-link" rel="bookmark" href="#Expression"> Expression </a>
-  <a class="nav-link" rel="bookmark" href="#Operators"> Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Operator_Precedence"> Operator Precedence </a>
-  <a class="nav-link" rel="bookmark" href="#Arithmetic_Operators"> Arithmetic Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Assignment_Operators"> Assignment Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Bitwise_Operators"> Bitwise Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Comparison_Operators"> Comparison Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Error_Control_Operators"> Error Control Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Execution_Operators"> Execution Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Incrementing/Decrementing_Operators"> Incrementing/Decrementing Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Logical_Operators"> Logical Operators </a>
-  <a class="nav-link" rel="bookmark" href="#String_Operators"> String Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Array_Operators"> Array Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Type_Operators"> Type Operators </a>
-  <a class="nav-link" rel="bookmark" href="#Control_Structures"> Control Structures </a>
-  <a class="nav-link" rel="bookmark" href="#Control_Structures_Introduction"> Control Structures Introduction </a>
-  <a class="nav-link" rel="bookmark" href="#if"> if </a>
-  <a class="nav-link" rel="bookmark" href="#else"> else </a>
-  <a class="nav-link" rel="bookmark" href="#elseif/else_if"> elseif/else if </a>
-  <a class="nav-link" rel="bookmark" href="#Alternative_syntax_for_control_structures"> Alternative syntax for control structures </a>
-  <a class="nav-link" rel="bookmark" href="#while"> while </a>
-  <a class="nav-link" rel="bookmark" href="#do-while"> do-while </a>
-  <a class="nav-link" rel="bookmark" href="#for"> for </a>
-  <a class="nav-link" rel="bookmark" href="#foreach"> foreach </a>
-  <a class="nav-link" rel="bookmark" href="#break"> break </a>
-  <a class="nav-link" rel="bookmark" href="#continue"> continue </a>
-  <a class="nav-link" rel="bookmark" href="#switch"> switch </a>
-  <a class="nav-link" rel="bookmark" href="#declare"> declare </a>
-  <a class="nav-link" rel="bookmark" href="#return"> return </a>
-  <a class="nav-link" rel="bookmark" href="#require"> require </a>
-  <a class="nav-link" rel="bookmark" href="#include"> include </a>
-  <a class="nav-link" rel="bookmark" href="#require_once"> require_once </a>
-  <a class="nav-link" rel="bookmark" href="#include_once"> include_once </a>
-  <a class="nav-link" rel="bookmark" href="#goto"> goto </a>
-  <a class="nav-link" rel="bookmark" href="#Functions"> Functions </a>
-  <a class="nav-link" rel="bookmark" href="#User-defined_functions"> User-defined functions </a>
-  <a class="nav-link" rel="bookmark" href="#Function_arguments"> Function arguments </a>
-  <a class="nav-link" rel="bookmark" href="#Returning_values"> Returning values </a>
-  <a class="nav-link" rel="bookmark" href="#Variable_functions"> Variable functions </a>
-  <a class="nav-link" rel="bookmark" href="#bookmark_(built-in)_functions"> bookmark (built-in) functions </a>
-  <a class="nav-link" rel="bookmark" href="#Anonymous_functions"> Anonymous functions </a>
-  <a class="nav-link" rel="bookmark" href="#Classes_And_Objects"> Classes and Objects </a>
-  <a class="nav-link" rel="bookmark" href="#Control_Structures_Introduction"> Control Structures Introduction </a>
-  <a class="nav-link" rel="bookmark" href="#The_Basics"> The Basics </a>
-  <a class="nav-link" rel="bookmark" href="#Properties"> Properties </a>
-  <a class="nav-link" rel="bookmark" href="#Class_Constants"> Class Constants </a>
-  <a class="nav-link" rel="bookmark" href="#Autoloading_Classes"> Autoloading Classes </a>
-  <a class="nav-link" rel="bookmark" href="#Constructors_and_Destructors"> Constructors and Destructors </a>
-  <a class="nav-link" rel="bookmark" href="#Visibility"> Visibility </a>
-  <a class="nav-link" rel="bookmark" href="#Object_Inheritance"> Object Inheritance </a>
-  <a class="nav-link" rel="bookmark" href="#Scope_Resolution_Operator_(::)"> Scope Resolution Operator (::) </a>
-  <a class="nav-link" rel="bookmark" href="#Static_Keyword"> Static Keyword </a>
-  <a class="nav-link" rel="bookmark" href="#Class_Abstraction"> Class Abstraction </a>
-  <a class="nav-link" rel="bookmark" href="#Object_Interfaces"> Object Interfaces </a>
-  <a class="nav-link" rel="bookmark" href="#Traits"> Traits </a>
-  <a class="nav-link" rel="bookmark" href="#Anonymous_classes"> Anonymous classes </a>
-  <a class="nav-link" rel="bookmark" href="#Overloading"> Overloading </a>
-  <a class="nav-link" rel="bookmark" href="#Object_Iteration"> Object Iteration </a>
-  <a class="nav-link" rel="bookmark" href="#Magic_Methods"> Magic Methods </a>
-  <a class="nav-link" rel="bookmark" href="#Final_Keyword"> Final Keyword </a>
-  <a class="nav-link" rel="bookmark" href="#Object_Cloning"> Object Cloning </a>
-  <a class="nav-link" rel="bookmark" href="#Comparing_Objects"> Comparing Objects </a>
-  <a class="nav-link" rel="bookmark" href="#Type_Hinting"> Type Hinting </a>
-  <a class="nav-link" rel="bookmark" href="#Late_Static_Bindings"> Late Static Bindings </a>
-  <a class="nav-link" rel="bookmark" href="#Objects_and_references"> Objects and references </a>
-  <a class="nav-link" rel="bookmark" href="#Object_Serialization"> Object Serialization </a>
-  <a class="nav-link" rel="bookmark" href="#OOP_Changelog"> OOP Changelog </a>
-  <a class="nav-link" rel="bookmark" href="#Namespaces"> Namespaces </a>
-  <a class="nav-link" rel="bookmark" href="#Namespaces_overview"> Namespaces overview </a>
-  <a class="nav-link" rel="bookmark" href="#Defining_namespaces"> Defining namespaces </a>
-  <a class="nav-link" rel="bookmark" href="#Declaring_sub-namespaces"> Declaring sub-namespaces </a>
-  <a class="nav-link" rel="bookmark" href="#Defining_multiple_namespaces_in_the_same_file"> Defining multiple namespaces in the same file </a>
-  <a class="nav-link" rel="bookmark" href="#Using_namespaces:_Basics"> Using namespaces: Basics </a>
-  <a class="nav-link" rel="bookmark" href="#Namespaces_and_dynamic_language_features"> Namespaces and dynamic language features </a>
-  <a class="nav-link" rel="bookmark" href="#namespace_keyword_and___NAMESPACE___constant"> namespace keyword and __NAMESPACE__ constant </a>
-  <a class="nav-link" rel="bookmark" href="#Using_namespaces:_Aliasing/Importing"> Using namespaces: Aliasing/Importing </a>
-  <a class="nav-link" rel="bookmark" href="#Global_space"> Global space </a>
-  <a class="nav-link" rel="bookmark" href="#Using_namespaces:_fallback_to_global_function/constant"> Using namespaces: fallback to global function/constant </a>
-  <a class="nav-link" rel="bookmark" href="#Name_resolution_rules"> Name resolution rules </a>
-  <a class="nav-link" rel="bookmark" href="#FAQ:_things_you_need_to_know_about_namespaces"> FAQ: things you need to know about namespaces </a>
-  <a class="nav-link" rel="bookmark" href="#Errors"> Errors </a>
-  <a class="nav-link" rel="bookmark" href="#Errors_Basics"> Errors Basics </a>
-  <a class="nav-link" rel="bookmark" href="#Errors_in_PHP_7"> Errors in PHP 7 </a>
-  <a class="nav-link" rel="bookmark" href="#Exceptions"> Exceptions </a>
-  <a class="nav-link" rel="bookmark" href="#Extending_Exceptions"> Extending Exceptions </a>
-  <a class="nav-link" rel="bookmark" href="#Generators"> Generators </a>
-  <a class="nav-link" rel="bookmark" href="#Generators_overview"> Generators overview </a>
-  <a class="nav-link" rel="bookmark" href="#Generator_syntax"> Generator syntax </a>
-  <a class="nav-link" rel="bookmark" href="#Comparing_generators_with_Iterator_objects"> Comparing generators with Iterator objects </a>
-  <a class="nav-link" rel="bookmark" href="#References_Explained"> References Explained </a>
-  <a class="nav-link" rel="bookmark" href="#What_References_Are"> What References Are </a>
-  <a class="nav-link" rel="bookmark" href="#What_References_Do"> What References Do </a>
-  <a class="nav-link" rel="bookmark" href="#What_References_Are_Not"> What References Are Not </a>
-  <a class="nav-link" rel="bookmark" href="#Passing_by_Reference"> Passing by Reference </a>
-  <a class="nav-link" rel="bookmark" href="#Returning_References"> Returning References </a>
-  <a class="nav-link" rel="bookmark" href="#Unsetting_References"> Unsetting References </a>
-  <a class="nav-link" rel="bookmark" href="#Spotting_References"> Spotting References </a>
-  <a class="nav-link" rel="bookmark" href="#Predefined_Variables"> Predefined Variables </a>
-  <a class="nav-link" rel="bookmark" href="#Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes"> Superglobals — Superglobals are built-in variables that are always available in all scopes </a>
-  <a class="nav-link" rel="bookmark" href="#$GLOBALS_—_References_all_variables_available_in_global_scope"> $GLOBALS — References all variables available in global scope </a>
-  <a class="nav-link" rel="bookmark" href="#$_SERVER_—_Server_and_execution_environment_information"> $_SERVER — Server and execution environment information </a>
-  <a class="nav-link" rel="bookmark" href="#$_GET_—_HTTP_GET_variables"> $_GET — HTTP GET variables </a>
-  <a class="nav-link" rel="bookmark" href="#$_POST_—_HTTP_POST_variables"> $_POST — HTTP POST variables </a>
-  <a class="nav-link" rel="bookmark" href="#$_FILES_—_HTTP_File_Upload_variables"> $_FILES — HTTP File Upload variables </a>
-  <a class="nav-link" rel="bookmark" href="#$_REQUEST_—_HTTP_Request_variables"> $_REQUEST — HTTP Request variables </a>
-  <a class="nav-link" rel="bookmark" href="#$_SESSION_—_Session_variables"> $_SESSION — Session variables </a>
-  <a class="nav-link" rel="bookmark" href="#$_ENV_—_Environment_variables"> $_ENV — Environment variables </a>
-  <a class="nav-link" rel="bookmark" href="#$_COOKIE_—_HTTP_Cookies"> $_COOKIE — HTTP Cookies </a>
-  <a class="nav-link" rel="bookmark" href="#$php_errormsg_—_The_previous_error_message"> $php_errormsg — The previous error message </a>
-  <a class="nav-link" rel="bookmark" href="#$HTTP_RAW_POST_DATA_—_Raw_POST_data"> $HTTP_RAW_POST_DATA — Raw POST data </a>
-  <a class="nav-link" rel="bookmark" href="#$http_response_header_—_HTTP_response_headers"> $http_response_header — HTTP response headers </a>
-  <a class="nav-link" rel="bookmark" href="#$argc_—_The_number_of_arguments_passed_to_script"> $argc — The number of arguments passed to script </a>
-  <a class="nav-link" rel="bookmark" href="#$argv_—_Array_of_arguments_passed_to_script"> $argv — Array of arguments passed to script </a>
-  <a class="nav-link" rel="bookmark" href="#Predefined_Exceptions"> Predefined Exceptions </a>
-  <a class="nav-link" rel="bookmark" href="#Exception"> Exception </a>
-  <a class="nav-link" rel="bookmark" href="#ErrorException"> ErrorException </a>
-  <a class="nav-link" rel="bookmark" href="#Error"> Error </a>
-  <a class="nav-link" rel="bookmark" href="#ArgumentCountError"> ArgumentCountError </a>
-  <a class="nav-link" rel="bookmark" href="#ArithmeticError"> ArithmeticError </a>
-  <a class="nav-link" rel="bookmark" href="#AssertionError"> AssertionError </a>
-  <a class="nav-link" rel="bookmark" href="#DivisionByZeroError"> DivisionByZeroError </a>
-  <a class="nav-link" rel="bookmark" href="#CompileError"> CompileError </a>
-  <a class="nav-link" rel="bookmark" href="#ParseError"> ParseError </a>
-  <a class="nav-link" rel="bookmark" href="#TypeError"> TypeError </a>
-  <a class="nav-link" rel="bookmark" href="#Predefined_Interfaces_and_Classes"> Predefined Interfaces and Classes </a>
-  <a class="nav-link" rel="bookmark" href="#Traversable_—_The_Traversable_interface"> Traversable — The Traversable interface </a>
-  <a class="nav-link" rel="bookmark" href="#Iterator_—_The_Iterator_interface"> Iterator — The Iterator interface </a>
-  <a class="nav-link" rel="bookmark" href="#IteratorAggregate_—_The_IteratorAggregate_interface"> IteratorAggregate — The IteratorAggregate interface </a>
-  <a class="nav-link" rel="bookmark" href="#Throwable"> Throwable </a>
-  <a class="nav-link" rel="bookmark" href="#ArrayAccess_—_The_ArrayAccess_interface"> ArrayAccess — The ArrayAccess interface </a>
-  <a class="nav-link" rel="bookmark" href="#Serializable_—_The_Serializable_interface"> Serializable — The Serializable interface </a>
-  <a class="nav-link" rel="bookmark" href="#Closure_—_The_Closure_class"> Closure — The Closure class </a>
-  <a class="nav-link" rel="bookmark" href="#Generator_—_The_Generator_class"> Generator — The Generator class </a>
-  <a class="nav-link" rel="bookmark" href="#Context_options_and_parameters"> Context options and parameters </a>
-  <a class="nav-link" rel="bookmark" href="#Socket_context_options_—_Socket_context_option_listing"> Socket context options — Socket context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#HTTP_context_options_—_HTTP_context_option_listing"> HTTP context options — HTTP context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#FTP_context_options_—_FTP_context_option_listing"> FTP context options — FTP context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#SSL_context_options_—_SSL_context_option_listing"> SSL context options — SSL context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#CURL_context_options_—_CURL_context_option_listing"> CURL context options — CURL context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#Phar_context_options_—_Phar_context_option_listing"> Phar context options — Phar context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#MongoDB_context_options_—_MongoDB_context_option_listing"> MongoDB context options — MongoDB context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#Context_parameters_—_Context_parameter_listing"> Context parameters — Context parameter listing </a>
-  <a class="nav-link" rel="bookmark" href="#Zip_context_options_—_Zip_context_option_listing"> Zip context options — Zip context option listing </a>
-  <a class="nav-link" rel="bookmark" href="#Supported_Protocols_and_Wrappers"> Supported Protocols and Wrappers </a>
-  <a class="nav-link" rel="bookmark" href="#file://_—_Accessing_local_filesystem"> file:// — Accessing local filesystem </a>
-  <a class="nav-link" rel="bookmark" href="#http://_—_Accessing_HTTP(s)_URLs"> http:// — Accessing HTTP(s) URLs </a>
-  <a class="nav-link" rel="bookmark" href="#ftp://_—_Accessing_FTP(s)_URLs"> ftp:// — Accessing FTP(s) URLs </a>
-  <a class="nav-link" rel="bookmark" href="#php://_—_Accessing_various_I/O_streams"> php:// — Accessing various I/O streams </a>
-  <a class="nav-link" rel="bookmark" href="#zlib://_—_Compression_Streams"> zlib:// — Compression Streams </a>
-  <a class="nav-link" rel="bookmark" href="#data://_—_Data_(RFC_2397)"> data:// — Data (RFC 2397) </a>
-  <a class="nav-link" rel="bookmark" href="#glob://_—_Find_pathnames_matching_pattern"> glob:// — Find pathnames matching pattern </a>
-  <a class="nav-link" rel="bookmark" href="#phar://_—_PHP_Archive"> phar:// — PHP Archive </a>
-  <a class="nav-link" rel="bookmark" href="#ssh2://_—_Secure_Shell_2"> ssh2:// — Secure Shell 2 </a>
-  <a class="nav-link" rel="bookmark" href="#rar://_—_RAR"> rar:// — RAR </a>
-  <a class="nav-link" rel="bookmark" href="#ogg://_—_Audio_streams"> ogg:// — Audio streams </a>
-  <a class="nav-link" rel="bookmark" href="#expect://_—_Process_Interaction_Streams"> expect:// — Process Interaction Streams </a>
-</nav>
+  <nav id="navbar">
+    <header>PHP Documentation</header>
+    <a class="nav-link" rel="bookmark" href="#Basic_syntax"> Basic syntax </a>
+    <a class="nav-link" rel="bookmark" href="#PHP_tags"> PHP tags </a>
+    <a class="nav-link" rel="bookmark" href="#Escaping_from_HTML"> Escaping from HTML </a>
+    <a class="nav-link" rel="bookmark" href="#Instruction_separation"> Instruction separation </a>
+    <a class="nav-link" rel="bookmark" href="#Comments"> Comments </a>
+    <a class="nav-link" rel="bookmark" href="#Types"> Types </a>
+    <a class="nav-link" rel="bookmark" href="#Types_Introduction"> Types Introduction </a>
+    <a class="nav-link" rel="bookmark" href="#Booleans"> Booleans </a>
+    <a class="nav-link" rel="bookmark" href="#Integers"> Integers </a>
+    <a class="nav-link" rel="bookmark" href="#Floating_point_numbers"> Floating point numbers </a>
+    <a class="nav-link" rel="bookmark" href="#Strings"> Strings </a>
+    <a class="nav-link" rel="bookmark" href="#Arrays"> Arrays </a>
+    <a class="nav-link" rel="bookmark" href="#Iterables"> Iterables </a>
+    <a class="nav-link" rel="bookmark" href="#Objects"> Objects </a>
+    <a class="nav-link" rel="bookmark" href="#Resources"> Resources </a>
+    <a class="nav-link" rel="bookmark" href="#NULL"> NULL </a>
+    <a class="nav-link" rel="bookmark" href="#Callbacks_/_Callables"> Callbacks / Callables </a>
+    <a class="nav-link" rel="bookmark" href="#Pseudo-types_and_variables_used_in_this_documentation"> Pseudo-types and variables used in this documentation </a>
+    <a class="nav-link" rel="bookmark" href="#Type_Juggling"> Type Juggling </a>
+    <a class="nav-link" rel="bookmark" href="#Variables"> Variables </a>
+    <a class="nav-link" rel="bookmark" href="#Variable_Basics"> Variable Basics </a>
+    <a class="nav-link" rel="bookmark" href="#Predefined_Variable"> Predefined Variable </a>
+    <a class="nav-link" rel="bookmark" href="#Variable_scope"> Variable scope </a>
+    <a class="nav-link" rel="bookmark" href="#Variable_variables"> Variable variables </a>
+    <a class="nav-link" rel="bookmark" href="#Variables_From_External_Sources"> Variables From External Sources </a>
+    <a class="nav-link" rel="bookmark" href="#Constants"> Constants </a>
+    <a class="nav-link" rel="bookmark" href="#Syntax"> Syntax </a>
+    <a class="nav-link" rel="bookmark" href="#Magic_constants"> Magic constants </a>
+    <a class="nav-link" rel="bookmark" href="#Expressions"> Expressions </a>
+    <a class="nav-link" rel="bookmark" href="#Expression"> Expression </a>
+    <a class="nav-link" rel="bookmark" href="#Operators"> Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Operator_Precedence"> Operator Precedence </a>
+    <a class="nav-link" rel="bookmark" href="#Arithmetic_Operators"> Arithmetic Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Assignment_Operators"> Assignment Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Bitwise_Operators"> Bitwise Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Comparison_Operators"> Comparison Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Error_Control_Operators"> Error Control Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Execution_Operators"> Execution Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Incrementing/Decrementing_Operators"> Incrementing/Decrementing Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Logical_Operators"> Logical Operators </a>
+    <a class="nav-link" rel="bookmark" href="#String_Operators"> String Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Array_Operators"> Array Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Type_Operators"> Type Operators </a>
+    <a class="nav-link" rel="bookmark" href="#Control_Structures"> Control Structures </a>
+    <a class="nav-link" rel="bookmark" href="#Control_Structures_Introduction"> Control Structures Introduction </a>
+    <a class="nav-link" rel="bookmark" href="#if"> if </a>
+    <a class="nav-link" rel="bookmark" href="#else"> else </a>
+    <a class="nav-link" rel="bookmark" href="#elseif/else_if"> elseif/else if </a>
+    <a class="nav-link" rel="bookmark" href="#Alternative_syntax_for_control_structures"> Alternative syntax for control structures </a>
+    <a class="nav-link" rel="bookmark" href="#while"> while </a>
+    <a class="nav-link" rel="bookmark" href="#do-while"> do-while </a>
+    <a class="nav-link" rel="bookmark" href="#for"> for </a>
+    <a class="nav-link" rel="bookmark" href="#foreach"> foreach </a>
+    <a class="nav-link" rel="bookmark" href="#break"> break </a>
+    <a class="nav-link" rel="bookmark" href="#continue"> continue </a>
+    <a class="nav-link" rel="bookmark" href="#switch"> switch </a>
+    <a class="nav-link" rel="bookmark" href="#declare"> declare </a>
+    <a class="nav-link" rel="bookmark" href="#return"> return </a>
+    <a class="nav-link" rel="bookmark" href="#require"> require </a>
+    <a class="nav-link" rel="bookmark" href="#include"> include </a>
+    <a class="nav-link" rel="bookmark" href="#require_once"> require_once </a>
+    <a class="nav-link" rel="bookmark" href="#include_once"> include_once </a>
+    <a class="nav-link" rel="bookmark" href="#goto"> goto </a>
+    <a class="nav-link" rel="bookmark" href="#Functions"> Functions </a>
+    <a class="nav-link" rel="bookmark" href="#User-defined_functions"> User-defined functions </a>
+    <a class="nav-link" rel="bookmark" href="#Function_arguments"> Function arguments </a>
+    <a class="nav-link" rel="bookmark" href="#Returning_values"> Returning values </a>
+    <a class="nav-link" rel="bookmark" href="#Variable_functions"> Variable functions </a>
+    <a class="nav-link" rel="bookmark" href="#bookmark_(built-in)_functions"> bookmark (built-in) functions </a>
+    <a class="nav-link" rel="bookmark" href="#Anonymous_functions"> Anonymous functions </a>
+    <a class="nav-link" rel="bookmark" href="#Classes_And_Objects"> Classes and Objects </a>
+    <a class="nav-link" rel="bookmark" href="#Control_Structures_Introduction"> Control Structures Introduction </a>
+    <a class="nav-link" rel="bookmark" href="#The_Basics"> The Basics </a>
+    <a class="nav-link" rel="bookmark" href="#Properties"> Properties </a>
+    <a class="nav-link" rel="bookmark" href="#Class_Constants"> Class Constants </a>
+    <a class="nav-link" rel="bookmark" href="#Autoloading_Classes"> Autoloading Classes </a>
+    <a class="nav-link" rel="bookmark" href="#Constructors_and_Destructors"> Constructors and Destructors </a>
+    <a class="nav-link" rel="bookmark" href="#Visibility"> Visibility </a>
+    <a class="nav-link" rel="bookmark" href="#Object_Inheritance"> Object Inheritance </a>
+    <a class="nav-link" rel="bookmark" href="#Scope_Resolution_Operator_(::)"> Scope Resolution Operator (::) </a>
+    <a class="nav-link" rel="bookmark" href="#Static_Keyword"> Static Keyword </a>
+    <a class="nav-link" rel="bookmark" href="#Class_Abstraction"> Class Abstraction </a>
+    <a class="nav-link" rel="bookmark" href="#Object_Interfaces"> Object Interfaces </a>
+    <a class="nav-link" rel="bookmark" href="#Traits"> Traits </a>
+    <a class="nav-link" rel="bookmark" href="#Anonymous_classes"> Anonymous classes </a>
+    <a class="nav-link" rel="bookmark" href="#Overloading"> Overloading </a>
+    <a class="nav-link" rel="bookmark" href="#Object_Iteration"> Object Iteration </a>
+    <a class="nav-link" rel="bookmark" href="#Magic_Methods"> Magic Methods </a>
+    <a class="nav-link" rel="bookmark" href="#Final_Keyword"> Final Keyword </a>
+    <a class="nav-link" rel="bookmark" href="#Object_Cloning"> Object Cloning </a>
+    <a class="nav-link" rel="bookmark" href="#Comparing_Objects"> Comparing Objects </a>
+    <a class="nav-link" rel="bookmark" href="#Type_Hinting"> Type Hinting </a>
+    <a class="nav-link" rel="bookmark" href="#Late_Static_Bindings"> Late Static Bindings </a>
+    <a class="nav-link" rel="bookmark" href="#Objects_and_references"> Objects and references </a>
+    <a class="nav-link" rel="bookmark" href="#Object_Serialization"> Object Serialization </a>
+    <a class="nav-link" rel="bookmark" href="#OOP_Changelog"> OOP Changelog </a>
+    <a class="nav-link" rel="bookmark" href="#Namespaces"> Namespaces </a>
+    <a class="nav-link" rel="bookmark" href="#Namespaces_overview"> Namespaces overview </a>
+    <a class="nav-link" rel="bookmark" href="#Defining_namespaces"> Defining namespaces </a>
+    <a class="nav-link" rel="bookmark" href="#Declaring_sub-namespaces"> Declaring sub-namespaces </a>
+    <a class="nav-link" rel="bookmark" href="#Defining_multiple_namespaces_in_the_same_file"> Defining multiple namespaces in the same file </a>
+    <a class="nav-link" rel="bookmark" href="#Using_namespaces:_Basics"> Using namespaces: Basics </a>
+    <a class="nav-link" rel="bookmark" href="#Namespaces_and_dynamic_language_features"> Namespaces and dynamic language features </a>
+    <a class="nav-link" rel="bookmark" href="#namespace_keyword_and___NAMESPACE___constant"> namespace keyword and __NAMESPACE__ constant </a>
+    <a class="nav-link" rel="bookmark" href="#Using_namespaces:_Aliasing/Importing"> Using namespaces: Aliasing/Importing </a>
+    <a class="nav-link" rel="bookmark" href="#Global_space"> Global space </a>
+    <a class="nav-link" rel="bookmark" href="#Using_namespaces:_fallback_to_global_function/constant"> Using namespaces: fallback to global function/constant </a>
+    <a class="nav-link" rel="bookmark" href="#Name_resolution_rules"> Name resolution rules </a>
+    <a class="nav-link" rel="bookmark" href="#FAQ:_things_you_need_to_know_about_namespaces"> FAQ: things you need to know about namespaces </a>
+    <a class="nav-link" rel="bookmark" href="#Errors"> Errors </a>
+    <a class="nav-link" rel="bookmark" href="#Errors_Basics"> Errors Basics </a>
+    <a class="nav-link" rel="bookmark" href="#Errors_in_PHP_7"> Errors in PHP 7 </a>
+    <a class="nav-link" rel="bookmark" href="#Exceptions"> Exceptions </a>
+    <a class="nav-link" rel="bookmark" href="#Extending_Exceptions"> Extending Exceptions </a>
+    <a class="nav-link" rel="bookmark" href="#Generators"> Generators </a>
+    <a class="nav-link" rel="bookmark" href="#Generators_overview"> Generators overview </a>
+    <a class="nav-link" rel="bookmark" href="#Generator_syntax"> Generator syntax </a>
+    <a class="nav-link" rel="bookmark" href="#Comparing_generators_with_Iterator_objects"> Comparing generators with Iterator objects </a>
+    <a class="nav-link" rel="bookmark" href="#References_Explained"> References Explained </a>
+    <a class="nav-link" rel="bookmark" href="#What_References_Are"> What References Are </a>
+    <a class="nav-link" rel="bookmark" href="#What_References_Do"> What References Do </a>
+    <a class="nav-link" rel="bookmark" href="#What_References_Are_Not"> What References Are Not </a>
+    <a class="nav-link" rel="bookmark" href="#Passing_by_Reference"> Passing by Reference </a>
+    <a class="nav-link" rel="bookmark" href="#Returning_References"> Returning References </a>
+    <a class="nav-link" rel="bookmark" href="#Unsetting_References"> Unsetting References </a>
+    <a class="nav-link" rel="bookmark" href="#Spotting_References"> Spotting References </a>
+    <a class="nav-link" rel="bookmark" href="#Predefined_Variables"> Predefined Variables </a>
+    <a class="nav-link" rel="bookmark" href="#Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes"> Superglobals — Superglobals are built-in variables that are always available in all scopes </a>
+    <a class="nav-link" rel="bookmark" href="#$GLOBALS_—_References_all_variables_available_in_global_scope"> $GLOBALS — References all variables available in global scope </a>
+    <a class="nav-link" rel="bookmark" href="#$_SERVER_—_Server_and_execution_environment_information"> $_SERVER — Server and execution environment information </a>
+    <a class="nav-link" rel="bookmark" href="#$_GET_—_HTTP_GET_variables"> $_GET — HTTP GET variables </a>
+    <a class="nav-link" rel="bookmark" href="#$_POST_—_HTTP_POST_variables"> $_POST — HTTP POST variables </a>
+    <a class="nav-link" rel="bookmark" href="#$_FILES_—_HTTP_File_Upload_variables"> $_FILES — HTTP File Upload variables </a>
+    <a class="nav-link" rel="bookmark" href="#$_REQUEST_—_HTTP_Request_variables"> $_REQUEST — HTTP Request variables </a>
+    <a class="nav-link" rel="bookmark" href="#$_SESSION_—_Session_variables"> $_SESSION — Session variables </a>
+    <a class="nav-link" rel="bookmark" href="#$_ENV_—_Environment_variables"> $_ENV — Environment variables </a>
+    <a class="nav-link" rel="bookmark" href="#$_COOKIE_—_HTTP_Cookies"> $_COOKIE — HTTP Cookies </a>
+    <a class="nav-link" rel="bookmark" href="#$php_errormsg_—_The_previous_error_message"> $php_errormsg — The previous error message </a>
+    <a class="nav-link" rel="bookmark" href="#$HTTP_RAW_POST_DATA_—_Raw_POST_data"> $HTTP_RAW_POST_DATA — Raw POST data </a>
+    <a class="nav-link" rel="bookmark" href="#$http_response_header_—_HTTP_response_headers"> $http_response_header — HTTP response headers </a>
+    <a class="nav-link" rel="bookmark" href="#$argc_—_The_number_of_arguments_passed_to_script"> $argc — The number of arguments passed to script </a>
+    <a class="nav-link" rel="bookmark" href="#$argv_—_Array_of_arguments_passed_to_script"> $argv — Array of arguments passed to script </a>
+    <a class="nav-link" rel="bookmark" href="#Predefined_Exceptions"> Predefined Exceptions </a>
+    <a class="nav-link" rel="bookmark" href="#Exception"> Exception </a>
+    <a class="nav-link" rel="bookmark" href="#ErrorException"> ErrorException </a>
+    <a class="nav-link" rel="bookmark" href="#Error"> Error </a>
+    <a class="nav-link" rel="bookmark" href="#ArgumentCountError"> ArgumentCountError </a>
+    <a class="nav-link" rel="bookmark" href="#ArithmeticError"> ArithmeticError </a>
+    <a class="nav-link" rel="bookmark" href="#AssertionError"> AssertionError </a>
+    <a class="nav-link" rel="bookmark" href="#DivisionByZeroError"> DivisionByZeroError </a>
+    <a class="nav-link" rel="bookmark" href="#CompileError"> CompileError </a>
+    <a class="nav-link" rel="bookmark" href="#ParseError"> ParseError </a>
+    <a class="nav-link" rel="bookmark" href="#TypeError"> TypeError </a>
+    <a class="nav-link" rel="bookmark" href="#Predefined_Interfaces_and_Classes"> Predefined Interfaces and Classes </a>
+    <a class="nav-link" rel="bookmark" href="#Traversable_—_The_Traversable_interface"> Traversable — The Traversable interface </a>
+    <a class="nav-link" rel="bookmark" href="#Iterator_—_The_Iterator_interface"> Iterator — The Iterator interface </a>
+    <a class="nav-link" rel="bookmark" href="#IteratorAggregate_—_The_IteratorAggregate_interface"> IteratorAggregate — The IteratorAggregate interface </a>
+    <a class="nav-link" rel="bookmark" href="#Throwable"> Throwable </a>
+    <a class="nav-link" rel="bookmark" href="#ArrayAccess_—_The_ArrayAccess_interface"> ArrayAccess — The ArrayAccess interface </a>
+    <a class="nav-link" rel="bookmark" href="#Serializable_—_The_Serializable_interface"> Serializable — The Serializable interface </a>
+    <a class="nav-link" rel="bookmark" href="#Closure_—_The_Closure_class"> Closure — The Closure class </a>
+    <a class="nav-link" rel="bookmark" href="#Generator_—_The_Generator_class"> Generator — The Generator class </a>
+    <a class="nav-link" rel="bookmark" href="#Context_options_and_parameters"> Context options and parameters </a>
+    <a class="nav-link" rel="bookmark" href="#Socket_context_options_—_Socket_context_option_listing"> Socket context options — Socket context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#HTTP_context_options_—_HTTP_context_option_listing"> HTTP context options — HTTP context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#FTP_context_options_—_FTP_context_option_listing"> FTP context options — FTP context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#SSL_context_options_—_SSL_context_option_listing"> SSL context options — SSL context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#CURL_context_options_—_CURL_context_option_listing"> CURL context options — CURL context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#Phar_context_options_—_Phar_context_option_listing"> Phar context options — Phar context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#MongoDB_context_options_—_MongoDB_context_option_listing"> MongoDB context options — MongoDB context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#Context_parameters_—_Context_parameter_listing"> Context parameters — Context parameter listing </a>
+    <a class="nav-link" rel="bookmark" href="#Zip_context_options_—_Zip_context_option_listing"> Zip context options — Zip context option listing </a>
+    <a class="nav-link" rel="bookmark" href="#Supported_Protocols_and_Wrappers"> Supported Protocols and Wrappers </a>
+    <a class="nav-link" rel="bookmark" href="#file://_—_Accessing_local_filesystem"> file:// — Accessing local filesystem </a>
+    <a class="nav-link" rel="bookmark" href="#http://_—_Accessing_HTTP(s)_URLs"> http:// — Accessing HTTP(s) URLs </a>
+    <a class="nav-link" rel="bookmark" href="#ftp://_—_Accessing_FTP(s)_URLs"> ftp:// — Accessing FTP(s) URLs </a>
+    <a class="nav-link" rel="bookmark" href="#php://_—_Accessing_various_I/O_streams"> php:// — Accessing various I/O streams </a>
+    <a class="nav-link" rel="bookmark" href="#zlib://_—_Compression_Streams"> zlib:// — Compression Streams </a>
+    <a class="nav-link" rel="bookmark" href="#data://_—_Data_(RFC_2397)"> data:// — Data (RFC 2397) </a>
+    <a class="nav-link" rel="bookmark" href="#glob://_—_Find_pathnames_matching_pattern"> glob:// — Find pathnames matching pattern </a>
+    <a class="nav-link" rel="bookmark" href="#phar://_—_PHP_Archive"> phar:// — PHP Archive </a>
+    <a class="nav-link" rel="bookmark" href="#ssh2://_—_Secure_Shell_2"> ssh2:// — Secure Shell 2 </a>
+    <a class="nav-link" rel="bookmark" href="#rar://_—_RAR"> rar:// — RAR </a>
+    <a class="nav-link" rel="bookmark" href="#ogg://_—_Audio_streams"> ogg:// — Audio streams </a>
+    <a class="nav-link" rel="bookmark" href="#expect://_—_Process_Interaction_Streams"> expect:// — Process Interaction Streams </a>
+  </nav>
 
 
 
 
 
-<main id = "main-doc">
+  <main id="main-doc">
 
 
-  <h1 id="Basic_syntax"> Basic syntax </h1>
-  <section class="main-section" id="PHP_tags">
-    <header>PHP tags</header>
-    <p>When PHP parses a file, it looks for opening and closing tags, which are
-      &lt?php and ?&gt which tell PHP to start and stop interpreting the code
-      between them. Parsing in this manner allows PHP to be embedded in all sorts
-      of different documents, as everything outside of a pair of opening and closing
-      tags is ignored by the PHP parser.
-    </p>
-    <p class="note-comment"> I would like to stress out that the opening tag is
-      "&lt?php[whitespace]", not just "&lt?php".
-    </p>
-    <p>If a file is pure PHP code, it is preferable to omit the PHP closing tag
-      at the end of the file. This prevents accidental whitespace or new lines
-      being added after the PHP closing tag, which may cause unwanted effects because
-      PHP will start output buffering when there is no intention from the programmer
-      to send any output at that point in the script.
-    </p>
-    <code>
+    <h1 id="Basic_syntax"> Basic syntax </h1>
+    <section class="main-section" id="PHP_tags">
+      <header>PHP tags</header>
+      <p>When PHP parses a file, it looks for opening and closing tags, which are
+        &lt?php and ?&gt which tell PHP to start and stop interpreting the code
+        between them. Parsing in this manner allows PHP to be embedded in all sorts
+        of different documents, as everything outside of a pair of opening and closing
+        tags is ignored by the PHP parser.
+      </p>
+      <p class="note-comment"> I would like to stress out that the opening tag is
+        "&lt?php[whitespace]", not just "&lt?php".
+      </p>
+      <p>If a file is pure PHP code, it is preferable to omit the PHP closing tag
+        at the end of the file. This prevents accidental whitespace or new lines
+        being added after the PHP closing tag, which may cause unwanted effects because
+        PHP will start output buffering when there is no intention from the programmer
+        to send any output at that point in the script.
+      </p>
+      <code>
 
-      &lt?php<br>
-      echo "Hello world";<br>
+        &lt?php<br>
+        echo "Hello world";<br>
 
-      // ... more code<br>
+        // ... more code<br>
 
-      echo "Last statement";<br>
+        echo "Last statement";<br>
 
-      // the script ends here with no PHP closing tag<br>
+        // the script ends here with no PHP closing tag<br>
 
-    </code>
-  </section>
+      </code>
+    </section>
 
 
-  <section class="main-section" id="Escaping_from_HTML">
-    <header>Escaping from HTML</header>
-    <p>
-    Everything outside of a pair of opening and closing tags is ignored by the PHP parser which allows PHP files to have mixed content. This allows PHP to be embedded in HTML documents, for example to create templates.
-  </p>
-  <code>
-    &ltp&gtThis is going to be ignored by PHP and displayed by the browser.&lt/p&gt
-    &lt?php echo 'While this is going to be parsed.'; ?&gt
-    &ltp&gtThis will also be ignored by PHP and displayed by the browser.&lt/p&gt
-  </code>
+    <section class="main-section" id="Escaping_from_HTML">
+      <header>Escaping from HTML</header>
       <p>
-        This works as expected, because when the PHP interpreter hits the ?&gt closing tags, it simply starts outputting whatever it finds (except for an immediately following newline - see instruction separation) until it hits another opening tag unless in the middle of a conditional statement in which case the interpreter will determine the outcome of the conditional before making a decision of what to skip over. See the next example.
+        Everything outside of a pair of opening and closing tags is ignored by the PHP parser which allows PHP files to have mixed content. This allows PHP to be embedded in HTML documents, for example to create templates.
+      </p>
+      <code>
+        &ltp&gtThis is going to be ignored by PHP and displayed by the browser.&lt/p&gt
+        &lt?php echo 'While this is going to be parsed.'; ?&gt
+        &ltp&gtThis will also be ignored by PHP and displayed by the browser.&lt/p&gt
+      </code>
+      <p>
+        This works as expected, because when the PHP interpreter hits the ?&gt closing tags, it simply starts outputting whatever it finds (except for an immediately following newline - see instruction separation) until it hits another opening tag
+        unless in the middle of a conditional statement in which case the interpreter will determine the outcome of the conditional before making a decision of what to skip over. See the next example.
       </p>
 
 
-  Using structures with conditions
+      Using structures with conditions
 
-    <h2>Example #1 Advanced escaping using conditions</h2>
-    <code>
-    &lt?php if ($expression == true): ?&gt<br>
-     This will show if the expression is true.<br>
-    &lt?php else: ?&gt<br>
-     Otherwise this will show.<br>
-    &lt?php endif; ?&gt<br>
-  </code>
-<p>
-    In this example PHP will skip the blocks where the condition is not met, even though they are outside of the PHP open/close tags; PHP skips them according to the condition since the PHP interpreter will jump over blocks contained within a condition that is not met.
-  </p>
-<p>
-    For outputting large blocks of text, dropping out of PHP parsing mode is generally more efficient than sending all of the text through echo or print.
-  </p>
-<p>
-    In PHP 5, there are up to five different pairs of opening and closing tags available in PHP, depending on how PHP is configured. Two of these, &lt?php ?&gt and &ltscript language="php"&gt &lt/script&gt, are always available. There is also the short echo tag &lt?= ?&gt, which is always available in PHP 5.4.0 and later.
-  </p>
-<p>
-    The other two are short tags and ASP style tags. As such, while some people find short tags and ASP style tags convenient, they are less portable, and generally not recommended.
-  </p>
+      <h2>Example #1 Advanced escaping using conditions</h2>
+      <code>
+        &lt?php if ($expression == true): ?&gt<br>
+        This will show if the expression is true.<br>
+        &lt?php else: ?&gt<br>
+        Otherwise this will show.<br>
+        &lt?php endif; ?&gt<br>
+      </code>
+      <p>
+        In this example PHP will skip the blocks where the condition is not met, even though they are outside of the PHP open/close tags; PHP skips them according to the condition since the PHP interpreter will jump over blocks contained within a
+        condition that is not met.
+      </p>
+      <p>
+        For outputting large blocks of text, dropping out of PHP parsing mode is generally more efficient than sending all of the text through echo or print.
+      </p>
+      <p>
+        In PHP 5, there are up to five different pairs of opening and closing tags available in PHP, depending on how PHP is configured. Two of these, &lt?php ?&gt and &ltscript language="php"&gt &lt/script&gt, are always available. There is also
+        the short echo tag &lt?= ?&gt, which is always available in PHP 5.4.0 and later.
+      </p>
+      <p>
+        The other two are short tags and ASP style tags. As such, while some people find short tags and ASP style tags convenient, they are less portable, and generally not recommended.
+      </p>
 
-    <ul class="note-comment">
-      <li>
-       Also note that if you are embedding PHP within XML or XHTML you will need to use the &lt?php ?&gt tags to remain compliant with standards.
-     </li>
-   </ul>
-   <p>
-    PHP 7 removes support for ASP tags and &ltscript language="php"&gt tags. As such, we recommend only using &lt?php ?&gt and &lt?= ?&gt when writing PHP code to maximise compatibility.
-  </p>
-    <h2>Example #2 PHP Opening and Closing Tags</h2>
-    <code>
-      <ol>
+      <ul class="note-comment">
         <li>
-      &lt?php echo 'if you want to serve PHP code in XHTML or XML documents,
-                   use these tags'; ?&gt
-                 </li>
-                 <li>
-      You can use the short echo tag to &lt?= 'print this string' ?&gt.
-       It's always enabled in PHP 5.4.0 and later, and is equivalent to
-       &lt ?php echo 'print this string' ?&gt.
-     </li>
-     <li>
+          Also note that if you are embedding PHP within XML or XHTML you will need to use the &lt?php ?&gt tags to remain compliant with standards.
+        </li>
+      </ul>
+      <p>
+        PHP 7 removes support for ASP tags and &ltscript language="php"&gt tags. As such, we recommend only using &lt?php ?&gt and &lt?= ?&gt when writing PHP code to maximise compatibility.
+      </p>
+      <h2>Example #2 PHP Opening and Closing Tags</h2>
+      <code>
+        <ol>
+          <li>
+            &lt?php echo 'if you want to serve PHP code in XHTML or XML documents,
+            use these tags'; ?&gt
+          </li>
+          <li>
+            You can use the short echo tag to &lt?= 'print this string' ?&gt.
+            It's always enabled in PHP 5.4.0 and later, and is equivalent to
+            &lt ?php echo 'print this string' ?&gt.
+          </li>
+          <li>
 
-      &lt? echo 'this code is within short tags, but will only work '.
-               'if short_open_tag is enabled'; ?&gt
-             </li>
-             <li>
+            &lt? echo 'this code is within short tags, but will only work '.
+            'if short_open_tag is enabled'; ?&gt
+          </li>
+          <li>
 
-      &ltscript language="php"&gt
-           echo 'some editors (like FrontPage) don\'t
-                 like processing instructions within these tags';
-       &lt/script&gt
-       This syntax is removed in PHP 7.0.0.
-     </li>
-     <li>
+            &ltscript language="php"&gt
+            echo 'some editors (like FrontPage) don\'t
+            like processing instructions within these tags';
+            &lt/script&gt
+            This syntax is removed in PHP 7.0.0.
+          </li>
+          <li>
 
-      &lt% echo 'You may optionally use ASP-style tags'; %&gt
-       Code within these tags &lt%= $variable; %&gt is a shortcut for this code
-       &lt% echo $variable; %&gt
-       Both of these syntaxes are removed in PHP 7.0.0.
-     </li>
-   </ol>
- </code>
-   <p>
-    Short tags (example three) are only available when they are enabled via the
-    short_open_tag php.ini configuration file directive, or if PHP was configured
-    with the --enable-short-tags option.
-  </p>
-  <p>
-    ASP style tags (example five) are only available when they are enabled via
-    the asp_tags php.ini configuration file directive, and have been removed in
-    PHP 7.0.0.
-  </p>
-    <ul class="note-comment">
-       <li>
+            &lt% echo 'You may optionally use ASP-style tags'; %&gt
+            Code within these tags &lt%= $variable; %&gt is a shortcut for this code
+            &lt% echo $variable; %&gt
+            Both of these syntaxes are removed in PHP 7.0.0.
+          </li>
+        </ol>
+      </code>
+      <p>
+        Short tags (example three) are only available when they are enabled via the
+        short_open_tag php.ini configuration file directive, or if PHP was configured
+        with the --enable-short-tags option.
+      </p>
+      <p>
+        ASP style tags (example five) are only available when they are enabled via
+        the asp_tags php.ini configuration file directive, and have been removed in
+        PHP 7.0.0.
+      </p>
+      <ul class="note-comment">
+        <li>
 
-       Using short tags should be avoided when developing applications or
-       libraries that are meant for redistribution, or deployment on PHP servers
-       which are not under your control, because short tags may not be supported
-       on the target server. For portable, redistributable code, be sure not to use short tags.
+          Using short tags should be avoided when developing applications or
+          libraries that are meant for redistribution, or deployment on PHP servers
+          which are not under your control, because short tags may not be supported
+          on the target server. For portable, redistributable code, be sure not to use short tags.
 
-     </li>
-     <li>
+        </li>
+        <li>
 
-       In PHP 5.2 and earlier, the parser does not allow the &lt?php opening tag
-       to be the only thing in a file. This is allowed as of PHP 5.3 provided there
-       are one or more whitespace characters after the opening tag.
-     </li>
-     <li>
-
-
-       Starting with PHP 5.4, short echo tag &lt?= is always recognized and valid,
-       regardless of the short_open_tag setting.
-     </li>
-</ul>
-  </section>
+          In PHP 5.2 and earlier, the parser does not allow the &lt?php opening tag
+          to be the only thing in a file. This is allowed as of PHP 5.3 provided there
+          are one or more whitespace characters after the opening tag.
+        </li>
+        <li>
 
 
-  <section class="main-section" id="Instruction_separation">
-    <header>Instruction separation</header>
-    <p>
-      As in C or Perl, PHP requires instructions to be terminated with a semicolon
-       at the end of each statement. The closing tag of a block of PHP code
-       automatically implies a semicolon; you do not need to have a semicolon
-       terminating the last line of a PHP block. The closing tag for the block
-       will include the immediately trailing newline if one is present.
-    </p>
-    <code>
-      &lt?php<br>
+          Starting with PHP 5.4, short echo tag &lt?= is always recognized and valid,
+          regardless of the short_open_tag setting.
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="main-section" id="Instruction_separation">
+      <header>Instruction separation</header>
+      <p>
+        As in C or Perl, PHP requires instructions to be terminated with a semicolon
+        at the end of each statement. The closing tag of a block of PHP code
+        automatically implies a semicolon; you do not need to have a semicolon
+        terminating the last line of a PHP block. The closing tag for the block
+        will include the immediately trailing newline if one is present.
+      </p>
+      <code>
+        &lt?php<br>
         echo 'This is a test';<br>
-      ?&gt<br>
+        ?&gt<br>
 
-      &lt?php echo 'This is a test' ?&gt<br>
+        &lt?php echo 'This is a test' ?&gt<br>
 
-      &lt?php echo 'We omitted the last closing tag';<br>
-    </code>
+        &lt?php echo 'We omitted the last closing tag';<br>
+      </code>
 
-    <p class="note-comment">
+      <p class="note-comment">
         The closing tag of a PHP block at the end of a file is optional, and in
         some cases omitting it is helpful when using include or require, so unwanted
-         whitespace will not occur at the end of files, and you will still be able
-         to add headers to the response later. It is also handy if you use output
-          buffering, and would not like to see added unwanted whitespace at the end
-           of the parts generated by the included files.
-    </p>
-  </section>
+        whitespace will not occur at the end of files, and you will still be able
+        to add headers to the response later. It is also handy if you use output
+        buffering, and would not like to see added unwanted whitespace at the end
+        of the parts generated by the included files.
+      </p>
+    </section>
 
 
-  <section class="main-section" id="Comments">
-    <header>Comments</header>
-    <p>PHP supports 'C', 'C++' and Unix shell-style (Perl style) comments. For example:
-      <code>
-    &lt?php
-       echo 'This is a test'; // This is a one-line c++ style comment
-       /* This is a multi line comment
+    <section class="main-section" id="Comments">
+      <header>Comments</header>
+      <p>PHP supports 'C', 'C++' and Unix shell-style (Perl style) comments. For example:
+        <code>
+          &lt?php
+          echo 'This is a test'; // This is a one-line c++ style comment
+          /* This is a multi line comment
           yet another line of comment */
-       echo 'This is yet another test';
-       echo 'One Final Test'; # This is a one-line shell-style comment
-    ?&gt
-  </code>
-  <p>
-    The "one-line" comment styles only comment to the end of the line or the current block of PHP code, whichever comes first. This means that HTML code after // ... ?&gt or # ... ?&gt WILL be printed: ?&gt breaks out of PHP mode and returns to HTML mode, and // or # cannot influence that. If the asp_tags configuration directive is enabled, it behaves the same with // %&gt and # %&gt. However, the &lt/script&gt tag doesn't break out of PHP mode in a one-line comment.
-  </p>
-  <code>
-    &lth1&gtThis is an &lt?php # echo 'simple';?&gt example&lt/h1&gt
-    &ltp&gtThe header above will say 'This is an  example'.&lt/p&gt
-  </code>
-<p>
-    'C' style comments end at the first */ encountered. Make sure you don't nest 'C' style comments. It is easy to make this mistake if you are trying to comment out a large block of code.
-  </p>
-<code>
-    &lt?php
-    /*
-       echo 'This is a test'; /* This comment will cause a problem */
-    */
-    ?&gt
-  </code>
-  </section>
+          echo 'This is yet another test';
+          echo 'One Final Test'; # This is a one-line shell-style comment
+          ?&gt
+        </code>
+        <p>
+          The "one-line" comment styles only comment to the end of the line or the current block of PHP code, whichever comes first. This means that HTML code after // ... ?&gt or # ... ?&gt WILL be printed: ?&gt breaks out of PHP mode and returns
+          to HTML mode, and // or # cannot influence that. If the asp_tags configuration directive is enabled, it behaves the same with // %&gt and # %&gt. However, the &lt/script&gt tag doesn't break out of PHP mode in a one-line comment.
+        </p>
+        <code>
+          &lth1&gtThis is an &lt?php # echo 'simple';?&gt example&lt/h1&gt
+          &ltp&gtThe header above will say 'This is an example'.&lt/p&gt
+        </code>
+        <p>
+          'C' style comments end at the first */ encountered. Make sure you don't nest 'C' style comments. It is easy to make this mistake if you are trying to comment out a large block of code.
+        </p>
+        <code>
+          &lt?php
+          /*
+          echo 'This is a test'; /* This comment will cause a problem */
+          */
+          ?&gt
+        </code>
+    </section>
 
 
-  <h1 id="Types"> Types </h1>
-  <section class="main-section" id="Types_Introduction">
-    <header>Types Introduction</header>
-    <p>
-    PHP supports ten primitive types.
-    </p>
-    <p>
-    Four scalar types:
-  </p>
-  <ul>
-  <li>
-       boolean
-     </li>
-    <li>
-      integer
-    </li>
-    <li>
-      float (floating-point number, aka double)
-    </li>
-    <li>
-      string
-    </li>
-     </ul>
+    <h1 id="Types"> Types </h1>
+    <section class="main-section" id="Types_Introduction">
+      <header>Types Introduction</header>
+      <p>
+        PHP supports ten primitive types.
+      </p>
+      <p>
+        Four scalar types:
+      </p>
+      <ul>
+        <li>
+          boolean
+        </li>
+        <li>
+          integer
+        </li>
+        <li>
+          float (floating-point number, aka double)
+        </li>
+        <li>
+          string
+        </li>
+      </ul>
 
-     <p>
-    Four compound types:
-    </p>
-<ul>
-  <li>
-       array
-     </li>
-     <li>
-       object
-     </li>
-     <li>
-       callable
-     </li>
-     <li>
-       iterable
-     </li>
+      <p>
+        Four compound types:
+      </p>
+      <ul>
+        <li>
+          array
+        </li>
+        <li>
+          object
+        </li>
+        <li>
+          callable
+        </li>
+        <li>
+          iterable
+        </li>
 
-     </ul>
-     <p>
-    And finally two special types:
-  </p>
-  <ul>
-    <li>
-       resource
-     </li>
-     <li>
-       NULL
-     </li>
-     </ul>
-<p>
-    This manual also introduces some pseudo-types for readability reasons:
-  </p>
-<ul>
-<li>
-       mixed
-     </li>
-       <li>
-       number
-</li>
-       <li>
-       callback (aka callable)
-</li>
-<li>
-       array|object
-</li>
-       <li>
-       void
-       </li>
-     </ul>
-<p>
-    And the pseudo-variable $....
-  </p>
-<p>
-    Some references to the type "double" may remain in the manual.
-    Consider double the same as float; the two names exist only for historic reasons.
-  </p>
+      </ul>
+      <p>
+        And finally two special types:
+      </p>
+      <ul>
+        <li>
+          resource
+        </li>
+        <li>
+          NULL
+        </li>
+      </ul>
+      <p>
+        This manual also introduces some pseudo-types for readability reasons:
+      </p>
+      <ul>
+        <li>
+          mixed
+        </li>
+        <li>
+          number
+        </li>
+        <li>
+          callback (aka callable)
+        </li>
+        <li>
+          array|object
+        </li>
+        <li>
+          void
+        </li>
+      </ul>
+      <p>
+        And the pseudo-variable $....
+      </p>
+      <p>
+        Some references to the type "double" may remain in the manual.
+        Consider double the same as float; the two names exist only for historic reasons.
+      </p>
 
-<p>
-    The type of a variable is not usually set by the programmer; rather,
-    it is decided at runtime by PHP depending on the context in which that variable is used.
-  </p>
+      <p>
+        The type of a variable is not usually set by the programmer; rather,
+        it is decided at runtime by PHP depending on the context in which that variable is used.
+      </p>
 
-       <p class="note-comment">
+      <p class="note-comment">
         To check the type and value of an expression, use the var_dump() function.
 
-       To get a human-readable representation of a type for debugging, use the
-       gettype() function. To check for a certain type, do not use gettype(),
-       but rather the is_type functions. Some examples:
-       <code>
-       &lt?php<br>
-       $a_bool = TRUE;   // a boolean<br>
-       $a_str  = "foo";  // a string<br>
-       $a_str2 = 'foo';  // a string<br>
-       $an_int = 12;     // an integer<br>
-<br>
-       echo gettype($a_bool); // prints out:  boolean<br>
-       echo gettype($a_str);  // prints out:  string<br>
-<br>
-       // If this is an integer, increment it by four<br>
-       if (is_int($an_int)) {<br>
-           $an_int += 4;<br>
-       }<br>
-<br>
-       // If $a_bool is a string, print it out<br>
-       // (does not print out anything)<br>
-       if (is_string($a_bool)) {<br>
-           echo "String: $a_bool";<br>
-       }<br>
-       ?&gt<br>
-     </code>
+        To get a human-readable representation of a type for debugging, use the
+        gettype() function. To check for a certain type, do not use gettype(),
+        but rather the is_type functions. Some examples:
+        <code>
+          &lt?php<br>
+          $a_bool = TRUE; // a boolean<br>
+          $a_str = "foo"; // a string<br>
+          $a_str2 = 'foo'; // a string<br>
+          $an_int = 12; // an integer<br>
+          <br>
+          echo gettype($a_bool); // prints out: boolean<br>
+          echo gettype($a_str); // prints out: string<br>
+          <br>
+          // If this is an integer, increment it by four<br>
+          if (is_int($an_int)) {<br>
+          $an_int += 4;<br>
+          }<br>
+          <br>
+          // If $a_bool is a string, print it out<br>
+          // (does not print out anything)<br>
+          if (is_string($a_bool)) {<br>
+          echo "String: $a_bool";<br>
+          }<br>
+          ?&gt<br>
+        </code>
 
-     </p>
-     <p>
-    To forcibly convert a variable to a certain type, either cast the variable or use the settype() function on it.
-  </p>
+      </p>
+      <p>
+        To forcibly convert a variable to a certain type, either cast the variable or use the settype() function on it.
+      </p>
 
-<p>
+      <p>
 
-    Note that a variable may be evaluated with different values in certain situations, depending on what type it is at the time. For more information, see the section on Type Juggling. The type comparison tables may also be useful, as they show examples of various type-related comparisons.
-  </p>
-  </section>
+        Note that a variable may be evaluated with different values in certain situations, depending on what type it is at the time. For more information, see the section on Type Juggling. The type comparison tables may also be useful, as they show
+        examples of various type-related comparisons.
+      </p>
+    </section>
 
 
-  <section class="main-section" id="Booleans">
-    <header>Booleans</header>
+    <section class="main-section" id="Booleans">
+      <header>Booleans</header>
 
-    <p>
-    To specify a boolean literal, use the constants TRUE or FALSE. Both are case-insensitive.
-  </p>
-<code>
-    &lt?php
-    $foo = True; // assign the value TRUE to $foo
-    ?&gt
-  </code>
-    <p>
-    Typically, the result of an operator which returns a boolean value is passed on to a control structure.
-  </p>
-    <code>
-    &lt?php<br>
-    // == is an operator which tests<br>
-    // equality and returns a boolean<br>
-    if ($action == "show_version") {<br>
+      <p>
+        To specify a boolean literal, use the constants TRUE or FALSE. Both are case-insensitive.
+      </p>
+      <code>
+        &lt?php
+        $foo = True; // assign the value TRUE to $foo
+        ?&gt
+      </code>
+      <p>
+        Typically, the result of an operator which returns a boolean value is passed on to a control structure.
+      </p>
+      <code>
+        &lt?php<br>
+        // == is an operator which tests<br>
+        // equality and returns a boolean<br>
+        if ($action == "show_version") {<br>
         echo "The version is 1.23";<br>
-    }<br>
-<br>
-    // this is not necessary...<br>
-    if ($show_separators == TRUE) {<br>
+        }<br>
+        <br>
+        // this is not necessary...<br>
+        if ($show_separators == TRUE) {<br>
         echo "&lthr&gt\n";<br>
-    }<br>
-<br>
-    // ...because this can be used with exactly the same meaning:<br>
-    if ($show_separators) {<br>
+        }<br>
+        <br>
+        // ...because this can be used with exactly the same meaning:<br>
+        if ($show_separators) {<br>
         echo "&lthr&gt\n";<br>
-    }<br>
-    ?&gt<br>
-  </code>
+        }<br>
+        ?&gt<br>
+      </code>
 
-    <h2>
-    Converting to boolean
-  </h2>
-<p>
-    To explicitly convert a value to boolean, use the (bool) or (boolean) casts. However, in most cases the cast is unnecessary, since a value will be automatically converted if an operator, function or control structure requires a boolean argument.
-  </p>
+      <h2>
+        Converting to boolean
+      </h2>
+      <p>
+        To explicitly convert a value to boolean, use the (bool) or (boolean) casts. However, in most cases the cast is unnecessary, since a value will be automatically converted if an operator, function or control structure requires a boolean
+        argument.
+      </p>
 
-<p>
-    When converting to boolean, the following values are considered FALSE:
-  </p>
-<ul>
+      <p>
+        When converting to boolean, the following values are considered FALSE:
+      </p>
+      <ul>
         <li>
-        the boolean FALSE itself
-      </li>
+          the boolean FALSE itself
+        </li>
         <li>
 
-        the integer 0 (zero)
-      </li>
-<li>
-        the float 0.0 (zero)
-      </li>
-<li>
-        the empty string, and the string "0"
-  </li>
+          the integer 0 (zero)
+        </li>
+        <li>
+          the float 0.0 (zero)
+        </li>
+        <li>
+          the empty string, and the string "0"
+        </li>
 
         <li>
           an array with zero elements
@@ -614,72 +622,1744 @@
       </ul>
 
       <p>
-    Every other value is considered TRUE (including any resource and NAN).
-    </p>
-        <div class="note-comment">
+        Every other value is considered TRUE (including any resource and NAN).
+      </p>
+      <div class="note-comment">
+
+        <h3>
+          Warning
+        </h3>
+        -1 is considered TRUE, like any other non-zero (whether negative or positive) number!
+      </div>
+      <code>
+        &lt?php<br>
+        var_dump((bool) ""); // bool(false)<br>
+        var_dump((bool) 1); // bool(true)<br>
+        var_dump((bool) -2); // bool(true)<br>
+        var_dump((bool) "foo"); // bool(true)<br>
+        var_dump((bool) 2.3e5); // bool(true)<br>
+        var_dump((bool) array(12)); // bool(true)<br>
+        var_dump((bool) array()); // bool(false)<br>
+        var_dump((bool) "false"); // bool(true)<br>
+        ?&gt <br>
+      </code>
+    </section>
+
+
+    <section class="main-section" id="Integers">
+      <header>Integers</header>
+      <p>
+        An integer is a number of the set ℤ = {..., -2, -1, 0, 1, 2, ...}.
+      </p>
+      <p>
+        Integers can be specified in decimal (base 10), hexadecimal (base 16), octal (base 8) or binary (base 2) notation. The negation operator can be used to denote a negative integer.
+      </p>
+      <p>
+        Binary integer literals are available since PHP 5.4.0.
+      </p>
+      <p>
+        To use octal notation, precede the number with a 0 (zero). To use hexadecimal notation precede the number with 0x. To use binary notation precede the number with 0b.
+      </p>
+      <p>
+        Example #1 Integer literals
+      </p>
+      <code>
+        &lt?php<br>
+        $a = 1234; // decimal number<br>
+        $a = -123; // a negative number<br>
+        $a = 0123; // octal number (equivalent to 83 decimal)<br>
+        $a = 0x1A; // hexadecimal number (equivalent to 26 decimal)<br>
+        $a = 0b11111111; // binary number (equivalent to 255 decimal)<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Formally, the structure for integer literals is:
+      </p>
+
+      decimal : [1-9][0-9]*
+      | 0
+
+      hexadecimal : 0[xX][0-9a-fA-F]+
+
+      octal : 0[0-7]+
+
+      binary : 0[bB][01]+
+
+      integer : decimal
+      | hexadecimal
+      | octal
+      | binary
+      <p>
+        The size of an integer is platform-dependent, although a maximum value of about two billion is the usual value (that's 32 bits signed). 64-bit platforms usually have a maximum value of about 9E18, except on Windows prior to PHP 7, where it
+        was always 32 bit. PHP does not support unsigned integers. Integer size can be determined using the constant PHP_INT_SIZE, maximum value using the constant PHP_INT_MAX since PHP 5.0.5, and minimum value using the constant PHP_INT_MIN since
+        PHP 7.0.0.
+      </p>
+      <div>
+
+        <h3>
+          Warning
+        </h3>
+
+        Prior to PHP 7, if an invalid digit was given in an octal integer (i.e. 8 or 9), the rest of the number was ignored. Since PHP 7, a parse error is emitted.
+      </div>
+      <h2>
+        Integer overflow ¶
+      </h2>
+      <p>
+        If PHP encounters a number beyond the bounds of the integer type, it will be interpreted as a float instead. Also, an operation which results in a number beyond the bounds of the integer type will return a float instead.
+      </p>
+      <p>
+        Example #2 Integer overflow on a 32-bit system
+      </p>
+      <code>
+        &lt?php<br>
+        $large_number = 2147483647;<br>
+        var_dump($large_number); // int(2147483647)<br>
+        <br>
+        $large_number = 2147483648;<br>
+        var_dump($large_number); // float(2147483648)<br>
+        <br>
+        $million = 1000000;<br>
+        $large_number = 50000 * $million;<br>
+        var_dump($large_number); // float(50000000000)<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Example #3 Integer overflow on a 64-bit system
+      </p>
+      <code>
+        &lt?php<br>
+        $large_number = 9223372036854775807;<br>
+        var_dump($large_number); // int(9223372036854775807)<br>
+        <br>
+        $large_number = 9223372036854775808;<br>
+        var_dump($large_number); // float(9.2233720368548E+18)<br>
+        <br>
+        $million = 1000000;<br>
+        $large_number = 50000000000000 * $million;<br>
+        var_dump($large_number); // float(5.0E+19)<br>
+        ?&gt<br>
+      </code>
+      <p>
+        There is no integer division operator in PHP. 1/2 yields the float 0.5. The value can be casted to an integer to round it towards zero, or the round() function provides finer control over rounding.
+      </p>
+      <code>
+        &lt?php<br>
+        var_dump(25/7); // float(3.5714285714286)<br>
+        var_dump((int) (25/7)); // int(3)<br>
+        var_dump(round(25/7)); // float(4)<br>
+        ?&gt<br>
+      </code>
+      <h2>
+        Converting to integer ¶
+      </h2>
+      <p>
+        To explicitly convert a value to integer, use either the (int) or (integer) casts. However, in most cases the cast is not needed, since a value will be automatically converted if an operator, function or control structure requires an integer
+        argument. A value can also be converted to integer with the intval() function.
+      </p>
+      <p>
+        If a resource is converted to an integer, then the result will be the unique resource number assigned to the resource by PHP at runtime.
+      </p>
+      <p>
+        FALSE will yield 0 (zero), and TRUE will yield 1 (one).
+      </p>
+      <p>
+        When converting from float to integer, the number will be rounded towards zero.
+      </p>
+      <p>
+        If the float is beyond the boundaries of integer (usually +/- 2.15e+9 = 2^31 on 32-bit platforms and +/- 9.22e+18 = 2^63 on 64-bit platforms other than Windows), the result is undefined, since the float doesn't have enough precision to give
+        an exact integer result. No warning, not even a notice will be issued when this happens!
+      </p>
+      <p>
+        Note:As of PHP 7.0.0, instead of being undefined and platform-dependent, NaN and Infinity will always be zero when cast to integer.
+      </p>
+      <div>
+        <h3>
+          Warning
+        </h3>
+        Never cast an unknown fraction to integer, as this can sometimes lead to unexpected results.
+      </div>
+      <code>
+        &lt?php<br>
+        echo (int) ( (0.1+0.7) * 10 ); // echoes 7!<br>
+        ?&gt<br>
+      </code>
+      <p>
+        NULL is always converted to zero (0).
+      </p>
+    </section>
+
+
+    <section class="main-section" id="Floating_point_numbers">
+      <header>Floating point numbers</header>
+      Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the following syntaxes:
+      <code>
+        &lt?php<br>
+        $a = 1.234;<br>
+        $b = 1.2e3;<br>
+        $c = 7E-10;<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Formally:<br>
+
+        LNUM [0-9]+<br>
+        DNUM ([0-9]*[\.]{LNUM}) | ({LNUM}[\.][0-9]*)<br>
+        EXPONENT_DNUM [+-]?(({LNUM} | {DNUM}) [eE][+-]? {LNUM})<br>
+      </p>
+      <p>
+        The size of a float is platform-dependent, although a maximum of approximately 1.8e308 with a precision of roughly 14 decimal digits is a common value (the 64 bit IEEE format).
+      </p>
+      <p>
+        Floating point numbers have limited precision. Although it depends on the system, PHP typically uses the IEEE 754 double precision format, which will give a maximum relative error due to rounding in the order of 1.11e-16. Non elementary
+        arithmetic operations may give larger errors, and, of course, error propagation must be considered when several operations are compounded.
+      </p>
+      <p>
+        Additionally, rational numbers that are exactly representable as floating point numbers in base 10, like 0.1 or 0.7, do not have an exact representation as floating point numbers in base 2, which is used internally, no matter the size of the
+        mantissa. Hence, they cannot be converted into their internal binary counterparts without a small loss of precision. This can lead to confusing results: for example, floor((0.1+0.7)*10) will usually return 7 instead of the expected 8, since
+        the internal representation will be something like 7.9999999999999991118....
+      </p>
+      <p>
+        So never trust floating number results to the last digit, and do not compare floating point numbers directly for equality. If higher precision is necessary, the arbitrary precision math functions and gmp functions are available.
+      </p>
+      <p>
+        For a "simple" explanation, see the » floating point guide that's also titled "Why don’t my numbers add up?"
+      </p>
+      <h2>
+        Converting to float ¶
+      </h2>
+      <p>
+        For information on converting strings to float, see String conversion to numbers. For values of other types, the conversion is performed by converting the value to integer first and then to float. See Converting to integer for more
+        information. As of PHP 5, a notice is thrown if an object is converted to float.
+      </p>
+      <h2>
+        Comparing floats ¶
+      </h2>
+      <p>
+        As noted in the warning above, testing floating point values for equality is problematic, due to the way that they are represented internally. However, there are ways to make comparisons of floating point values that work around these
+        limitations.
+      </p>
+      <p>
+        To test floating point values for equality, an upper bound on the relative error due to rounding is used. This value is known as the machine epsilon, or unit roundoff, and is the smallest acceptable difference in calculations.
+      </p>
+      <p>
+        $a and $b are equal to 5 digits of precision.
+      </p>
+      <code>
+        &lt?php<br>
+        $a = 1.23456789;<br>
+        $b = 1.23456780;<br>
+        $epsilon = 0.00001;<br>
+        <br>
+        if(abs($a-$b) < $epsilon) {<br>
+          echo "true";<br>
+          }<br>
+          ?&gt<br>
+      </code>
+      <p>
+        Some numeric operations can result in a value represented by the constant NAN. This result represents an undefined or unrepresentable value in floating-point calculations. Any loose or strict comparisons of this value against any other
+        value, including itself, but except TRUE, will have a result of FALSE.
+      </p>
+      <p>
+        Because NAN represents any number of different values, NAN should not be compared to other values, including itself, and instead should be checked for using is_nan().
+      </p>
+    </section>
+
+
+    <section class="main-section" id="Strings">
+      <header>Strings</header>
+      <p>
+        A string is series of characters, where a character is the same as a byte. This means that PHP only supports a 256-character set, and hence does not offer native Unicode support. See details of the string type.
+      </p>
+      <p>
+        Note: As of PHP 7.0.0, there are no particular restrictions regarding the length of a string on 64-bit builds. On 32-bit builds and in earlier versions, a string can be as large as up to 2GB (2147483647 bytes maximum)
+      </p>
+      <h2>
+        Syntax ¶
+      </h2>
+      <p>
+        A string literal can be specified in four different ways:
+      </p>
+      <h2>
+        Single quoted ¶
+      </h2>
+      <p>
+        The simplest way to specify a string is to enclose it in single quotes (the character ').
+      </p>
+      <p>
+        To specify a literal single quote, escape it with a backslash (\). To specify a literal backslash, double it (\\). All other instances of backslash will be treated as a literal backslash: this means that the other escape sequences you might
+        be
+        used to, such as \r or \n, will be output literally as specified rather than having any special meaning.
+      </p>
+      <p>
+        Note: Unlike the double-quoted and heredoc syntaxes, variables and escape sequences for special characters will not be expanded when they occur in single quoted strings.
+      </p>
+
+      <code>
+        &lt?php<br>
+        echo 'this is a simple string';<br>
+
+        echo 'You can also have embedded newlines in<br>
+        strings this way as it is<br>
+        okay to do';<br>
+
+        // Outputs: Arnold once said: "I'll be back"<br>
+        echo 'Arnold once said: "I\'ll be back"';<br>
+
+        // Outputs: You deleted C:\*.*?<br>
+        echo 'You deleted C:\\*.*?';<br>
+
+        // Outputs: You deleted C:\*.*?<br>
+        echo 'You deleted C:\*.*?';<br>
+
+        // Outputs: This will not expand: \n a newline<br>
+        echo 'This will not expand: \n a newline';<br>
+
+        // Outputs: Variables do not $expand $either<br>
+        echo 'Variables do not $expand $either';<br>
+        ?&gt<br>
+      </code>
+      <h2>
+        Double quoted ¶
+      </h2>
+      <p>
+        If the string is enclosed in double-quotes ("), PHP will interpret the following escape sequences for special characters:
+        Escaped characters Sequence Meaning
+      </p>
+      <code>
+        \n linefeed (LF or 0x0A (10) in ASCII)<br>
+        \r carriage return (CR or 0x0D (13) in ASCII)<br>
+        \t horizontal tab (HT or 0x09 (9) in ASCII)<br>
+        \v vertical tab (VT or 0x0B (11) in ASCII) (since PHP 5.2.5)<br>
+        \e escape (ESC or 0x1B (27) in ASCII) (since PHP 5.4.4)<br>
+        \f form feed (FF or 0x0C (12) in ASCII) (since PHP 5.2.5)<br>
+        \\ backslash<br>
+        \$ dollar sign<br>
+        \" double-quote<br>
+        \[0-7]{1,3} the sequence of characters matching the regular expression is a character in octal notation, which silently overflows to fit in a byte (e.g. "\400" === "\000")<br>
+        \x[0-9A-Fa-f]{1,2} the sequence of characters matching the regular expression is a character in hexadecimal notation<br>
+        \u{[0-9A-Fa-f]+} the sequence of characters matching the regular expression is a Unicode codepoint, which will be output to the string as that codepoint's UTF-8 representation (added in PHP 7.0.0)<br>
+      </code>
+      <p>
+        As in single quoted strings, escaping any other character will result in the backslash being printed too. Before PHP 5.1.1, the backslash in \{$var} had not been printed.
+      </p>
+      <p>
+        The most important feature of double-quoted strings is the fact that variable names will be expanded. See string parsing for details.
+      </p>
+      <h2>
+        Heredoc ¶
+      </h2>
+      <p>
+        A third way to delimit strings is the heredoc syntax: &lt&lt&lt. After this operator, an identifier is provided, then a newline. The string itself follows, and then the same identifier again to close the quotation. The closing identifier
+        must
+        begin in the first column of the line. Also, the identifier must follow the same naming rules as any other label in PHP: it must contain only alphanumeric characters and underscores, and must start with a non-digit character or underscore.
+        Warning It is very important to note that the line with the closing identifier must contain no other characters, except a semicolon (;). That means especially that the identifier may not be indented, and there may not be any spaces or tabs
+        before or after the semicolon. It's also important to realize that the first character before the closing identifier must be a newline as defined by the local operating system. This is \n on UNIX systems, including macOS. The closing
+        delimiter must also be followed by a newline. If this rule is broken and the closing identifier is not "clean" , it will not be considered a closing identifier, and PHP will continue looking for one. If a proper closing identifier is not
+        found before the end of the current file, a parse error will result at the last line. Example #1 Invalid example </p> <code>
+        &lt?<br>
+        php<br>
+        class foo {<br>
+        public $bar = &lt&lt&ltEOT<br>
+        bar<br>
+        EOT;<br>
+        }<br>
+        // Identifier must not be indented<br>
+        ?&gt<br>
+      </code>
+
+      Example #2 Valid example
+      <code>
+        &lt?php<br>
+        class foo {<br>
+        public $bar = &lt&lt&ltEOT<br>
+        bar<br>
+        EOT;<br>
+        }<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Heredocs can not be used for initializing class properties. Since PHP 5.3, this limitation is valid only for heredocs containing variables.
+      </p>
+      <p>
+        Heredoc text behaves just like a double-quoted string, without the double quotes. This means that quotes in a heredoc do not need to be escaped, but the escape codes listed above can still be used. Variables are expanded, but the same
+        care
+        must be taken when expressing complex variables inside a heredoc as with strings.
+      </p>
+      <h2>
+        Example #3 Heredoc string quoting example
+      </h2>
+      <code>
+        &lt?php<br>
+        $str = &lt&lt&ltEOD<br>
+        Example of string<br>
+        spanning multiple lines<br>
+        using heredoc syntax.<br>
+        EOD;<br>
+
+        /* More complex example, with variables. */<br>
+        class foo<br>
+        {<br>
+        var $foo;<br>
+        var $bar;<br>
+
+        function __construct()<br>
+        {<br>
+        $this->foo = 'Foo';<br>
+        $this->bar = array('Bar1', 'Bar2', 'Bar3');<br>
+        }<br>
+        }<br>
+
+        $foo = new foo();<br>
+        $name = 'MyName';<br>
+
+        echo &lt&lt&ltEOT<br>
+        My name is "$name". I am printing some $foo->foo.<br>
+        Now, I am printing some {$foo->bar[1]}.<br>
+        This should print a capital 'A': \x41<br>
+        EOT;<br>
+        ?&gt<br>
+      </code>
+      <p>
+        The above example will output:
+      </p>
+      <code>
+        My name is "MyName". I am printing some Foo.<br>
+        Now, I am printing some Bar2.<br>
+        This should print a capital 'A': A<br>
+      </code>
+      <p>
+        It is also possible to use the Heredoc syntax to pass data to function arguments:
+      </p>
+      <p>
+        Example #4 Heredoc in arguments example
+      </p>
+      <code>
+        &lt?php<br>
+        var_dump(array(&lt&lt&ltEOD<br>
+        foobar!<br>
+        EOD<br>
+        ));<br>
+        ?&gt<br>
+      </code>
+      <p>
+        As of PHP 5.3.0, it's possible to initialize static variables and class properties/constants using the Heredoc syntax:
+      </p>
+
+      <p>
+        Example #5 Using Heredoc to initialize static values
+      </p>
+      <code>
+        &lt?php<br>
+        // Static variables<br>
+        function foo()<br>
+        {<br>
+        static $bar = &lt&lt&ltLABEL<br>
+        Nothing in here...<br>
+        LABEL;<br>
+        }<br>
+
+        // Class properties/constants<br>
+        class foo<br>
+        {<br>
+        const BAR = &lt&lt&ltFOOBAR<br>
+        Constant example<br>
+        FOOBAR;<br>
+
+        public $baz = &lt&lt&ltFOOBAR<br>
+        Property example<br>
+        FOOBAR;<br>
+        }<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Starting with PHP 5.3.0, the opening Heredoc identifier may optionally be enclosed in double quotes:
+      </p>
+      <p>
+        Example #6 Using double quotes in Heredoc
+      </p>
+      <code>
+        &lt?php<br>
+        echo &lt&lt&lt"FOOBAR" Hello World! FOOBAR; <br>
+        ?&gt<br>
+      </code>
+      <h2>
+        Nowdoc ¶
+      </h2>
+      <p>
+        Nowdocs are to single-quoted strings what heredocs are to double-quoted strings. A nowdoc is specified similarly to a heredoc, but no parsing is done inside a nowdoc. The
+        construct is ideal for embedding PHP code or other large blocks of text without the need for escaping. It shares some features in common with the SGML &lt![CDATA[ ]]&gt construct, in that it declares a block of text which is not for
+        parsing.
+      </p>
+      <p>
+        A nowdoc is identified with the same &lt&lt&lt sequence used for heredocs, but the identifier which follows is enclosed in single quotes, e.g. &lt&lt&lt'EOT'. All the rules for heredoc identifiers also apply to nowdoc identifiers,
+        especially those regarding the appearance of the closing identifier. Example #7 Nowdoc string quoting example
+      </p>
+      <code>
+        &lt?php<br>
+        $str = &lt&lt&lt'EOD' Example of string spanning multiple lines using nowdoc syntax. EOD; /* More complex example, with variables. */ class foo { public $foo; public $bar; function __construct() { $this->foo = 'Foo';<br>
+        $this->bar = array('Bar1', 'Bar2', 'Bar3');<br>
+        }<br>
+        }<br>
+
+        $foo = new foo();<br>
+        $name = 'MyName';<br>
+
+        echo &lt&lt&lt'EOT' My name is "$name" . I am printing some $foo->foo.<br>
+        Now, I am printing some {$foo->bar[1]}.<br>
+        This should not print a capital 'A': \x41<br>
+        EOT;<br>
+        ?&gt<br>
+      </code>
+      <p>
+        The above example will output:
+      </p>
+      <code>
+        My name is "$name". I am printing some $foo->foo.
+        Now, I am printing some {$foo->bar[1]}.
+        This should not print a capital 'A': \x41
+      </code>
+      <p>
+        Example #8 Static data example
+      </p>
+      <code>
+        &lt?php<br>
+        class foo {<br>
+        public $bar = &lt&lt&lt'EOT' bar EOT; } <br>
+        ?&gt <br>
+      </code>
+      <p>
+        Note: Nowdoc support was added in PHP 5.3.0. Variable parsing ¶ When a string is specified in double quotes or with heredoc, variables are parsed within it. There are two types of syntax: a
+        simple one and a complex one. The simple syntax is the most common and convenient. It provides a way to embed a variable, an array value, or an object property in a string with a minimum of effort. The complex syntax can be recognised by
+        the curly braces surrounding the expression. Simple syntax If a dollar sign ($) is encountered, the parser will greedily take as many tokens as possible to form a valid variable name. Enclose the variable name in curly braces to
+        explicitly specify the end of the name.
+      </p>
+      <code>
+        &lt?php<br>
+        $juice = "apple";<br>
+
+        echo "He drank some $juice juice.".PHP_EOL;<br>
+        // Invalid. "s" is a valid character for a variable name, but the variable is $juice.<br>
+        echo "He drank some juice made of $juices.";<br>
+        // Valid. Explicitly specify the end of the variable name by enclosing it in braces:<br>
+        echo "He drank some juice made of ${juice}s.";<br>
+        ?&gt<br>
+      </code>
+      <p>
+        The above example will output:
+      </p>
+      <code>
+        He drank some apple juice.<br>
+        He drank some juice made of .<br>
+        He drank some juice made of apples.<br>
+      </code>
+      <p>
+        Similarly, an array index or an object property can be parsed. With array indices, the closing square bracket (]) marks the end of the index. The same rules apply to object properties as to simple variables.
+      </p>
+      <p>
+        Example #9 Simple syntax example
+      </p>
+      <code>
+        &lt?php<br>
+        $juices = array("apple", "orange", "koolaid1" => "purple");<br>
+        <br>
+        echo "He drank some $juices[0] juice.".PHP_EOL;<br>
+        echo "He drank some $juices[1] juice.".PHP_EOL;<br>
+        echo "He drank some $juices[koolaid1] juice.".PHP_EOL;<br>
+        <br>
+        class people {<br>
+        public $john = "John Smith";<br>
+        public $jane = "Jane Smith";<br>
+        public $robert = "Robert Paulsen";<br>
+        <br>
+        public $smith = "Smith";<br>
+        }<br>
+        <br>
+        $people = new people();<br>
+        <br>
+        echo "$people->john drank some $juices[0] juice.".PHP_EOL;<br>
+        echo "$people->john then said hello to $people->jane.".PHP_EOL;<br>
+        echo "$people->john's wife greeted $people->robert.".PHP_EOL;<br>
+        echo "$people->robert greeted the two $people->smiths."; // Won't work<br>
+        ?&gt<br>
+      </code>
+      <p>
+        The above example will output:
+      </p>
+      <code>
+        He drank some apple juice.
+        He drank some orange juice.
+        He drank some purple juice.
+        John Smith drank some apple juice.
+        John Smith then said hello to Jane Smith.
+        John Smith's wife greeted Robert Paulsen.
+        Robert Paulsen greeted the two .
+      </code>
+      <p>
+        As of PHP 7.1.0 also negative numeric indices are supported.
+      </p>
+      <p>
+        Example #10 Negative numeric indices
+      </p>
+      <code>
+        &lt?php<br>
+        $string = 'string';<br>
+        echo "The character at index -2 is $string[-2].", PHP_EOL;<br>
+        $string[-3] = 'o';<br>
+        echo "Changing the character at index -3 to o gives $string.", PHP_EOL;<br>
+        ?&gt<br>
+      </code>
+      <p>
+        The above example will output:
+      </p>
+      <code>
+        The character at index -2 is n.<br>
+        Changing the character at index -3 to o gives strong.<br>
+      </code>
+      <p>
+        For anything more complex, you should use the complex syntax.
+        Complex (curly) syntax
+      </p>
+      <p>
+        This isn't called complex because the syntax is complex, but because it allows for the use of complex expressions.
+      </p>
+      <p>
+        Any scalar variable, array element or object property with a string representation can be included via this syntax. Simply write the expression the same way as it would appear outside the string, and then wrap it in { and }. Since { can
+        not
+        be escaped, this syntax will only be recognised when the $ immediately follows the {. Use {\$ to get a literal {$. Some examples to make it clear:
+      </p>
+      <code>
+        &lt?php<br>
+        // Show all errors<br>
+        error_reporting(E_ALL);<br>
+
+        $great = 'fantastic';<br>
+
+        // Won't work, outputs: This is { fantastic}<br>
+        echo "This is { $great}";<br>
+
+        // Works, outputs: This is fantastic<br>
+        echo "This is {$great}";<br>
+
+        // Works<br>
+        echo "This square is {$square->width}00 centimeters broad.";<br>
+
+
+        // Works, quoted keys only work using the curly brace syntax<br>
+        echo "This works: {$arr['key']}";<br>
+
+
+        // Works<br>
+        echo "This works: {$arr[4][3]}";<br>
+
+        // This is wrong for the same reason as $foo[bar] is wrong outside a string.<br>
+        // In other words, it will still work, but only because PHP first looks for a<br>
+        // constant named foo; an error of level E_NOTICE (undefined constant) will be<br>
+        // thrown.<br>
+        echo "This is wrong: {$arr[foo][3]}";<br>
+
+        // Works. When using multi-dimensional arrays, always use braces around arrays<br>
+        // when inside of strings<br>
+        echo "This works: {$arr['foo'][3]}";<br>
+
+        // Works.<br>
+        echo "This works: " . $arr['foo'][3];<br>
+
+        echo "This works too: {$obj->values[3]->name}";<br>
+
+        echo "This is the value of the var named $name: {${$name}}";<br>
+
+        echo "This is the value of the var named by the return value of getName(): {${getName()}}";<br>
+
+        echo "This is the value of the var named by the return value of \$object->getName(): {${$object->getName()}}";<br>
+
+        // Won't work, outputs: This is the return value of getName(): {getName()}<br>
+        echo "This is the return value of getName(): {getName()}";<br>
+        ?&gt<br>
+      </code>
+      <p>
+        It is also possible to access class properties using variables within strings using this syntax.
+      </p>
+      <code>
+        &lt?php<br>
+        class foo {<br>
+        var $bar = 'I am bar.';<br>
+        }<br>
+
+        $foo = new foo();<br>
+        $bar = 'bar';<br>
+        $baz = array('foo', 'bar', 'baz', 'quux');<br>
+        echo "{$foo->$bar}\n";<br>
+        echo "{$foo->{$baz[1]}}\n";<br>
+        ?&gt<br>
+      </code>
+      <p>
+        The above example will output:
+      </p>
+      <code>
+        I am bar.<br>
+        I am bar.<br>
+      </code>
+      <p>
+        Note:
+
+        Functions, method calls, static class variables, and class constants inside {$} work since PHP 5. However, the value accessed will be interpreted as the name of a variable in the scope in which the string is defined. Using single curly
+        braces ({}) will not work for accessing the return values of functions or methods or the values of class constants or static class variables.
+
+      </p>
+      <code>
+        &lt?php<br>
+        // Show all errors.<br>
+        error_reporting(E_ALL);<br>
+
+        class beers {<br>
+        const softdrink = 'rootbeer';<br>
+        public static $ale = 'ipa';<br>
+        }<br>
+
+        $rootbeer = 'A & W';<br>
+        $ipa = 'Alexander Keith\'s';<br>
+
+        // This works; outputs: I'd like an A & W<br>
+        echo "I'd like an {${beers::softdrink}}\n";<br>
+
+        // This works too; outputs: I'd like an Alexander Keith's<br>
+        echo "I'd like an {${beers::$ale}}\n";<br>
+        ?&gt<br>
+      </code>
+      <h2>
+        String access and modification by character ¶
+      </h2>
+      <p>
+        Characters within strings may be accessed and modified by specifying the zero-based offset of the desired character after the string using square array brackets, as in $str[42]. Think of a string as an array of characters for this purpose.
+        The functions substr() and substr_replace() can be used when you want to extract or replace more than 1 character.
+      </p>
+      <p>
+        Note: As of PHP 7.1.0, negative string offsets are also supported. These specify the offset from the end of the string. Formerly, negative offsets emitted E_NOTICE for reading (yielding an empty string) and E_WARNING for writing (leaving the
+        string untouched).
+      </p>
+      <p>
+        Note: Strings may also be accessed using braces, as in $str{42}, for the same purpose.
+      </p>
+      <div class="note-comment">
+        <h3>
+          Warning
+        </h3>
+
+        Writing to an out of range offset pads the string with spaces. Non-integer types are converted to integer. Illegal offset type emits E_NOTICE. Only the first character of an assigned string is used. As of PHP 7.1.0, assigning an empty
+        string
+        throws a fatal error. Formerly, it assigned a NULL byte.
+      </div>
+      <div class="note-comment">
+        <h3>
+          Warning
+        </h3>
+
+        Internally, PHP strings are byte arrays. As a result, accessing or modifying a string using array brackets is not multi-byte safe, and should only be done with strings that are in a single-byte encoding such as ISO-8859-1.
+      </div>
+      <p>
+        Note: As of PHP 7.1.0, applying the empty index operator on an empty string throws a fatal error. Formerly, the empty string was silently converted to an array.
+      </p>
+
+      <p>
+        Example #11 Some string examples
+      </p>
+      <code>
+        &lt?php<br>
+        // Get the first character of a string<br>
+        $str = 'This is a test.';<br>
+        $first = $str[0];<br>
+
+        // Get the third character of a string<br>
+        $third = $str[2];<br>
+
+        // Get the last character of a string.<br>
+        $str = 'This is still a test.';<br>
+        $last = $str[strlen($str)-1];<br>
+
+        // Modify the last character of a string<br>
+        $str = 'Look at the sea';<br>
+        $str[strlen($str)-1] = 'e';<br>
+
+        ?&gt<br>
+      </code>
+      <p>
+        As of PHP 5.4 string offsets have to either be integers or integer-like strings, otherwise a warning will be thrown. Previously an offset like "foo" was silently cast to 0.
+      </p>
+      <p>
+        Example #12 Differences between PHP 5.3 and PHP 5.4
+      </p>
+      <code>
+        &lt?php<br>
+        $str = 'abc';<br>
+
+        var_dump($str['1']);<br>
+        var_dump(isset($str['1']));<br>
+
+        var_dump($str['1.0']);<br>
+        var_dump(isset($str['1.0']));<br>
+
+        var_dump($str['x']);<br>
+        var_dump(isset($str['x']));<br>
+
+        var_dump($str['1x']);<br>
+        var_dump(isset($str['1x']));<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Output of the above example in PHP 5.3:
+      </p>
+      <code>
+        string(1) "b"<br>
+        bool(true)<br>
+        string(1) "b"<br>
+        bool(true)<br>
+        string(1) "a"<br>
+        bool(true)<br>
+        string(1) "b"<br>
+        bool(true)<br>
+      </code>
+      <p>
+        Output of the above example in PHP 5.4:
+      </p>
+
+      <code>
+        string(1) "b"<br>
+        bool(true)<br>
+      </code>
+
+
+      <p>
+        Note:
+
+        Accessing variables of other types (not including arrays or objects implementing the appropriate interfaces) using [] or {} silently returns NULL.
+      </p>
+      <p>
+        Note:
+
+        PHP 5.5 added support for accessing characters within string literals using [] or {}.
+      </p>
+      <h2>
+        Useful functions and operators ¶
+      </h2>
+      <p>
+        Strings may be concatenated using the '.' (dot) operator. Note that the '+' (addition) operator will not work for this. See String operators for more information.
+      </p>
+      <p>
+        There are a number of useful functions for string manipulation.
+      </p>
+      <p>
+        There are also functions for URL strings, and functions to encrypt/decrypt strings (Sodium and Hash).
+      </p>
+      <p>
+        Finally, see also the character type functions.
+      </p>
+      <h2>
+        Converting to string ¶
+      </h2>
+      <p>
+        A value can be converted to a string using the (string) cast or the strval() function. String conversion is automatically done in the scope of an expression where a string is needed. This happens when using the echo or print functions, or
+        when a variable is compared to a string. The sections on Types and Type Juggling will make the following clearer. See also the settype() function.
+      </p>
+      <p>
+        A boolean TRUE value is converted to the string "1". Boolean FALSE is converted to "" (the empty string). This allows conversion back and forth between boolean and string values.
+      </p>
+      <p>
+        An integer or float is converted to a string representing the number textually (including the exponent part for floats). Floating point numbers can be converted using exponential notation (4.1E+6).
+      </p>
+      <p>
+        Note:
+
+        The decimal point character is defined in the script's locale (category LC_NUMERIC). See the setlocale() function.
+      </p>
+      <p>
+        Arrays are always converted to the string "Array"; because of this, echo and print can not by themselves show the contents of an array. To view a single element, use a construction such as echo $arr['foo']. See below for tips on viewing the
+        entire contents.
+      </p>
+      <p>
+        In order to convert objects to string magic method __toString must be used.
+      </p>
+      <p>
+        Resources are always converted to strings with the structure "Resource id #1", where 1 is the resource number assigned to the resource by PHP at runtime. While the exact structure of this string should not be relied on and is subject to
+        change, it will always be unique for a given resource within the lifetime of a script being executed (ie a Web request or CLI process) and won't be reused. To get a resource's type, use the get_resource_type() function.
+      </p>
+      <p>
+        NULL is always converted to an empty string.
+      </p>
+      <p>
+        As stated above, directly converting an array, object, or resource to a string does not provide any useful information about the value beyond its type. See the functions print_r() and var_dump() for more effective means of inspecting the
+        contents of these types.
+      </p>
+      <p>
+        Most PHP values can also be converted to strings for permanent storage. This method is called serialization, and is performed by the serialize() function. If the PHP engine was built with WDDX support, PHP values can also be serialized as
+        well-formed XML text.
+      </p>
+
+      <h2>
+        String conversion to numbers ¶
+      </h2>
+      <p>
+        When a string is evaluated in a numeric context, the resulting value and type are determined as follows.
+      </p>
+      <p>
+        If the string does not contain any of the characters '.', 'e', or 'E' and the numeric value fits into integer type limits (as defined by PHP_INT_MAX), the string will be evaluated as an integer. In all other cases it will be evaluated as a
+        float.
+      </p>
+      <p>
+        The value is given by the initial portion of the string. If the string starts with valid numeric data, this will be the value used. Otherwise, the value will be 0 (zero). Valid numeric data is an optional sign, followed by one or more
+        digits
+        (optionally containing a decimal point), followed by an optional exponent. The exponent is an 'e' or 'E' followed by one or more digits.
+      </p>
+      <code>
+        &lt?php<br>
+        $foo = 1 + "10.5"; // $foo is float (11.5)<br>
+        $foo = 1 + "-1.3e3"; // $foo is float (-1299)<br>
+        $foo = 1 + "bob-1.3e3"; // $foo is integer (1)<br>
+        $foo = 1 + "bob3"; // $foo is integer (1)<br>
+        $foo = 1 + "10 Small Pigs"; // $foo is integer (11)<br>
+        $foo = 4 + "10.2 Little Piggies"; // $foo is float (14.2)<br>
+        $foo = "10.0 pigs " + 1; // $foo is float (11)<br>
+        $foo = "10.0 pigs " + 1.0; // $foo is float (11)<br>
+        ?&gt<br>
+      </code>
+      <p>
+        For more information on this conversion, see the Unix manual page for strtod(3).
+      </p>
+      <p>
+        To test any of the examples in this section, cut and paste the examples and insert the following line to see what's going on:
+      </p>
+      <code>
+        &lt?php<br>
+        echo "\$foo==$foo; type is " . gettype ($foo) . "<br />\n";<br>
+        ?&gt<br>
+      </code>
+      <p>
+        Do not expect to get the code of one character by converting it to integer, as is done in C. Use the ord() and chr() functions to convert between ASCII codes and characters.
+        Details of the String Type ¶
+      </p>
+      <p>
+        The string in PHP is implemented as an array of bytes and an integer indicating the length of the buffer. It has no information about how those bytes translate to characters, leaving that task to the programmer. There are no limitations on
+        the values the string can be composed of; in particular, bytes with value 0 (“NUL bytes”) are allowed anywhere in the string (however, a few functions, said in this manual not to be “binary safe”, may hand off the strings to libraries that
+        ignore data after a NUL byte.)
+      </p>
+      <p>
+        This nature of the string type explains why there is no separate “byte” type in PHP – strings take this role. Functions that return no textual data – for instance, arbitrary data read from a network socket – will still return strings.
+      </p>
+      <p>
+        Given that PHP does not dictate a specific encoding for strings, one might wonder how string literals are encoded. For instance, is the string "á" equivalent to "\xE1" (ISO-8859-1), "\xC3\xA1" (UTF-8, C form), "\x61\xCC\x81" (UTF-8, D
+        form)
+        or any other possible representation? The answer is that string will be encoded in whatever fashion it is encoded in the script file. Thus, if the script is written in ISO-8859-1, the string will be encoded in ISO-8859-1 and so on.
+        However,
+        this does not apply if Zend Multibyte is enabled; in that case, the script may be written in an arbitrary encoding (which is explicity declared or is detected) and then converted to a certain internal encoding, which is then the encoding
+        that will be used for the string literals. Note that there are some constraints on the encoding of the script (or on the internal encoding, should Zend Multibyte be enabled) – this almost always means that this encoding should be a
+        compatible superset of ASCII, such as UTF-8 or ISO-8859-1. Note, however, that state-dependent encodings where the same byte values can be used in initial and non-initial shift states may be problematic.
+      </p>
+      <p>
+        Of course, in order to be useful, functions that operate on text may have to make some assumptions about how the string is encoded. Unfortunately, there is much variation on this matter throughout PHP’s functions:
+      </p>
+      <p>
+        Some functions assume that the string is encoded in some (any) single-byte encoding, but they do not need to interpret those bytes as specific characters. This is case of, for instance, substr(), strpos(), strlen() or strcmp(). Another way
+        to think of these functions is that operate on memory buffers, i.e., they work with bytes and byte offsets.
+        Other functions are passed the encoding of the string, possibly they also assume a default if no such information is given. This is the case of htmlentities() and the majority of the functions in the mbstring extension.
+        Others use the current locale (see setlocale()), but operate byte-by-byte. This is the case of strcasecmp(), strtoupper() and ucfirst(). This means they can be used only with single-byte encodings, as long as the encoding is matched by the
+        locale. For instance strtoupper("á") may return "Á" if the locale is correctly set and á is encoded with a single byte. If it is encoded in UTF-8, the correct result will not be returned and the resulting string may or may not be returned
+        corrupted, depending on the current locale.
+        Finally, they may just assume the string is using a specific encoding, usually UTF-8. This is the case of most functions in the intl extension and in the PCRE extension (in the last case, only when the u modifier is used). Although this is
+        due to their special purpose, the function utf8_decode() assumes a UTF-8 encoding and the function utf8_encode() assumes an ISO-8859-1 encoding.
+      </p>
+      <p>
+        Ultimately, this means writing correct programs using Unicode depends on carefully avoiding functions that will not work and that most likely will corrupt the data and using instead the functions that do behave correctly, generally from
+        the
+        intl and mbstring extensions. However, using functions that can handle Unicode encodings is just the beginning. No matter the functions the language provides, it is essential to know the Unicode specification. For instance, a program that
+        assumes there is only uppercase and lowercase is making a wrong assumption.
+      </p>
+
+    </section>
+
+
+    <section class="main-section" id="Arrays">
+      <header>Arrays</header>
+
+    </section>
+
+
+    <section class="main-section" id="Iterables">
+      <header>Iterables</header>
+    </section>
+
+
+    <section class="main-section" id="Objects">
+      <header>Objects</header>
+    </section>
+
+
+    <section class="main-section" id="Resources">
+      <header>Resources</header>
+    </section>
+
+
+    <section class="main-section" id="NULL">
+      <header>NULL</header>
+    </section>
+
+
+    <section class="main-section" id="Callbacks_/_Callables">
+      <header>Callbacks / Callables</header>
+    </section>
+
+
+    <section class="main-section" id="Pseudo-types_and_variables_used_in_this_documentation">
+      <header>Pseudo-types and variables used in this documentation</header>
+    </section>
+
+
+    <section class="main-section" id="Type_Juggling">
+      <header>Type Juggling</header>
+    </section>
+
+
+
+
+    <h1 id="Variables"> Variables </h1>
+    <section class="main-section" id="Variable_Basics">
+      <header>Variable Basics</header>
+    </section>
+
+
+    <section class="main-section" id="Predefined_Variable">
+      <header>Predefined Variable</header>
+    </section>
+
+
+    <section class="main-section" id="Variable_scope">
+      <header>Variable scope</header>
+    </section>
+
+
+    <section class="main-section" id="Variable_variables">
+      <header>Variable variables</header>
+    </section>
+
+
+    <section class="main-section" id="Variables_From_External_Sources">
+      <header>Variables From External Sources</header>
+    </section>
+
+
+
+
+    <h1 id="Constants"> Constants </h1>
+    <section class="main-section" id="Syntax">
+      <header>Syntax</header>
+    </section>
+
+
+    <section class="main-section" id="Magic_constants">
+      <header>Magic constants</header>
+    </section>
+
+
+
+
+
+    <h1 id="Expressions"> Expressions </h1>
+    <section class="main-section" id="Expression">
+      <header>Expression</header>
+    </section>
+
+
+
+
+    <h1 id="operators"> Operators</h1>
+    <section class="main-section" id="Operator_Precedence">
+      <header>Operator Precedence</header>
+    </section>
+
+
+    <section class="main-section" id="Arithmetic_Operators">
+      <header>Arithmetic Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Assignment_Operators">
+      <header>Assignment Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Bitwise_Operators">
+      <header>Bitwise Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Comparison_Operators">
+      <header>Comparison Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Error_Control_Operators">
+      <header>Error Control Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Execution_Operators">
+      <header>Execution Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Incrementing/Decrementing_Operators">
+      <header>Incrementing/Decrementing Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Logical_Operators">
+      <header>Logical Operators</header>
+    </section>
+
+
+    <section class="main-section" id="String_Operators">
+      <header>String Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Array_Operators">
+      <header>Array Operators</header>
+    </section>
+
+
+    <section class="main-section" id="Type_Operators">
+      <header>Type Operators</header>
+    </section>
+
+
+
+
+    <h1 id="Control_structures"> Control Structures </h1>
+    <section class="main-section" id="Control_Structures_Introduction">
+      <header>Control Structures Introduction</header>
+    </section>
+
+
+
+
+    <section class="main-section" id="if">
+      <header>if</header>
+    </section>
+
+
+
+
+    <section class="main-section" id="else">
+      <header>else</header>
+    </section>
+
+
+
+
+    <section class="main-section" id="elseif/else_if">
+      <header>elseif/else if</header>
+    </section>
+
+
+
+
+    <section class="main-section" id="Alternative_syntax_for_control_structures">
+      <header>Alternative syntax for control structures</header>
+    </section>
+
+
+
+
+    <section class="main-section" id="while">
+      <header>while</header>
+    </section>
+
+
+    <section class="main-section" id="do-while">
+      <header>do-while</header>
+    </section>
+
+
+    <section class="main-section" id="for">
+      <header>for</header>
+    </section>
+
+
+    <section class="main-section" id="foreach">
+      <header>foreach</header>
+    </section>
+
+
+    <section class="main-section" id="break">
+      <header>break</header>
+    </section>
+
+
+    <section class="main-section" id="continue">
+      <header>continue</header>
+    </section>
+
+
+    <section class="main-section" id="switch">
+      <header>switch</header>
+    </section>
+
+
+    <section class="main-section" id="declare">
+      <header>declare</header>
+    </section>
+
+
+    <section class="main-section" id="return">
+      <header>return</header>
+    </section>
+
+
+    <section class="main-section" id="require">
+      <header>require</header>
+    </section>
+
+
+    <section class="main-section" id="include">
+      <header>include</header>
+    </section>
+
+
+    <section class="main-section" id="require_once">
+      <header>require_once</header>
+    </section>
+
+
+    <section class="main-section" id="include_once">
+      <header>include_once</header>
+    </section>
+
+
+    <section class="main-section" id="goto">
+      <header>goto</header>
+    </section>
+
+
+
+
+    <h1 id="Functions"> Functions </h1>
+    <section class="main-section" id="User-defined_functions">
+      <header>User-defined functions</header>
+    </section>
+
+
+    <section class="main-section" id="Function_arguments">
+      <header>Function arguments</header>
+    </section>
+
+
+    <section class="main-section" id="Returning_values">
+      <header>Returning values</header>
+    </section>
+
+
+    <section class="main-section" id="Variable_functions">
+      <header>Variable functions</header>
+    </section>
+
+
+    <section class="main-section" id="bookmark_(built-in)_functions">
+      <header>bookmark (built-in) functions</header>
+    </section>
+
+
+    <section class="main-section" id="Anonymous_functions">
+      <header>Anonymous functions</header>
+    </section>
+
+
+    <h1 id="Classes_And_Objects"> Classes and Objects </h1>
+    <section class="main-section" id="Classes_And_Objects_Introduction">
+      <header> Classes and Objects Introduction</header>
+    </section>
+
+
+    <section class="main-section" id="The_Basics">
+      <header>The Basics</header>
+    </section>
+
+
+    <section class="main-section" id="Properties">
+      <header>Properties</header>
+    </section>
+
+
+    <section class="main-section" id="Class_Constants">
+      <header>Class Constants</header>
+    </section>
+
+
+    <section class="main-section" id="Autoloading_Classes">
+      <header>Autoloading Classes</header>
+    </section>
+
+
+    <section class="main-section" id="Constructors_and_Destructors">
+      <header>Constructors and Destructors</header>
+    </section>
+
+
+    <section class="main-section" id="Visibility">
+      <header>Visibility</header>
+    </section>
+
+
+    <section class="main-section" id="Object_Inheritance">
+      <header>Object Inheritance</header>
+    </section>
+
+
+    <section class="main-section" id="Scope_Resolution_Operator_(::)">
+      <header>Scope Resolution Operator (::)</header>
+    </section>
+
+
+    <section class="main-section" id="Static_Keyword">
+      <header>Static Keyword</header>
+    </section>
+
+    <section class="main-section" id="Class_Abstraction">
+      <header>Class Abstraction</header>
+    </section>
+
+
+    <section class="main-section" id="Object_Interfaces">
+      <header>Object Interfaces</header>
+    </section>
+
+
+    <section class="main-section" id="Traits">
+      <header>Traits</header>
+    </section>
+
+
+    <section class="main-section" id="Anonymous_classes">
+      <header>Anonymous classes</header>
+    </section>
+
+
+    <section class="main-section" id="Overloading">
+      <header>Overloading</header>
+    </section>
+
+
+    <section class="main-section" id="Object_Iteration">
+      <header>Object Iteration</header>
+    </section>
+
+
+    <section class="main-section" id="Magic_Methods">
+      <header>Magic Methods</header>
+    </section>
+
+
+    <section class="main-section" id="Final_Keyword">
+      <header>Final Keyword</header>
+    </section>
+
+
+    <section class="main-section" id="Object_Cloning">
+      <header>Object Cloning</header>
+    </section>
+
+
+    <section class="main-section" id="Comparing_Objects">
+      <header>Comparing Objects</header>
+    </section>
+
+
+    <section class="main-section" id="Type_Hinting">
+      <header>Type Hinting</header>
+    </section>
+
+
+    <section class="main-section" id="Late_Static_Bindings">
+      <header>Late Static Bindings</header>
+    </section>
+
+
+    <section class="main-section" id="Objects_and_references">
+      <header>Objects and references</header>
+    </section>
+
+
+    <section class="main-section" id="Object_Serialization">
+      <header>Object Serialization</header>
+    </section>
+
+
+    <section class="main-section" id="OOP_Changelog">
+      <header>OOP Changelog</header>
+    </section>
+
+
+
+
+    <h1 id="Namespaces"> Namespaces </h1>
+    <section class="main-section" id="Namespaces_overview">
+      <header>Namespaces overview</header>
+    </section>
+
+
+    <section class="main-section" id="Defining_namespaces">
+      <header>Defining namespaces</header>
+    </section>
+
+
+    <section class="main-section" id="Declaring_sub">
+      <header>Declaring sub-namespaces</header>
+    </section>
+
+
+    <section class="main-section" id="Defining_multiple">
+      <header>Defining multiple namespaces in the same file</header>
+    </section>
+
+
+    <section class="main-section" id="Using_namespaces:_Basics">
+      <header>Using namespaces: Basics</header>
+    </section>
+
+
+    <section class="main-section" id="Namespaces_and_dynamic_language_features">
+      <header>Namespaces and dynamic language features</header>
+    </section>
+
+
+    <section class="main-section" id="namespace_keyword">
+      <header>namespace keyword and __NAMESPACE__ constant</header>
+    </section>
+
+
+    <section class="main-section" id="Using_namespaces:_Aliasing/Importing">
+      <header>Using namespaces: Aliasing/Importing</header>
+    </section>
+
+
+    <section class="main-section" id="Global_space">
+      <header>Global space</header>
+    </section>
+
+
+    <section class="main-section" id="Using_namespaces:_fallback_to_global_function/constant<">
+      <header>Using namespaces: fallback to global function/constant</header>
+    </section>
+
+
+    <section class="main-section" id="Name_resolution">
+      <header>Name resolution rules</header>
+    </section>
+
+
+    <section class="main-section" id="FAQ">
+      <header>FAQ: things you need to know about namespaces</header>
+    </section>
+
+
+
+
+    <h1 id="Errors"> Errors </h1>
+    <section class="main-section" id="Errors_Basics">
+      <header>Errors Basics</header>
+    </section>
+
+
+    <section class="main-section" id="Errors_in_PHP_7">
+      <header>Errors in PHP 7</header>
+    </section>
+
+
+
+
+    <h1 id="Exceptions"> Exceptions </h1>
+    <section class="main-section" id="Extending_Exceptions">
+      <header>Extending Exceptions</header>
+    </section>
+
+
+
+    <h1 id="Generators"> Generators </h1>
+    <section class="main-section" id="Generators_overview">
+      <header>Generators overview</header>
+    </section>
+
+
+    <section class="main-section" id="Generator_syntax">
+      <header>Generator syntax</header>
+    </section>
+
+
+    <section class="main-section" id="Comparing_generators_with_Iterator_objects">
+      <header>Comparing generators with Iterator objects</header>
+    </section>
+
+
+
+
+
+
+    <h1 id="References_Explained"> References Explained </h1>
+    <section class="main-section" id="What_References_Are">
+      <header>What References Are</header>
+    </section>
+
+
+    <section class="main-section" id="What_References_Do">
+      <header>What References Do</header>
+    </section>
+
+
+    <section class="main-section" id="What_References_Are_Not">
+      <header>What References Are Not</header>
+    </section>
+
+
+    <section class="main-section" id="Passing_by_Reference">
+      <header>Passing by Reference</header>
+    </section>
+
+
+    <section class="main-section" id="Returning_References">
+      <header>Returning References</header>
+    </section>
+
+
+    <section class="main-section" id="Unsetting_References">
+      <header>Unsetting References</header>
+    </section>
+
+
+    <section class="main-section" id="Spotting_References">
+      <header>Spotting References</header>
+    </section>
+
+
+
+    <h1 id="Predefined_Variables"> Predefined Variables </h1>
+    <section class="main-section" id="Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes">
+      <header>Superglobals — Superglobals are built-in variables that are always available in all scopes</header>
+    </section>
+
+
+    <section class="main-section" id="$GLOBALS_—_References_all_variables_available_in_global_scope">
+      <header>$GLOBALS — References all variables available in global scope</header>
+    </section>
+
+
+    <section class="main-section" id="$_SERVER_—_Server_and_execution_environment_information">
+      <header>$_SERVER — Server and execution environment information</header>
+    </section>
+
+
+    <section class="main-section" id="$_GET_—_HTTP_GET_variables">
+      <header>$_GET — HTTP GET variables</header>
+    </section>
+
+
+    <section class="main-section" id="$_POST_—_HTTP_POST_variables">
+      <header>$_POST — HTTP POST variables</header>
+    </section>
+
+
+    <section class="main-section" id="$_FILES_—_HTTP_File_Upload_variables">
+      <header>$_FILES — HTTP File Upload variables</header>
+    </section>
+
+
+    <section class="main-section" id="$_REQUEST_—_HTTP_Request_variables">
+      <header>$_REQUEST — HTTP Request variables</header>
+    </section>
+
+
+    <section class="main-section" id="$_SESSION_—_Session_variables">
+      <header>$_SESSION — Session variables</header>
+    </section>
+
+
+    <section class="main-section" id="$_ENV_—_Environment_variables">
+      <header>$_ENV — Environment variables</header>
+    </section>
+
+
+    <section class="main-section" id="$_COOKIE_—_HTTP_Cookies">
+      <header>$_COOKIE — HTTP Cookies</header>
+    </section>
+
+
+    <section class="main-section" id="$php_errormsg_—_The_previous_error_message">
+      <header>$php_errormsg — The previous error message</header>
+    </section>
+
+
+    <section class="main-section" id="$HTTP_RAW_POST_DATA_—_Raw_POST_data">
+      <header>$HTTP_RAW_POST_DATA — Raw POST data</header>
+    </section>
+
+
+    <section class="main-section" id="$http_response_header_—_HTTP_response_headers">
+      <header>$http_response_header — HTTP response headers</header>
+    </section>
+
+
+    <section class="main-section" id="$argc_—_The_number_of_arguments_passed_to_script">
+      <header>$argc — The number of arguments passed to script</header>
+    </section>
+
+
+    <section class="main-section" id="$argv_—_Array_of_arguments_passed_to_script">
+      <header>$argv — Array of arguments passed to script</header>
+    </section>
+
+
+
+
+
+    <h1 id="Predefined_Exceptions"> Predefined Exceptions </h1>
+    <section class="main-section" id="Exception">
+      <header>Exception</header>
+    </section>
+
+
+    <section class="main-section" id="ErrorException">
+      <header>ErrorException</header>
+    </section>
+
+
+    <section class="main-section" id="Error">
+      <header>Error</header>
+    </section>
+
+
+    <section class="main-section" id="ArgumentCountError">
+      <header>ArgumentCountError</header>
+    </section>
+
+
+    <section class="main-section" id="ArithmeticError">
+      <header>ArithmeticError</header>
+    </section>
+
+
+    <section class="main-section" id="AssertionError">
+      <header>AssertionError</header>
+    </section>
+
+
+    <section class="main-section" id="DivisionByZeroError">
+      <header>DivisionByZeroError</header>
+    </section>
+
+
+    <section class="main-section" id="CompileError">
+      <header>CompileError</header>
+    </section>
+
+
+    <section class="main-section" id="ParseError">
+      <header>ParseError</header>
+    </section>
+
+
+    <section class="main-section" id="TypeError">
+      <header>TypeError</header>
+    </section>
+
+
+
+
+    <h1 id="Predefined_Interfaces_and_Classes"> Predefined Interfaces and Classes </h1>
+    <section class="main-section" id="Traversable_—_The_Traversable_interface">
+      <header>Traversable — The Traversable interface</header>
+    </section>
+
+
+    <section class="main-section" id="Iterator_—_The_Iterator_interface">
+      <header>Iterator — The Iterator interface</header>
+    </section>
+
+
+    <section class="main-section" id="IteratorAggregate_—_The_IteratorAggregate_interface">
+      <header>IteratorAggregate — The IteratorAggregate interface</header>
+    </section>
+
+
+    <section class="main-section" id="Throwable">
+      <header>Throwable</header>
+    </section>
+
+
+    <section class="main-section" id="ArrayAccess_—_The_ArrayAccess_interface">
+      <header>AsrrayAccess — The ArrayAccess interface</header>
+    </section>
+
+
+    <section class="main-section" id="Serializable_—_The_Serializable_interface">
+      <header>Serializable — The Serializable interface</header>
+    </section>
+
+
+    <section class="main-section" id="Closure_—_The_Closure_class">
+      <header>Closure — The Closure class</header>
+    </section>
+
+
+    <section class="main-section" id="Generator_—_The_Generator_class">
+      <header>Generator — The Generator class</header>
+    </section>
 
-    <h3>
-      Warning
-    </h3>
-    -1 is considered TRUE, like any other non-zero (whether negative or positive) number!
-  </div>
-    <code>
-    &lt?php<br>
-    var_dump((bool) "");        // bool(false)<br>
-    var_dump((bool) 1);         // bool(true)<br>
-    var_dump((bool) -2);        // bool(true)<br>
-    var_dump((bool) "foo");     // bool(true)<br>
-    var_dump((bool) 2.3e5);     // bool(true)<br>
-    var_dump((bool) array(12)); // bool(true)<br>
-    var_dump((bool) array());   // bool(false)<br>
-    var_dump((bool) "false");   // bool(true)<br>
-    ?&gt <br>
-  </code>
-  </section>
+
 
+    <h1 id="Context_options_and_parameters"> Context options and parameters </h1>
+    <section class="main-section" id="Socket_context_options_—_Socket_context_option_listing">
+      <header>Socket context options — Socket context option listing</header>
+    </section>
 
-  <section class="main-section" id="Integers">
-    <header>Integers</header>
 
-  </section>
-  <section class="main-section" id="Floating_point_numbers"><header>Floating point numbers</header></section>
-  <section class="main-section" id="Strings"><header>Strings</header></section>
-  <section class="main-section" id="Arrays"><header>Arrays</header></section>
-  <section class="main-section" id="Iterables"><header>Iterables</header></section>
-  <section class="main-section" id="Objects"><header>Objects</header></section>
-  <section class="main-section" id="Resources"><header>Resources</header></section>
-  <section class="main-section" id="NULL"><header>NULL</header></section>
-  <section class="main-section" id="Callbacks_/_Callables"><header>Callbacks / Callables</header></section>
-  <section class="main-section" id="Pseudo-types_and_variables_used_in_this_documentation"><header>Pseudo-types and variables used in this documentation</header></section>
-  <section class="main-section" id="Type_Juggling"><header>Type Juggling</header></section>
+    <section class="main-section" id="HTTP_context_options_—_HTTP_context_option_listing">
+      <header>HTTP context options — HTTP context option listing</header>
+    </section>
 
 
+    <section class="main-section" id="FTP_context_options_—_FTP_context_option_listing">
+      <header>FTP context options — FTP context option listing</header>
+    </section>
 
 
+    <section class="main-section" id="SSL_context_options_—_SSL_context_option_listing">
+      <header>SSL context options — SSL context option listing</header>
+    </section>
 
 
-  <h1 id="Variables"> Variables </h1>
-  <section class="main-section" id="Variable_Basics"><header>Variable Basics</header></section>
-  <section class="main-section" id="Predefined_Variable"><header>Predefined Variable</header></section>
-  <section class="main-section" id="Variable_scope"><header>Variable scope</header></section>
-  <section class="main-section" id="Variable_variables"><header>Variable variables</header></section>
-  <section class="main-section" id="Variables_From_External_Sources"><header>Variables From External Sources</header></section>
+    <section class="main-section" id="CURL_context_options_—_CURL_context_option_listing">
+      <header>CURL context options — CURL context option listing</header>
+    </section>
 
 
+    <section class="main-section" id="Phar_context_options_—_Phar_context_option_listing">
+      <header>Phar context options — Phar context option listing</header>
+    </section>
 
 
-  <h1 id="Constants"> Constants </h1>
-  <section class="main-section" id="Syntax"><header>Syntax</header></section>
-  <section class="main-section" id="Magic_constants"><header>Magic constants</header></section>
+    <section class="main-section" id="MongoDB_context_options_—_MongoDB_context_option_listing">
+      <header>MongoDB context options — MongoDB context option listing</header>
+    </section>
 
 
+    <section class="main-section" id="Context_parameters_—_Context_parameter_listing">
+      <header>Context parameters — Context parameter listing</header>
+    </section>
 
 
+    <section class="main-section" id="Zip_context_options_—_Zip_context_option_listing">
+      <header>Zip context options — Zip context option listing</header>
+    </section>
 
 
 
-  <h1 id="Expressions"> Expressions </h1>
-  <section class="main-section" id="Expression"><header>Expression</header></section>
 
 
 
@@ -687,239 +2367,69 @@
 
 
 
+    <h1 id="Supported_Protocols_and_Wrappers"> Supported Protocols and Wrappers </h1>
+    <section class="main-section" id="file://_—_Accessing_local_filesystem">
+      <header>file:// — Accessing local filesystem</header>
+    </section>
 
-  <h1 id="operators"> Operators</h1>
-  <section class="main-section" id="Operator_Precedence"><header>Operator Precedence</header></section>
-  <section class="main-section" id="Arithmetic_Operators"><header>Arithmetic Operators</header></section>
-  <section class="main-section" id="Assignment_Operators"><header>Assignment Operators</header></section>
-  <section class="main-section" id="Bitwise_Operators"><header>Bitwise Operators</header></section>
-  <section class="main-section" id="Comparison_Operators"><header>Comparison Operators</header></section>
-  <section class="main-section" id="Error_Control_Operators"><header>Error Control Operators</header></section>
-  <section class="main-section" id="Execution_Operators"><header>Execution Operators</header></section>
-  <section class="main-section" id="Incrementing/Decrementing_Operators"><header>Incrementing/Decrementing Operators</header></section>
-  <section class="main-section" id="Logical_Operators"><header>Logical Operators</header></section>
-  <section class="main-section" id="String_Operators"><header>String Operators</header></section>
-  <section class="main-section" id="Array_Operators"><header>Array Operators</header></section>
-  <section class="main-section" id="Type_Operators"><header>Type Operators</header></section>
 
+    <section class="main-section" id="http://_—_Accessing_HTTP(s)_URLs">
+      <header>http:// — Accessing HTTP(s) URLs</header>
+    </section>
 
 
+    <section class="main-section" id="ftp://_—_Accessing_FTP(s)_URLs">
+      <header>ftp:// — Accessing FTP(s) URLs</header>
+    </section>
 
 
+    <section class="main-section" id="php://_—_Accessing_various_I/O_streams">
+      <header>php:// — Accessing various I/O streams</header>
+    </section>
 
 
-  <h1 id="Control_structures"> Control Structures </h1>
-  <section class="main-section" id="Control_Structures_Introduction"><header>Control Structures Introduction</header></section>
-  <section class="main-section" id="if"><header>if</header></section>
-  <section class="main-section" id="else"><header>else</header></section>
-  <section class="main-section" id="elseif/else_if"><header>elseif/else if</header></section>
-  <section class="main-section" id="Alternative_syntax_for_control_structures"><header>Alternative syntax for control structures</header></section>
-  <section class="main-section" id="while"><header>while</header></section>
-  <section class="main-section" id="do-while"><header>do-while</header></section>
-  <section class="main-section" id="for"><header>for</header></section>
-  <section class="main-section" id="foreach"><header>foreach</header></section>
-  <section class="main-section" id="break"><header>break</header></section>
-  <section class="main-section" id="continue"><header>continue</header></section>
-  <section class="main-section" id="switch"><header>switch</header></section>
-  <section class="main-section" id="declare"><header>declare</header></section>
-  <section class="main-section" id="return"><header>return</header></section>
-  <section class="main-section" id="require"><header>require</header></section>
-  <section class="main-section" id="include"><header>include</header></section>
-  <section class="main-section" id="require_once"><header>require_once</header></section>
-  <section class="main-section" id="include_once"><header>include_once</header></section>
-  <section class="main-section" id="goto"><header>goto</header></section>
+    <section class="main-section" id="zlib://_—_Compression_Streams">
+      <header>zlib:// — Compression Streams</header>
+    </section>
 
 
+    <section class="main-section" id="data://_—_Data_(RFC_2397)">
+      <header>data:// — Data (RFC 2397)</header>
+    </section>
 
 
+    <section class="main-section" id="glob://_—_Find_pathnames_matching_pattern">
+      <header>glob:// — Find pathnames matching pattern</header>
+    </section>
 
 
+    <section class="main-section" id="phar://_—_PHP_Archive">
+      <header>phar:// — PHP Archive</header>
+    </section>
 
 
+    <section class="main-section" id="ssh2://_—_Secure_Shell_2">
+      <header>ssh2:// — Secure Shell 2</header>
+    </section>
 
 
-  <h1 id="Functions"> Functions </h1>
-  <section class="main-section" id="User-defined_functions"><header>User-defined functions</header></section>
-  <section class="main-section" id="Function_arguments"><header>Function arguments</header></section>
-  <section class="main-section" id="Returning_values"><header>Returning values</header></section>
-  <section class="main-section" id="Variable_functions"><header>Variable functions</header></section>
-  <section class="main-section" id="bookmark_(built-in)_functions"><header>bookmark (built-in) functions</header></section>
-  <section class="main-section" id="Anonymous_functions"><header>Anonymous functions</header></section>
+    <section class="main-section" id="rar://_—_RAR">
+      <header>rar:// — RAR</header>
+    </section>
 
 
+    <section class="main-section" id="ogg://_—_Audio_streams">
+      <header>ogg:// — Audio streams</header>
+    </section>
 
-  <h1 id="Classes_And_Objects"> Classes and Objects </h1>
-  <section class="main-section" id="Classes_And_Objects_Introduction"><header> Classes and Objects Introduction</header></section>
-  <section class="main-section" id="The_Basics"><header>The Basics</header></section>
-  <section class="main-section" id="Properties"><header>Properties</header></section>
-  <section class="main-section" id="Class_Constants"><header>Class Constants</header></section>
-  <section class="main-section" id="Autoloading_Classes"><header>Autoloading Classes</header></section>
-  <section class="main-section" id="Constructors_and_Destructors"><header>Constructors and Destructors</header></section>
-  <section class="main-section" id="Visibility"><header>Visibility</header></section>
-  <section class="main-section" id="Object_Inheritance"><header>Object Inheritance</header></section>
-  <section class="main-section" id="Scope_Resolution_Operator_(::)"><header>Scope Resolution Operator (::)</header></section>
-  <section class="main-section" id="Static_Keyword"><header>Static Keyword</header></section>
-  <section class="main-section" id="Class_Abstraction"><header>Class Abstraction</header></section>
-  <section class="main-section" id="Object_Interfaces"><header>Object Interfaces</header></section>
-  <section class="main-section" id="Traits"><header>Traits</header></section>
-  <section class="main-section" id="Anonymous_classes"><header>Anonymous classes</header></section>
-  <section class="main-section" id="Overloading"><header>Overloading</header></section>
-  <section class="main-section" id="Object_Iteration"><header>Object Iteration</header></section>
-  <section class="main-section" id="Magic_Methods"><header>Magic Methods</header></section>
-  <section class="main-section" id="Final_Keyword"><header>Final Keyword</header></section>
-  <section class="main-section" id="Object_Cloning"><header>Object Cloning</header></section>
-  <section class="main-section" id="Comparing_Objects"><header>Comparing Objects</header></section>
-  <section class="main-section" id="Type_Hinting"><header>Type Hinting</header></section>
-  <section class="main-section" id="Late_Static_Bindings"><header>Late Static Bindings</header></section>
-  <section class="main-section" id="Objects_and_references"><header>Objects and references</header></section>
-  <section class="main-section" id="Object_Serialization"><header>Object Serialization</header></section>
-  <section class="main-section" id="OOP_Changelog"><header>OOP Changelog</header></section>
 
-
-
-<h1 id="Namespaces"> Namespaces </h1>
-    <section class="main-section" id="Namespaces_overview"><header>Namespaces overview</header></section>
-    <section class="main-section" id="Defining_namespaces"><header>Defining namespaces</header></section>
-    <section class="main-section" id="Declaring_sub"><header>Declaring sub-namespaces</header></section>
-    <section class="main-section" id="Defining_multiple"><header>Defining multiple namespaces in the same file</header></section>
-    <section class="main-section" id="Using_namespaces:_Basics"><header>Using namespaces: Basics</header></section>
-    <section class="main-section" id="Namespaces_and_dynamic_language_features"><header>Namespaces and dynamic language features</header></section>
-    <section class="main-section" id="namespace_keyword"><header>namespace keyword and __NAMESPACE__ constant</header></section>
-    <section class="main-section" id="Using_namespaces:_Aliasing/Importing"><header>Using namespaces: Aliasing/Importing</header></section>
-    <section class="main-section" id="Global_space"><header>Global space</header></section>
-    <section class="main-section" id="Using_namespaces:_fallback_to_global_function/constant<"><header>Using namespaces: fallback to global function/constant</header></section>
-    <section class="main-section" id="Name_resolution"><header>Name resolution rules</header></section>
-    <section class="main-section" id="FAQ"><header>FAQ: things you need to know about namespaces</header></section>
-
-
-
-
-
-
-
-
-
-  <h1 id="Errors"> Errors </h1>
-  <section class="main-section" id="Errors_Basics"><header>Errors Basics</header></section>
-  <section class="main-section" id="Errors_in_PHP_7"><header>Errors in PHP 7</header></section>
-
-
-
-
-
-
-
-  <h1 id="Exceptions"> Exceptions </h1>
-  <section class="main-section" id="Extending_Exceptions"><header>Extending Exceptions</header></section>
-
-
-
-
-
-
-
-
-  <h1 id="Generators"> Generators </h1>
-  <section class="main-section" id="Generators_overview"><header>Generators overview</header></section>
-  <section class="main-section" id="Generator_syntax"><header>Generator syntax</header></section>
-  <section class="main-section" id="Comparing_generators_with_Iterator_objects"><header>Comparing generators with Iterator objects</header></section>
-
-
-
-
-
-
-  <h1 id="References_Explained"> References Explained </h1>
-  <section class="main-section" id="What_References_Are"><header>What References Are</header></section>
-  <section class="main-section" id="What_References_Do"><header>What References Do</header></section>
-  <section class="main-section" id="What_References_Are_Not"><header>What References Are Not</header></section>
-  <section class="main-section" id="Passing_by_Reference"><header>Passing by Reference</header></section>
-  <section class="main-section" id="Returning_References"><header>Returning References</header></section>
-  <section class="main-section" id="Unsetting_References"><header>Unsetting References</header></section>
-  <section class="main-section" id="Spotting_References"><header>Spotting References</header></section>
-
-<h1 id="Predefined_Variables"> Predefined Variables </h1>
-  <section class="main-section" id="Superglobals_—_Superglobals_are_built-in_variables_that_are_always_available_in_all_scopes"><header>Superglobals — Superglobals are built-in variables that are always available in all scopes</header></section>
-  <section class="main-section" id="$GLOBALS_—_References_all_variables_available_in_global_scope"><header>$GLOBALS — References all variables available in global scope</header></section>
-  <section class="main-section" id="$_SERVER_—_Server_and_execution_environment_information"><header>$_SERVER — Server and execution environment information</header></section>
-  <section class="main-section" id="$_GET_—_HTTP_GET_variables"><header>$_GET — HTTP GET variables</header></section>
-  <section class="main-section" id="$_POST_—_HTTP_POST_variables"><header>$_POST — HTTP POST variables</header></section>
-  <section class="main-section" id="$_FILES_—_HTTP_File_Upload_variables"><header>$_FILES — HTTP File Upload variables</header></section>
-  <section class="main-section" id="$_REQUEST_—_HTTP_Request_variables"><header>$_REQUEST — HTTP Request variables</header></section>
-  <section class="main-section" id="$_SESSION_—_Session_variables"><header>$_SESSION — Session variables</header></section>
-  <section class="main-section" id="$_ENV_—_Environment_variables"><header>$_ENV — Environment variables</header></section>
-  <section class="main-section" id="$_COOKIE_—_HTTP_Cookies"><header>$_COOKIE — HTTP Cookies</header></section>
-  <section class="main-section" id="$php_errormsg_—_The_previous_error_message"><header>$php_errormsg — The previous error message</header></section>
-  <section class="main-section" id="$HTTP_RAW_POST_DATA_—_Raw_POST_data"><header>$HTTP_RAW_POST_DATA — Raw POST data</header></section>
-  <section class="main-section" id="$http_response_header_—_HTTP_response_headers"><header>$http_response_header — HTTP response headers</header></section>
-  <section class="main-section" id="$argc_—_The_number_of_arguments_passed_to_script"><header>$argc — The number of arguments passed to script</header></section>
-  <section class="main-section" id="$argv_—_Array_of_arguments_passed_to_script"><header>$argv — Array of arguments passed to script</header></section>
-
-
-
-
-
-  <h1 id="Predefined_Exceptions"> Predefined Exceptions </h1>
-  <section class="main-section" id="Exception"><header>Exception</header></section>
-  <section class="main-section" id="ErrorException"><header>ErrorException</header></section>
-  <section class="main-section" id="Error"><header>Error</header></section>
-  <section class="main-section" id="ArgumentCountError"><header>ArgumentCountError</header></section>
-  <section class="main-section" id="ArithmeticError"><header>ArithmeticError</header></section>
-  <section class="main-section" id="AssertionError"><header>AssertionError</header></section>
-  <section class="main-section" id="DivisionByZeroError"><header>DivisionByZeroError</header></section>
-  <section class="main-section" id="CompileError"><header>CompileError</header></section>
-  <section class="main-section" id="ParseError"><header>ParseError</header></section>
-  <section class="main-section" id="TypeError"><header>TypeError</header></section>
-
-
-
-
-  <h1 id="Predefined_Interfaces_and_Classes"> Predefined Interfaces and Classes </h1>
-  <section class="main-section" id="Traversable_—_The_Traversable_interface"><header>Traversable — The Traversable interface</header></section>
-  <section class="main-section" id="Iterator_—_The_Iterator_interface"><header>Iterator — The Iterator interface</header></section>
-  <section class="main-section" id="IteratorAggregate_—_The_IteratorAggregate_interface"><header>IteratorAggregate — The IteratorAggregate interface</header></section>
-  <section class="main-section" id="Throwable"><header>Throwable</header></section>
-  <section class="main-section" id="ArrayAccess_—_The_ArrayAccess_interface"><header>AsrrayAccess — The ArrayAccess interface</header></section>
-  <section class="main-section" id="Serializable_—_The_Serializable_interface"><header>Serializable — The Serializable interface</header></section>
-  <section class="main-section" id="Closure_—_The_Closure_class"><header>Closure — The Closure class</header></section>
-  <section class="main-section" id="Generator_—_The_Generator_class"><header>Generator — The Generator class</header></section>
-
-  <h1 id="Context_options_and_parameters"> Context options and parameters </h1>
-  <section class="main-section" id="Socket_context_options_—_Socket_context_option_listing"><header>Socket context options — Socket context option listing</header></section>
-  <section class="main-section" id="HTTP_context_options_—_HTTP_context_option_listing"><header>HTTP context options — HTTP context option listing</header></section>
-  <section class="main-section" id="FTP_context_options_—_FTP_context_option_listing"><header>FTP context options — FTP context option listing</header></section>
-  <section class="main-section" id="SSL_context_options_—_SSL_context_option_listing"><header>SSL context options — SSL context option listing</header></section>
-  <section class="main-section" id="CURL_context_options_—_CURL_context_option_listing"><header>CURL context options — CURL context option listing</header></section>
-  <section class="main-section" id="Phar_context_options_—_Phar_context_option_listing"><header>Phar context options — Phar context option listing</header></section>
-  <section class="main-section" id="MongoDB_context_options_—_MongoDB_context_option_listing"><header>MongoDB context options — MongoDB context option listing</header></section>
-  <section class="main-section" id="Context_parameters_—_Context_parameter_listing"><header>Context parameters — Context parameter listing</header></section>
-  <section class="main-section" id="Zip_context_options_—_Zip_context_option_listing"><header>Zip context options — Zip context option listing</header></section>
-
-
-
-
-
-
-
-
-
-
-  <h1 id="Supported_Protocols_and_Wrappers"> Supported Protocols and Wrappers </h1>
-  <section class="main-section" id="file://_—_Accessing_local_filesystem"><header>file:// — Accessing local filesystem</header></section>
-  <section class="main-section" id="http://_—_Accessing_HTTP(s)_URLs"><header>http:// — Accessing HTTP(s) URLs</header></section>
-  <section class="main-section" id="ftp://_—_Accessing_FTP(s)_URLs"><header>ftp:// — Accessing FTP(s) URLs</header></section>
-  <section class="main-section" id="php://_—_Accessing_various_I/O_streams"><header>php:// — Accessing various I/O streams</header></section>
-  <section class="main-section" id="zlib://_—_Compression_Streams"><header>zlib:// — Compression Streams</header></section>
-  <section class="main-section" id="data://_—_Data_(RFC_2397)"><header>data:// — Data (RFC 2397)</header></section>
-  <section class="main-section" id="glob://_—_Find_pathnames_matching_pattern"><header>glob:// — Find pathnames matching pattern</header></section>
-  <section class="main-section" id="phar://_—_PHP_Archive"><header>phar:// — PHP Archive</header></section>
-  <section class="main-section" id="ssh2://_—_Secure_Shell_2"><header>ssh2:// — Secure Shell 2</header></section>
-  <section class="main-section" id="rar://_—_RAR"><header>rar:// — RAR</header></section>
-  <section class="main-section" id="ogg://_—_Audio_streams"><header>ogg:// — Audio streams</header></section>
-  <section class="main-section" id="expect://_—_Process_Interaction_Streams"><header>expect:// — Process Interaction Streams</header></section>
+    <section class="main-section" id="expect://_—_Process_Interaction_Streams">
+      <header>expect:// — Process Interaction Streams</header>
+    </section>
 
 
 
   </main>
-  </body>
-  </html>
+</body>
+
+</html>
